@@ -9,6 +9,7 @@ import CorruptorSecondaries from '../Secondary/corruptor';
 import DomSecondaries from '../Secondary/dom';
 import BlasterEpics from '../Epic/blaster';
 import CorruptorEpics from '../Epic/corruptor';
+import DomEpics from '../Epic/dom';
 
 export default function AttacksTable() {
   const [powers, setPowers] = useState([])
@@ -106,33 +107,17 @@ export default function AttacksTable() {
           <Button size="lg" variant="primary" onClick={() => selectArchtype("controller")}>Controller</Button>
         </Col>
       </Row>
-      {archtype === "blaster" || archtype === "corruptor" || archtype === "defender" ?
-        <Blasts selectPrimary={selectPrimary} />
-        :
-        null
-      }
-      {archtype === "dom" || archtype === "controller" ?
-        <Controls selectPrimary={selectPrimary} />
-        :
-        null
-      }
-      {primary && archtype === "blaster" ?
-        <BlasterSecondaries selectSecondary={selectSecondary} />
-        :
-        null
-      }
-      {primary && (archtype === "defender" || archtype === "controller" || archtype === "corruptor") ?
-        <CorruptorSecondaries selectSecondary={selectSecondary} setSecondary={setSecondary} />
-        :
-        null
-      }
-      {primary && archtype === 'dom' ?
-        <DomSecondaries selectSecondary={selectSecondary} setSecondary={setSecondary} />
-        :
-        null
-      }
+      {/* Displaying Primary Blast Buttons */}
+      {archtype === "blaster" || archtype === "corruptor" || archtype === "defender" ? <Blasts selectPrimary={selectPrimary} /> : null}
+      {archtype === "dom" || archtype === "controller" ? <Controls selectPrimary={selectPrimary} /> : null}
+      {/* Displaying Secondary Options Per Archtype */}
+      {primary && archtype === "blaster" ? <BlasterSecondaries selectSecondary={selectSecondary} /> : null}
+      {primary && (archtype === "defender" || archtype === "controller" || archtype === "corruptor") ? <CorruptorSecondaries selectSecondary={selectSecondary} setSecondary={setSecondary} /> : null}
+      {primary && archtype === 'dom' ? <DomSecondaries selectSecondary={selectSecondary} setSecondary={setSecondary} /> : null}
+      {/* Displaying Epic Options Per Archtype */}
       {primary && secondary && archtype === "blaster" ? <BlasterEpics selectEpic={selectEpic} setEpic={setEpic} /> : null}
       {primary && secondary && (archtype === "defender" || archtype === "corruptor") ? <CorruptorEpics selectEpic={selectEpic} /> : null}
+      {primary && secondary && (archtype === "dom" || archtype === "controller") ? <DomEpics selectEpic={selectEpic} /> : null}
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>

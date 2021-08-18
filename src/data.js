@@ -108,6 +108,7 @@ const attacks = [
   ['Surveillance', 25, 28, 0.9324, 999999999, 45, 48, 1.7316, 'Munitions', 80, 0.932, -0.799, 'epic', ['blaster']],
   ['SpiritSharkJaws', 21, 24, 0.7992, 999999999, 56, 56, 1.998, 'Leviathan', 80, 0.799, -1.199, 'epic', ['blaster', 'defender', 'corruptor']],
   ['Dominate', 20, 20, 0.666, 999999999, 33, 36, 1.332, 'Psy Mastery', 80, 0.666, -0.666, 'epic', ['corruptor', 'defender']],
+  ['Poisonous Ray',	41,	44,	1.4652,	66,	60,	60,	2.1312,	'Mace',	80,	2.829,	0.698, 'epic', ['controller', 'dom']],
   ["ParalyticPoison", 31, 32, 1.0656, 66, 60, 60, 2.1312, "Poison", 70, 2.429, 0.298, 'secondary', ['defender', 'corruptor']],
   ["Weaken", 25, 28, 0.9324, 66, 62, 64, 2.2644, "Poison", 70, 2.296, 0.032, 'secondary', ['defender', 'corruptor']],
   ["EF", 45, 48, 1.5984, 999999999, 45, 48, 1.7316, "RadEmission", 70, 1.598, - 0.133, 'secondary', ['defender', 'corruptor']],
