@@ -26,7 +26,7 @@ const attacks = [
   ['AbysallGaze', 30, 32, 1.0656, 45, 50, 52, 1.8648, 'Dark', 70, 3.066, 1.201, 'primary', ['blaster', 'corruptor', 'defender']],
   ['BlazingBolt', 22, 24, 0.7992, 450, 50, 52, 1.8648, 'Fire', 80, 0.999, -0.866, 'primary', ['blaster', 'corruptor', 'defender']],
   ['Blaze', 16, 16, 0.5328, 90, 30, 32, 1.1988, 'Fire', 80, 1.533, 0.334, 'primary', ['blaster', 'corruptor', 'defender']],
-  ['Char', 23, 24, 0.7992, 51, 32, 32, 1.1988, 'Fire', 80, 2.564, 1.365, 'primary', ['blaster', 'corruptor', 'defender']],
+  ['Char', 23, 24, 0.7992, 51, 32, 32, 1.1988, 'Fire', 80, 2.564, 1.365, 'primary', ['blaster', 'corruptor', 'defender', 'controller', 'dom']],
   ['Pistols', 9, 12, 0.3996, 150, 30, 32, 1.1988, 'DP', 80, 1.000, -0.199, 'primary', ['blaster', 'corruptor', 'defender']],
   ['DualWield', 20, 20, 0.666, 150, 50, 52, 1.8648, 'DP', 80, 1.266, -0.599, 'primary', ['blaster', 'corruptor', 'defender']],
   ['PiercingRounds', 50, 52, 1.7316, 999999999, 75, 76, 2.664, 'DP', 80, 1.732, -0.932, 'primary', ['blaster', 'corruptor', 'defender']],
