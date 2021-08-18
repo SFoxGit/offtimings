@@ -7,6 +7,7 @@ import Controls from '../Primary/controls';
 import BlasterSecondaries from '../Secondary/blaster';
 import CorruptorSecondaries from '../Secondary/corruptor';
 import DomSecondaries from '../Secondary/dom';
+import BlasterEpics from '../Epic/blaster';
 
 export default function AttacksTable() {
   const [powers, setPowers] = useState([])
@@ -71,6 +72,25 @@ export default function AttacksTable() {
     }
   }
 
+  const selectEpic = (filter) => {
+    if (!epic) {
+      let arr = attacks.filter(function (power) {
+        return power[8] === filter
+      })
+      setEpic(filter)
+      setPowers([...powers, ...arr])
+    } else {
+      let arr = attacks.filter(function (power) {
+        return power[13].includes(archtype)
+      })
+      let filterArr = arr.filter(function (power) {
+        return power[8] === primary || power[8] === secondary || power[8] === filter
+      })
+      setEpic(filter)
+      setPowers(filterArr)
+    }
+  }
+
   useEffect(() => {
     setPowers(attacks)
   }, [setPowers])
@@ -86,7 +106,7 @@ export default function AttacksTable() {
         </Col>
       </Row>
       {archtype === "blaster" || archtype === "corruptor" || archtype === "defender" ?
-        <Blasts selectPrimary={selectPrimary}/>
+        <Blasts selectPrimary={selectPrimary} />
         :
         null
       }
@@ -96,20 +116,24 @@ export default function AttacksTable() {
         null
       }
       {primary && archtype === "blaster" ?
-        <BlasterSecondaries selectSecondary={selectSecondary}/>
+        <BlasterSecondaries selectSecondary={selectSecondary} />
         :
         null
       }
       {primary && (archtype === "defender" || archtype === "controller" || archtype === "corruptor") ?
-        <CorruptorSecondaries selectSecondary={selectSecondary} setSecondary={setSecondary}/>
+        <CorruptorSecondaries selectSecondary={selectSecondary} setSecondary={setSecondary} />
         :
         null
       }
       {primary && archtype === 'dom' ?
-        <DomSecondaries selectSecondary={selectSecondary} setSecondary={setSecondary}/>
+        <DomSecondaries selectSecondary={selectSecondary} setSecondary={setSecondary} />
         :
         null
       }
+      {primary && secondary && archtype === "blaster" ? 
+      <BlasterEpics selectEpic={selectEpic} setEpic={setEpic}/>
+    :
+    null}
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
