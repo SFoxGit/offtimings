@@ -8,6 +8,7 @@ import BlasterSecondaries from '../Secondary/blaster';
 import CorruptorSecondaries from '../Secondary/corruptor';
 import DomSecondaries from '../Secondary/dom';
 import BlasterEpics from '../Epic/blaster';
+import CorruptorEpics from '../Epic/corruptor';
 
 export default function AttacksTable() {
   const [powers, setPowers] = useState([])
@@ -130,10 +131,8 @@ export default function AttacksTable() {
         :
         null
       }
-      {primary && secondary && archtype === "blaster" ? 
-      <BlasterEpics selectEpic={selectEpic} setEpic={setEpic}/>
-    :
-    null}
+      {primary && secondary && archtype === "blaster" ? <BlasterEpics selectEpic={selectEpic} setEpic={setEpic} /> : null}
+      {primary && secondary && (archtype === "defender" || archtype === "corruptor") ? <CorruptorEpics selectEpic={selectEpic} /> : null}
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
