@@ -1,11 +1,11 @@
 import './App.css';
+import AttacksTable from './components/Table/table';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-     
-      </header>
+      <div>test</div>
+      <AttacksTable />
     </div>
   );
 }
