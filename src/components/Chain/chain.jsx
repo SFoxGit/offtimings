@@ -12,6 +12,13 @@ export default function Chain(props) {
     setAttackChain(newArr)
     setForced(!forced)
   }
+
+  const removeAttack = (index) => {
+    let newArr = attackChain;
+    newArr.splice(index, 1)
+    setAttackChain(newArr)
+    setForced(!forced)
+  }
   return (
     <>
     {forced ? <></> : <div></div>}
@@ -27,6 +34,7 @@ export default function Chain(props) {
           <Col>{totalCast}</Col>
           <Col><input defaultValue={attack[4]} onChange={e => updateDistance(e.target.value, index)}></input></Col>
           <Col>{totalCast + attack[1] + attack[4] / attack[2]}</Col>
+          <Col onClick={() => removeAttack(index)}>Remove</Col>
         </Row>)
       })}
     </>
