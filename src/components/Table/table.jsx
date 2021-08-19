@@ -10,6 +10,7 @@ import DomSecondaries from '../Secondary/dom';
 import BlasterEpics from '../Epic/blaster';
 import CorruptorEpics from '../Epic/corruptor';
 import DomEpics from '../Epic/dom';
+import Distance from '../Distance/distance';
 
 export default function AttacksTable() {
   const [powers, setPowers] = useState([])
@@ -17,6 +18,7 @@ export default function AttacksTable() {
   const [primary, setPrimary] = useState()
   const [secondary, setSecondary] = useState()
   const [epic, setEpic] = useState()
+  const [distance, setDistance] = useState(90)
 
   const selectArchtype = (filter) => {
     setPrimary()
@@ -99,22 +101,13 @@ export default function AttacksTable() {
   return (
     <Container>
       <Row className="justify-content-around m-2 bg-dark p-3">
-        <Col xs={6} md={2}>
-          <Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("blaster")}>Blaster</Button>
-        </Col>
-        <Col xs={6} md={2}>
-          <Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("corruptor")}>Corruptor</Button>
-        </Col>
-        <Col xs={6} md={2}>
-          <Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("defender")}>Defender</Button>
-        </Col>
-        <Col xs={6} md={2}>
-          <Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("dom")}>Dom</Button>
-        </Col>
-        <Col xs={6} md={2}>
-          <Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("controller")}>Controller</Button>
-        </Col>
+        <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("blaster")}>Blaster</Button></Col>
+        <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("corruptor")}>Corruptor</Button></Col>
+        <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("defender")}>Defender</Button></Col>
+        <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("dom")}>Dom</Button></Col>
+        <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("controller")}>Controller</Button></Col>
       </Row>
+      
       {/* Displaying Primary Blast Buttons */}
       {archtype === "blaster" || archtype === "corruptor" || archtype === "defender" ? <Blasts selectPrimary={selectPrimary} /> : null}
       {archtype === "dom" || archtype === "controller" ? <Controls selectPrimary={selectPrimary} archtype={archtype} /> : null}
@@ -126,6 +119,8 @@ export default function AttacksTable() {
       {primary && secondary && archtype === "blaster" ? <BlasterEpics selectEpic={selectEpic} setEpic={setEpic} /> : null}
       {primary && secondary && (archtype === "defender" || archtype === "corruptor") ? <CorruptorEpics selectEpic={selectEpic} /> : null}
       {primary && secondary && (archtype === "dom" || archtype === "controller") ? <DomEpics selectEpic={selectEpic} /> : null}
+
+      <Distance distance={distance} setDistance={setDistance} />
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
@@ -148,8 +143,8 @@ export default function AttacksTable() {
               <td>{power[7]}</td>
               <td>{power[8]}</td>
               <td>{power[9]}</td>
-              <td>{power[10]}</td>
-              <td>{power[11]}</td>
+              <td>{(distance / power[4] + power[3]).toFixed(3)}</td>
+              <td>{(distance / power[4] + power[3] - power[7]).toFixed(3)}</td>
             </tr>
           ))}
         </tbody>

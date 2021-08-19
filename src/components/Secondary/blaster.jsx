@@ -3,7 +3,6 @@ import { Row, Button, Col } from 'react-bootstrap';
 
 export default function BlasterSecondaries(props) {
   const selectSecondary = props.selectSecondary
-  const setSecondary = props.setSecondary
 
   return (
     <Row className="justify-content-around m-2 bg-dark p-3">
