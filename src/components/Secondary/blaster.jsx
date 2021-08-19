@@ -12,7 +12,7 @@ export default function BlasterSecondaries(props) {
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => selectSecondary("TactArrow")}>Tactical Arrow</Button></Col>
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => selectSecondary("Plant")}>Plant</Button></Col>
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => selectSecondary("Temporal")}>Temporal</Button></Col>
-        <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => setSecondary("other")}>Other</Button></Col>
+        <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => selectSecondary("other")}>Other</Button></Col>
     </Row>
   )
 }
