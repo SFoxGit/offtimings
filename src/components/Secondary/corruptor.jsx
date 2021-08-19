@@ -6,13 +6,11 @@ export default function CorruptorSecondaries(props) {
   const setSecondary = props.setSecondary
 
   return (
-    <Row>
-          <Col>
-            <Button size="lg" variant="info" onClick={() => selectSecondary("Poison")}>Poison</Button>
-            <Button size="lg" variant="info" onClick={() => selectSecondary("RadEmission")}>Rad</Button>
-            <Button size="lg" variant="info" onClick={() => selectSecondary("Nature")}>Nature</Button>
-            <Button size="lg" variant="info" onClick={() => setSecondary("other")}>Other</Button>
-          </Col>
+    <Row className="justify-content-around m-2 bg-dark p-3">
+            <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" onClick={() => selectSecondary("Poison")}>Poison</Button></Col>
+            <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" onClick={() => selectSecondary("RadEmission")}>Rad</Button></Col>
+            <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" onClick={() => selectSecondary("Nature")}>Nature</Button></Col>
+            <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" onClick={() => setSecondary("other")}>Other</Button></Col>
         </Row>
   )
 }

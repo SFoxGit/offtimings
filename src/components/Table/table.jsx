@@ -98,18 +98,26 @@ export default function AttacksTable() {
   }, [setPowers])
   return (
     <Container>
-      <Row>
-        <Col>
-          <Button size="lg" variant="primary" onClick={() => selectArchtype("blaster")}>Blaster</Button>
-          <Button size="lg" variant="primary" onClick={() => selectArchtype("corruptor")}>Corruptor</Button>
-          <Button size="lg" variant="primary" onClick={() => selectArchtype("defender")}>Defender</Button>
-          <Button size="lg" variant="primary" onClick={() => selectArchtype("dom")}>Dom</Button>
-          <Button size="lg" variant="primary" onClick={() => selectArchtype("controller")}>Controller</Button>
+      <Row className="justify-content-around m-2 bg-dark p-3">
+        <Col xs={6} md={2}>
+          <Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("blaster")}>Blaster</Button>
+        </Col>
+        <Col xs={6} md={2}>
+          <Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("corruptor")}>Corruptor</Button>
+        </Col>
+        <Col xs={6} md={2}>
+          <Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("defender")}>Defender</Button>
+        </Col>
+        <Col xs={6} md={2}>
+          <Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("dom")}>Dom</Button>
+        </Col>
+        <Col xs={6} md={2}>
+          <Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("controller")}>Controller</Button>
         </Col>
       </Row>
       {/* Displaying Primary Blast Buttons */}
       {archtype === "blaster" || archtype === "corruptor" || archtype === "defender" ? <Blasts selectPrimary={selectPrimary} /> : null}
-      {archtype === "dom" || archtype === "controller" ? <Controls selectPrimary={selectPrimary} /> : null}
+      {archtype === "dom" || archtype === "controller" ? <Controls selectPrimary={selectPrimary} archtype={archtype} /> : null}
       {/* Displaying Secondary Options Per Archtype */}
       {primary && archtype === "blaster" ? <BlasterSecondaries selectSecondary={selectSecondary} /> : null}
       {primary && (archtype === "defender" || archtype === "controller" || archtype === "corruptor") ? <CorruptorSecondaries selectSecondary={selectSecondary} setSecondary={setSecondary} /> : null}
