@@ -6,7 +6,7 @@ export default function Controls(props) {
   const archtype = props.archtype
 
   return (
-    <Row className="justify-content-around m-2 bg-dark p-3">
+    <Row className="justify-content-around m-1 bg-dark p-3">
       <Col xs={6} md={4}><Button size="lg" className="w-100 my-2 fw-bolder" variant="secondary" onClick={() => selectPrimary("FireControl")}>Fire</Button></Col>
       <Col xs={6} md={4}><Button size="lg" className="w-100 my-2 fw-bolder" variant="secondary" onClick={() => selectPrimary("EarthControl")}>Earth</Button></Col>
       {archtype === "controller" ? <Col xs={6} md={4}><Button size="lg" className="w-100 my-2 fw-bolder" variant="secondary" onClick={() => selectPrimary("IllControl")}>Illusion</Button></Col> : null}

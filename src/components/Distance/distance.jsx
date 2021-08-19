@@ -8,7 +8,7 @@ export default function Distance(props) {
   return (
     <Form>
       <Form.Group>
-        <Row className="justify-content-around m-2 bg-dark p-3 text-white fw-bolder">
+        <Row className="justify-content-around m-1 bg-dark p-3 text-white fw-bolder">
           <Col xs={11}>
             <Form.Label>Distance From Target: </Form.Label>
             <RangeSlider

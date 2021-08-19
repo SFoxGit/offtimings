@@ -243,7 +243,7 @@ export default function AttacksTable() {
   }, [setPowers])
   return (
     <Container>
-      <Row className="justify-content-around m-2 bg-dark p-3">
+      <Row className="justify-content-around m-1 bg-dark p-3">
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("blaster")}>Blaster</Button></Col>
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("corruptor")}>Corruptor</Button></Col>
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("defender")}>Defender</Button></Col>
