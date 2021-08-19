@@ -8,9 +8,9 @@ export default function Header() {
     <Navbar.Brand href="#"><h1>Attack Chain Timing</h1></Navbar.Brand>
     <Navbar.Toggle />
     <Navbar.Collapse className="justify-content-end">
-    <Nav className="mr-auto">
-      <Nav.Link href="#calculator">Calculator</Nav.Link>
-      <Nav.Link href="#instructions">Instructions</Nav.Link>
+    <Nav className="mr-auto border-0">
+      <Nav.Link href="#calculator" className="border-0">Calculator</Nav.Link>
+      <Nav.Link href="#instructions" className="border-0">Instructions</Nav.Link>
     </Nav>
       <Navbar.Text>
         

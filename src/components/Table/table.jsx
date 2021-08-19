@@ -271,7 +271,7 @@ export default function AttacksTable() {
         :
         null}
 
-      <Table striped bordered hover variant="dark" className="customBoxShadow">
+      <Table striped bordered hover variant="dark" active className="customBoxShadow">
         <thead>
           <tr>
             <th onMouseOver={changeCursor} onClick={() => sortPowers("Power")}>Power</th>
