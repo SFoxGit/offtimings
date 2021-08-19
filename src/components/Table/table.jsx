@@ -234,6 +234,10 @@ export default function AttacksTable() {
     }
   }
 
+  const changeCursor = (e) => {
+    e.target.style.cursor = "pointer"
+  }
+
   useEffect(() => {
     setPowers(attacks)
   }, [setPowers])
@@ -267,14 +271,14 @@ export default function AttacksTable() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th onClick={() => sortPowers("Power")}>Power</th>
-            <th onClick={() => sortPowers("EffectTime")}>Effect Time</th>
-            <th onClick={() => sortPowers("Speed")}>Projectile Speed</th>
-            <th onClick={() => sortPowers("CastTime")}>True Cast Time</th>
-            <th onClick={() => sortPowers("Set")}>Set</th>
-            <th onClick={() => sortPowers("Range")}>Range</th>
-            <th onClick={() => sortPowers("TimeOfDamage")}>Time of Damage</th>
-            <th onClick={() => sortPowers("FollowUp")}>Required Follow Up</th>
+            <th onMouseOver={changeCursor} onClick={() => sortPowers("Power")}>Power</th>
+            <th onMouseOver={changeCursor} onClick={() => sortPowers("EffectTime")}>Effect Time</th>
+            <th onMouseOver={changeCursor} onClick={() => sortPowers("Speed")}>Projectile Speed</th>
+            <th onMouseOver={changeCursor} onClick={() => sortPowers("CastTime")}>True Cast Time</th>
+            <th onMouseOver={changeCursor} onClick={() => sortPowers("Set")}>Set</th>
+            <th onMouseOver={changeCursor} onClick={() => sortPowers("Range")}>Range</th>
+            <th onMouseOver={changeCursor} onClick={() => sortPowers("TimeOfDamage")}>Time of Damage</th>
+            <th onMouseOver={changeCursor} onClick={() => sortPowers("FollowUp")}>Required Follow Up</th>
           </tr>
         </thead>
         <tbody>
@@ -286,7 +290,7 @@ export default function AttacksTable() {
               <td>{power[7]}</td>
               <td>{power[8]}</td>
               <td>{power[9]}</td>
-              <td>{(distance / power[4] + power[3]).toFixed(3)}</td>
+              <td onMouseOver={changeCursor}>{(distance / power[4] + power[3]).toFixed(3)}</td>
               <td>{(distance / power[4] + power[3] - power[7]).toFixed(3)}</td>
             </tr>
           ))}
