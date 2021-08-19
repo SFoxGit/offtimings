@@ -19,6 +19,8 @@ export default function AttacksTable() {
   const [secondary, setSecondary] = useState()
   const [epic, setEpic] = useState()
   const [distance, setDistance] = useState(90)
+  const [sortedBy, setSortedBy] = useState()
+  const [attackChain, setAttackChain] = useState([])
 
   const selectArchtype = (filter) => {
     setPrimary()
@@ -95,6 +97,142 @@ export default function AttacksTable() {
     }
   }
 
+  const sortPowers = (currentSort) => {
+    let asc;
+    let desc;
+    if (currentSort !== sortedBy) {
+      asc = 1;
+      desc = -1;
+    } else {
+      asc = -1;
+      desc = 1;
+    };
+    if (currentSort === "Power") {
+      const newArr = powers.sort((a, b) => {
+        let fa = a[0].toLowerCase();
+        let fb = b[0].toLowerCase();
+        if (fa < fb) {
+          return desc;
+        };
+        if (fb < fa) {
+          return asc;
+        };
+        return null;
+      });
+      setPowers(newArr)
+    }
+    if (currentSort === "TimeOfDamage") {
+      const newArr = powers.sort((a, b) => {
+        let fa = (distance / a[4] + a[3]);
+        let fb = (distance / b[4] + b[3]);
+        if (fa < fb) {
+          return desc;
+        };
+        if (fb < fa) {
+          return asc;
+        };
+        return null;
+      });
+      setPowers(newArr)
+    }
+    if (currentSort === "FollowUp") {
+      const newArr = powers.sort((a, b) => {
+        let fa = (distance / a[4] + a[3] - a[7]);
+        let fb = (distance / b[4] + b[3] - b[7]);
+        if (fa < fb) {
+          return desc;
+        };
+        if (fb < fa) {
+          return asc;
+        };
+        return null;
+      });
+      setPowers(newArr)
+    }
+    if (currentSort === "EffectTime") {
+      const newArr = powers.sort((a, b) => {
+        let fa = a[3];
+        let fb = b[3];
+        if (fa < fb) {
+          return desc;
+        };
+        if (fb < fa) {
+          return asc;
+        };
+        return null;
+      });
+      setPowers(newArr)
+    }
+    if (currentSort === "Speed") {
+      const newArr = powers.sort((a, b) => {
+        let fa = a[4];
+        let fb = b[4];
+        if (fa < fb) {
+          return desc;
+        };
+        if (fb < fa) {
+          return asc;
+        };
+        return null;
+      });
+      setPowers(newArr)
+    }
+    if (currentSort === "CastTime") {
+      const newArr = powers.sort((a, b) => {
+        let fa = a[7];
+        let fb = b[7];
+        if (fa < fb) {
+          return desc;
+        };
+        if (fb < fa) {
+          return asc;
+        };
+        return null;
+      });
+      setPowers(newArr)
+    }
+    if (currentSort === "Set") {
+      const newArr = powers.sort((a, b) => {
+        let fa = a[8];
+        let fb = b[8];
+        if (fa < fb) {
+          return desc;
+        };
+        if (fb < fa) {
+          return asc;
+        };
+        return null;
+      });
+      setPowers(newArr)
+    }
+    if (currentSort === "Range") {
+      const newArr = powers.sort((a, b) => {
+        let fa = a[9];
+        let fb = b[9];
+        if (fa < fb) {
+          return desc;
+        };
+        if (fb < fa) {
+          return asc;
+        };
+        return null;
+      });
+      setPowers(newArr)
+    }
+    if (currentSort !== sortedBy) { setSortedBy(currentSort) } else { setSortedBy() }
+  }
+
+  const addAttack = (power, effectTime, speed, cast) => {
+    if (attackChain.length) {
+      if (!attackChain.some(row => row[0] === power)) {
+        const newArr = [...attackChain, [power, effectTime, speed, cast]]
+        setAttackChain(newArr)
+      } 
+    } else {
+      setAttackChain([[power, effectTime, speed, cast]])
+    }
+  }
+
   useEffect(() => {
     setPowers(attacks)
   }, [setPowers])
@@ -107,7 +245,7 @@ export default function AttacksTable() {
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("dom")}>Dom</Button></Col>
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("controller")}>Controller</Button></Col>
       </Row>
-      
+
       {/* Displaying Primary Blast Buttons */}
       {archtype === "blaster" || archtype === "corruptor" || archtype === "defender" ? <Blasts selectPrimary={selectPrimary} /> : null}
       {archtype === "dom" || archtype === "controller" ? <Controls selectPrimary={selectPrimary} archtype={archtype} /> : null}
@@ -124,19 +262,19 @@ export default function AttacksTable() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Power</th>
-            <th>Effect Time</th>
-            <th>Projectile Speed</th>
-            <th>True Cast Time</th>
-            <th>Set</th>
-            <th>Range</th>
-            <th>Time of Damage</th>
-            <th>Required Follow Up</th>
+            <th onClick={() => sortPowers("Power")}>Power</th>
+            <th onClick={() => sortPowers("EffectTime")}>Effect Time</th>
+            <th onClick={() => sortPowers("Speed")}>Projectile Speed</th>
+            <th onClick={() => sortPowers("CastTime")}>True Cast Time</th>
+            <th onClick={() => sortPowers("Set")}>Set</th>
+            <th onClick={() => sortPowers("Range")}>Range</th>
+            <th onClick={() => sortPowers("TimeOfDamage")}>Time of Damage</th>
+            <th onClick={() => sortPowers("FollowUp")}>Required Follow Up</th>
           </tr>
         </thead>
         <tbody>
           {powers.map(power => (
-            <tr key={power[0] + power[8]}>
+            <tr key={power[0] + power[8]} onClick={() => addAttack(power[0], power[3], power[4], power[7])}>
               <td>{power[0]}</td>
               <td>{power[3]}</td>
               <td>{power[4]}</td>
