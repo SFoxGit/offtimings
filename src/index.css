@@ -14,6 +14,9 @@ code {
 
 .btn {
   box-shadow: 5px 5px 5px black;
+  border-color: white !important;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .customBoxShadow {
