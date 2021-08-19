@@ -6,7 +6,7 @@ export default function CorruptorSecondaries(props) {
 
   return (
     <Row className="justify-content-around mt-3 bg-dark p-3 customBoxShadow">
-      <Col xs={12} className="text-white fw-bolder mb-2 border-bottom"><h3>Buff/Debuff Type</h3></Col>
+      <Col xs={12} className="text-white fw-bolder mb-2 border-bottom"><h3  className="text-center">Buff/Debuff Type</h3></Col>
             <Col xs={6} md={3}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => selectSecondary("Cold")}>Cold</Button></Col>
             <Col xs={6} md={3}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => selectSecondary("DarkMiasma")}>Dark</Button></Col>
             <Col xs={6} md={3}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => selectSecondary("ElecAffinity")}>Elec Affinity</Button></Col>

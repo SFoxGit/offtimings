@@ -6,7 +6,7 @@ export default function BlasterSecondaries(props) {
 
   return (
     <Row className="justify-content-around mt-3 bg-dark p-3 customBoxShadow">
-      <Col xs={12} className="text-white fw-bolder mb-2 border-bottom"><h3>Secondary</h3></Col>
+      <Col xs={12} className="text-white fw-bolder mb-2 border-bottom"><h3  className="text-center">Secondary</h3></Col>
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => selectSecondary("SonicManip")}>Sonic</Button></Col>
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => selectSecondary("Ninja")}>Ninja</Button></Col>
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="info" onClick={() => selectSecondary("TactArrow")}>Tactical Arrow</Button></Col>

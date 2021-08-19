@@ -8,8 +8,8 @@ export default function Distance(props) {
   return (
     <Form>
       <Form.Group>
-        <Row className="justify-content-around mt-3 bg-dark p-3 text-white fw-bolder customBoxShadow">
-            <Form.Label>Distance From Target: </Form.Label>
+        <Row className="justify-content-around my-3 bg-dark p-3 text-white fw-bolder customBoxShadow">
+          <Form.Label className="text-center">Distance From Target: </Form.Label>
           <Col xs={11}>
             <RangeSlider
               value={distance}
@@ -19,7 +19,7 @@ export default function Distance(props) {
               onChange={e => setDistance(e.target.value)}
             />
           </Col>
-          <Col xs={1}  className="d-flex align-items-center">
+          <Col xs={1} className="d-flex align-items-center">
             <Form.Control value={distance} onChange={e => setDistance(e.target.value)} />
           </Col>
         </Row>

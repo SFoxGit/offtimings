@@ -6,7 +6,7 @@ export default function Blasts(props) {
 
   return (
     <Row className="justify-content-around mt-3 bg-dark p-3 customBoxShadow">
-      <Col xs={12} className="text-white fw-bolder mb-2 border-bottom"><h3>Blast Type</h3></Col>
+      <Col xs={12} className="text-white fw-bolder mb-2 border-bottom"><h3  className="text-center">Blast Type</h3></Col>
         <Col xs={6} md={3}><Button size="lg" className="w-100 my-2 fw-bolder" variant="secondary" onClick={() => selectPrimary("Archery")}>Archery</Button></Col>
         <Col xs={6} md={3}><Button size="lg" className="w-100 my-2 fw-bolder" variant="secondary" onClick={() => selectPrimary("AssaultRiffle")}>Assault Rifle</Button></Col>
         <Col xs={6} md={3}><Button size="lg" className="w-100 my-2 fw-bolder" variant="secondary" onClick={() => selectPrimary("Beam")}>Beam Rifle</Button></Col>

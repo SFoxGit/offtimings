@@ -19,9 +19,9 @@ export default function Chain(props) {
     setForced(!forced)
   }
   return (
-    <div className="justify-content-around my-3 bg-dark p-3 text-white fw-bolder customBoxShadow" >
+    <div className="justify-content-around mb-3 bg-dark p-3 text-white fw-bolder customBoxShadow" >
       {forced ? <></> : <div></div>}
-      <Row className="justify-content-center "><h3>Attack Chain</h3></Row>
+      <Row className="justify-content-center "><h3  className="text-center">Attack Chain</h3></Row>
       <Row className="mt-2 border-bottom d-flex align-items-center">
             <Col className="p-2">Name</Col>
             <Col className="p-2">Cast At</Col>

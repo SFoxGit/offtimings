@@ -11,7 +11,7 @@ export default function Controls(props) {
 
   return (
     <Row className="justify-content-around mt-3 bg-dark p-3 customBoxShadow">
-      <Col xs={12} className="text-white fw-bolder mb-2 border-bottom"><h3>Control Type</h3></Col>
+      <Col xs={12} className="text-white fw-bolder mb-2 border-bottom"><h3  className="text-center">Control Type</h3></Col>
       <Col xs={6} md={buttonSize}><Button size="lg" className="w-100 my-2 fw-bolder" variant="secondary" onClick={() => selectPrimary("FireControl")}>Fire</Button></Col>
       <Col xs={6} md={buttonSize}><Button size="lg" className="w-100 my-2 fw-bolder" variant="secondary" onClick={() => selectPrimary("EarthControl")}>Earth</Button></Col>
       {archtype === "controller" ? <Col xs={6} md={buttonSize}><Button size="lg" className="w-100 my-2 fw-bolder" variant="secondary" onClick={() => selectPrimary("IllControl")}>Illusion</Button></Col> : null}
