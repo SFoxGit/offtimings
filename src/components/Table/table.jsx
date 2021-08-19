@@ -11,6 +11,7 @@ import BlasterEpics from '../Epic/blaster';
 import CorruptorEpics from '../Epic/corruptor';
 import DomEpics from '../Epic/dom';
 import Distance from '../Distance/distance';
+import Chain from '../Chain/chain';
 
 export default function AttacksTable() {
   const [powers, setPowers] = useState([])
@@ -225,11 +226,11 @@ export default function AttacksTable() {
   const addAttack = (power, effectTime, speed, cast) => {
     if (attackChain.length) {
       if (!attackChain.some(row => row[0] === power)) {
-        const newArr = [...attackChain, [power, effectTime, speed, cast]]
+        const newArr = [...attackChain, [power, effectTime, speed, cast, distance]]
         setAttackChain(newArr)
       } 
     } else {
-      setAttackChain([[power, effectTime, speed, cast]])
+      setAttackChain([[power, effectTime, speed, cast, distance]])
     }
   }
 
@@ -259,6 +260,10 @@ export default function AttacksTable() {
       {primary && secondary && (archtype === "dom" || archtype === "controller") ? <DomEpics selectEpic={selectEpic} /> : null}
 
       <Distance distance={distance} setDistance={setDistance} />
+      {attackChain.length ? 
+      <Chain attackChain={attackChain} setAttackChain={setAttackChain} distance={distance}/>
+      : 
+      null}
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
