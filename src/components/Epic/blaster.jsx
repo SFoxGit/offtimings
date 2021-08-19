@@ -5,7 +5,7 @@ export default function BlasterEpics(props) {
   const selectEpic = props.selectEpic
 
   return (
-    <Row className="justify-content-around m-1 bg-dark p-3">
+    <Row className="justify-content-around mt-2 bg-dark p-3">
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="danger" onClick={() => selectEpic("Elec Mastery")}>Elec</Button></Col>
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="danger" onClick={() => selectEpic("Fire Mastery")}>Fire</Button></Col>
         <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="danger" onClick={() => selectEpic("Mu")}>Mu Mastery</Button></Col>
