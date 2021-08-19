@@ -15,3 +15,11 @@ code {
 .btn {
   box-shadow: 5px 5px 5px black;
 }
+
+.customBoxShadow {
+  box-shadow: 8px 8px 5px black;
+}
+
+.table {
+  font-size: 24px;
+}
