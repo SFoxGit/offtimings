@@ -20,7 +20,7 @@ export default function Distance(props) {
             />
           </Col>
           <Col xs={3} md={1} className="d-flex align-items-center">
-            <Form.Control value={distance} onChange={e => setDistance(e.target.value)} />
+            <Form.Control style={{backgroundColor: "white"}} value={distance} onChange={e => setDistance(e.target.value)} />
           </Col>
         </Row>
       </Form.Group>

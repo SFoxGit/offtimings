@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 export default function Instructions() {
   return (
     <Container>
-      <Row><h2 className="text-center mt-4 fw-bolder">Instructions</h2></Row>
+      <Row><h2 style={{color: "black"}} className="text-center mt-4 fw-bolder">Instructions</h2></Row>
       <Row className="mt-4 instructions">Get an understanding of when you usually fire and at what distance, from one of Xhiggy's datastudios reports. I suggest looking into the spikes table.</Row>
       <Row className="mt-4 instructions">If you're looking for a new attack chain, please understand the attack chain of your teammates. A fire/plant chain hits at 1.73 seconds, if you're hitting at 2.73, that's a full second you're giving the target to hit greens or receive heals.</Row>
       <Row className="mt-4 instructions">You can sort the table by clicking on the table headers</Row>
@@ -17,7 +17,7 @@ export default function Instructions() {
       <Row className="mt-4 instructions"><p className="text-center">Special thanks to <span style={{color: "blue", fontWeight: "bolder"}}>Mallex</span> for help with understanding how the server ticks and combat ticks work.</p></Row>
       <Row className="my-4 instructions d-flex justify-content-center fw-bolder">-Dexington</Row>
 
-      <Row><h2 className="text-center mt-4 fw-bolder">Definitions</h2></Row>
+      <Row><h2 style={{color: "black"}} className="text-center mt-4 fw-bolder">Definitions</h2></Row>
       <Row className="mt-4 instructions">
         <Col className="fw-bolder" xs={3} md={3}>Power</Col>
         <Col xs={9} md={9}>The power's name</Col>
