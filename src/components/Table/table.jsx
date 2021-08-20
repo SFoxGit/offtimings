@@ -30,6 +30,8 @@ export default function AttacksTable(props) {
   const [distance, setDistance] = useState(90)
   const [sortedBy, setSortedBy] = useState()
   const [attackChain, setAttackChain] = useState([])
+  var x = window.matchMedia("(min-width: 900px)")
+  var y = window.matchMedia("(min-width: 400px)")
 
   const selectArchtype = (filter) => {
     setPrimary()
@@ -253,7 +255,7 @@ export default function AttacksTable(props) {
     <Container>
       <Container>
         <Row className="justify-content-around mt-3 bg-dark p-3 customBoxShadow">
-          <Col xs={12} className="text-white fw-bolder mb-2 border-bottom"><h3  className="text-center">Archtype</h3></Col>
+          <Col xs={12} className="text-white fw-bolder mb-2 border-bottom"><h3 className="text-center">Archtype</h3></Col>
           <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("blaster")}>Blaster</Button></Col>
           <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("corruptor")}>Corruptor</Button></Col>
           <Col xs={6} md={2}><Button size="lg" className="w-100 my-2 fw-bolder" variant="primary" onClick={() => selectArchtype("defender")}>Defender</Button></Col>
@@ -278,35 +280,38 @@ export default function AttacksTable(props) {
         <Chain attackChain={attackChain} setAttackChain={setAttackChain} distance={distance} />
         :
         null}
-
-      <Table striped bordered hover variant="dark" className="customBoxShadow">
-        <thead>
-          <tr>
-            <th onMouseOver={changeCursor} onClick={() => sortPowers("Power")}>Power</th>
-            <th onMouseOver={changeCursor} onClick={() => sortPowers("EffectTime")}>Effect Time</th>
-            <th onMouseOver={changeCursor} onClick={() => sortPowers("Speed")}>Projectile Speed</th>
-            <th onMouseOver={changeCursor} onClick={() => sortPowers("CastTime")}>True Cast Time</th>
-            <th onMouseOver={changeCursor} onClick={() => sortPowers("Set")}>Set</th>
-            <th onMouseOver={changeCursor} onClick={() => sortPowers("Range")}>Range</th>
-            <th onMouseOver={changeCursor} onClick={() => sortPowers("TimeOfDamage")}>Time of Damage</th>
-            <th onMouseOver={changeCursor} onClick={() => sortPowers("FollowUp")}>Required Follow Up</th>
-          </tr>
-        </thead>
-        <tbody>
-          {powers.map(power => (
-            <tr key={power[0] + power[8]} onClick={() => addAttack(power[0], power[3], power[4], power[7])}>
-              <td>{power[0]}</td>
-              <td>{power[3]}</td>
-              <td>{power[4]}</td>
-              <td>{power[7]}</td>
-              <td>{power[8]}</td>
-              <td>{power[9]}</td>
-              <td onMouseOver={changeCursor}>{(distance / power[4] + power[3]).toFixed(3)}</td>
-              <td>{(distance / power[4] + power[3] - power[7]).toFixed(3)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <Container className="p-0">
+        <Row><Col xs={12}>
+          <Table striped bordered hover variant="dark" className="customBoxShadow customTable">
+            <thead>
+              <tr>
+                <th onMouseOver={changeCursor} onClick={() => sortPowers("Power")}>Power</th>
+                {x.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("EffectTime")}>Effect Time</th> : null}
+                <th onMouseOver={changeCursor} onClick={() => sortPowers("Speed")}>Projectile Speed</th>
+                <th onMouseOver={changeCursor} onClick={() => sortPowers("CastTime")}>True Cast Time</th>
+                <th onMouseOver={changeCursor} onClick={() => sortPowers("Set")}>Set</th>
+                {x.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("Range")}>Range</th> : null}
+                <th onMouseOver={changeCursor} onClick={() => sortPowers("TimeOfDamage")}>Time of Damage</th>
+                {y.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("FollowUp")}>Required Follow Up</th> : null}
+              </tr>
+            </thead>
+            <tbody>
+              {powers.map(power => (
+                <tr key={power[0] + power[8]} onClick={() => addAttack(power[0], power[3], power[4], power[7])}>
+                  <td>{power[0]}</td>
+                  {x.matches ? <td>{power[3]}</td> : null}
+                  <td>{power[4] === 999999999 ? "Instant" : power[4]}</td>
+                  <td>{power[7]}</td>
+                  <td>{power[8]}</td>
+                  {x.matches ? <td>{power[9]}</td> : null}
+                  <td onMouseOver={changeCursor}>{(distance / power[4] + power[3]).toFixed(3)}</td>
+                  {y.matches ? <td>{(distance / power[4] + power[3] - power[7]).toFixed(3)}</td> : null}
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Col></Row>
+      </Container>
     </Container>
   )
 }
