@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 export default function Instructions() {
   return (
-    <Container>
+    <Container className="instCon">
       <Row><h2 style={{color: "black"}} className="text-center mt-4 fw-bolder">Instructions</h2></Row>
       <Row className="mt-4 instructions">Get an understanding of when you usually fire and at what distance, from one of Xhiggy's datastudios reports. I suggest looking into the spikes table.</Row>
       <Row className="mt-4 instructions">If you're looking for a new attack chain, please understand the attack chain of your teammates. A fire/plant chain hits at 1.73 seconds, if you're hitting at 2.73, that's a full second you're giving the target to hit greens or receive heals.</Row>

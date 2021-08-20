@@ -24,3 +24,7 @@
     width: 100vw;
   }
 }
+
+.btn-success {
+  background-image: linear-gradient(cadetblue,#3e68b6 60%,#292b8a) !important
+}

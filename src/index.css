@@ -39,3 +39,27 @@ code {
 .navbar-brand {
   font-family: Helvetica, sans-serif !important;
 }
+@media only screen and (max-width: 800px)  {
+  .instCon {
+    margin: 5px !important;
+  }
+  .instCon > * {
+  color: black;
+  font-weight: 400;
+  font-size: 12px !important;
+  width: 100%;
+  }
+}
+@media only screen and (min-width: 800px)  {
+  .instCon {
+    background-image: url("./dex.jpg") !important;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .instCon > * {
+    color: black;
+    font-weight: 700;
+  }
+}
+
