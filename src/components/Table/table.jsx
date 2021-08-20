@@ -13,12 +13,20 @@ import DomEpics from '../Epic/dom';
 import Distance from '../Distance/distance';
 import Chain from '../Chain/chain';
 
-export default function AttacksTable() {
+export default function AttacksTable(props) {
   const [powers, setPowers] = useState([])
-  const [archtype, setArchtype] = useState()
-  const [primary, setPrimary] = useState()
-  const [secondary, setSecondary] = useState()
-  const [epic, setEpic] = useState()
+  // const [archtype, setArchtype] = useState()
+  // const [primary, setPrimary] = useState()
+  // const [secondary, setSecondary] = useState()
+  // const [epic, setEpic] = useState()
+  const archtype = props.archtype
+  const setArchtype = props.setArchtype
+  const primary = props.primary
+  const setPrimary = props.setPrimary
+  const secondary = props.secondary
+  const setSecondary = props.setSecondary
+  const epic = props.epic
+  const setEpic = props.setEpic
   const [distance, setDistance] = useState(90)
   const [sortedBy, setSortedBy] = useState()
   const [attackChain, setAttackChain] = useState([])
@@ -271,7 +279,7 @@ export default function AttacksTable() {
         :
         null}
 
-      <Table striped bordered hover variant="dark" active className="customBoxShadow">
+      <Table striped bordered hover variant="dark" className="customBoxShadow">
         <thead>
           <tr>
             <th onMouseOver={changeCursor} onClick={() => sortPowers("Power")}>Power</th>
