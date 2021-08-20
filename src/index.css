@@ -30,3 +30,11 @@ code {
 .table {
   font-size: 24px;
 }
+
+.instructions {
+  font-size: 24px !important;
+}
+
+.navbar-brand {
+  font-family: Helvetica, sans-serif !important;
+}

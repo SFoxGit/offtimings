@@ -17,10 +17,10 @@ export default function Header(props) {
             <Nav.Link href="#calculator" className="border-0">Calculator</Nav.Link>
             <Nav.Link href="#instructions" className="border-0">Instructions</Nav.Link>
           </Nav>
-          {archtype ? <Navbar.Text className="ml-4 fw-bolder text-light">
-            {archtype} : {primary} / {secondary} / {epic}
-          </Navbar.Text> : null}
         </Navbar.Collapse>
+            {archtype ? <Navbar.Text className="m-4 fw-bolder text-info">
+              {archtype} : {primary} / {secondary} / {epic}
+            </Navbar.Text> : null}
       </Container>
     </Navbar>
   )

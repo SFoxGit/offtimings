@@ -35,7 +35,6 @@ export default function AttacksTable(props) {
 
   const selectArchtype = (filter) => {
     setPrimary()
-    console.log(filter)
     let arr = attacks.filter(function (power) {
       return power[13].includes(filter)
     })
@@ -51,7 +50,6 @@ export default function AttacksTable(props) {
       let arr = powers.filter(function (power) {
         return power[8] === filter
       })
-      console.log(arr)
       setPowers(arr)
       setPrimary(filter)
     } else {
