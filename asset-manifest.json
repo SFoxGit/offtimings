@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/offtimings/static/css/main.c0eb1647.chunk.css",
+    "main.css": "/offtimings/static/css/main.547d7034.chunk.css",
     "main.js": "/offtimings/static/js/main.6fc136d6.chunk.js",
     "main.js.map": "/offtimings/static/js/main.6fc136d6.chunk.js.map",
     "runtime-main.js": "/offtimings/static/js/runtime-main.41d9e3c8.js",
@@ -10,14 +10,14 @@
     "static/js/2.42f3662f.chunk.js.map": "/offtimings/static/js/2.42f3662f.chunk.js.map",
     "index.html": "/offtimings/index.html",
     "static/css/2.b02c1629.chunk.css.map": "/offtimings/static/css/2.b02c1629.chunk.css.map",
-    "static/css/main.c0eb1647.chunk.css.map": "/offtimings/static/css/main.c0eb1647.chunk.css.map",
+    "static/css/main.547d7034.chunk.css.map": "/offtimings/static/css/main.547d7034.chunk.css.map",
     "static/js/2.42f3662f.chunk.js.LICENSE.txt": "/offtimings/static/js/2.42f3662f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.41d9e3c8.js",
     "static/css/2.b02c1629.chunk.css",
     "static/js/2.42f3662f.chunk.js",
-    "static/css/main.c0eb1647.chunk.css",
+    "static/css/main.547d7034.chunk.css",
     "static/js/main.6fc136d6.chunk.js"
   ]
 }
