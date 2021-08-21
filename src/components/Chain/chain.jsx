@@ -57,7 +57,7 @@ export default function Chain(props) {
             <Col className="p-2 text-center">{(totalCast).toFixed(3)}</Col>
             <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={attack[4]} onChange={e => updateDistance(e.target.value, index)}></input></Col>
             <Col className="p-2 text-center">{(totalCast + attack[1] + attack[4] / attack[2]).toFixed(3)}</Col>
-            <Col className="p-2 text-center"><Button className="fw-bolder text-dark w-75" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
+            <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bolder text-dark w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
           </Row>
         )
       })}

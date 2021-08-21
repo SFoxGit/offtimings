@@ -49,17 +49,29 @@ code {
   font-size: 12px !important;
   width: 100%;
   }
+  .remove {
+    text-align: center !important;
+  }
 }
 @media only screen and (min-width: 800px)  {
   .instCon {
     background-image: url("./dex.jpg") !important;
     background-position: center;
     background-size: cover;
+    padding: 245px !important;
   }
   
   .instCon > * {
     color: black;
-    font-weight: 700;
+    font-weight: 800;
+  }
+  .keys {
+    font-size: 36px !important;
+    margin-bottom: 40px;
+  }
+  .dex {
+    font-size: 44px !important;
+    padding-bottom: 190px !important;
   }
 }
 
