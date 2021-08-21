@@ -231,14 +231,14 @@ export default function AttacksTable(props) {
     if (currentSort !== sortedBy) { setSortedBy(currentSort) } else { setSortedBy() }
   }
 
-  const addAttack = (power, effectTime, speed, cast) => {
+  const addAttack = (power, effectTime, speed, cast, animation, recharge, scale) => {
     if (attackChain.length) {
       if (!attackChain.some(row => row[0] === power)) {
-        const newArr = [...attackChain, [power, effectTime, speed, cast, distance]]
+        const newArr = [...attackChain, [power, effectTime, speed, cast, distance, animation, recharge, scale]]
         setAttackChain(newArr)
       }
     } else {
-      setAttackChain([[power, effectTime, speed, cast, distance]])
+      setAttackChain([[power, effectTime, speed, cast, distance, animation, recharge, scale]])
     }
   }
 
@@ -295,7 +295,7 @@ export default function AttacksTable(props) {
             </thead>
             <tbody>
               {powers.map(power => (
-                <tr key={power[0] + power[8]} onClick={() => addAttack(power[0], power[3], power[4], power[7])}>
+                <tr key={power[0] + power[8]} onClick={() => addAttack(power[0], power[3], power[4], power[7], power[5], power[14], power[15])}>
                   <td>{power[0]}</td>
                   {x.matches ? <td>{power[3]}</td> : null}
                   <td>{power[4] === 999999999 ? "Instant" : power[4]}</td>

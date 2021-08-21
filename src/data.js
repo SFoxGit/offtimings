@@ -1,6 +1,17 @@
 const attacks = [
-  ['Burst', 8, 8, 0.2664, 999999999, 30, 32, 1.1988, 'AssaultRiffle', 90, 0.266, -0.932, 'primary', ['blaster', 'corruptor', 'defender']],
-  ['Slug', 32, 32, 1.0656, 999999999, 50, 52, 1.8648, 'AssaultRiffle', 100, 1.066, -0.799, 'primary', ['blaster', 'corruptor', 'defender']],
+  ['Burst', 8, 8, 0.2664, 999999999, 30, 32, 1.1988, 'AssaultRiffle', 90, 0.266, -0.932, 'primary', ['blaster', 'corruptor', 'defender'], 4.0, 0.4159, [
+    "Accurate Defense Debuff",
+    "Blaster Archetype Sets",
+    "Defense Debuff",
+    "Ranged Damage",
+    "Universal Damage Sets"
+  ]],
+  ['Slug', 32, 32, 1.0656, 999999999, 50, 52, 1.8648, 'AssaultRiffle', 100, 1.066, -0.799, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, 1.8892, [
+    "Blaster Archetype Sets",
+    "Knockback",
+    "Ranged Damage",
+    "Universal Damage Sets"
+  ]],
   ['SniperRifle', 50, 52, 1.7316, 999999999, 45, 48, 1.7316, 'AssaultRiffle', 80, 1.732, 0.000, 'primary', ['blaster', 'corruptor', 'defender']],
   ['SnapShot', 22, 24, 0.7992, 300, 30, 32, 1.1988, 'Archery', 80, 1.099, -0.100, 'primary', ['blaster', 'corruptor', 'defender']],
   ['AimedShot', 24, 24, 0.7992, 300, 50, 52, 1.8648, 'Archery', 80, 1.099, -0.766, 'primary', ['blaster', 'corruptor', 'defender']],

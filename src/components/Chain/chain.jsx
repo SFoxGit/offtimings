@@ -31,7 +31,7 @@ export default function Chain(props) {
           {/* <input className="w-25" type="number" value={startTime} onChange={e => setStartTime(e.target.value)}></input> */}
           <InputGroup>
             <InputGroup.Text className="w-50 bg-info text-black fw-bolder">Late by: </InputGroup.Text>
-            <FormControl style={{backgroundColor: "white"}} className="text-center" defaultValue={startTime} onChange={e => setStartTime(parseFloat(e.target.value))} />
+            <FormControl style={{ backgroundColor: "white" }} className="text-center" defaultValue={startTime} onChange={e => setStartTime(parseFloat(e.target.value))} />
           </InputGroup>
         </Col>
         <Col xs={2} md={0}></Col>
@@ -42,9 +42,10 @@ export default function Chain(props) {
         <Col className="p-2 text-center">Distance From Target</Col>
         <Col className="p-2 text-center">Hit Time</Col>
         <Col className="p-2 text-center">Remove Attack</Col>
+        <Col className="p-2 text-center">Proc Rate</Col>
       </Row>
       {attackChain.map((attack, index) => {
-
+        console.log(attack)
         let totalCast = 0.000;
         totalCast += startTime;
         for (let i = 0; i < index; i++) {
@@ -58,6 +59,7 @@ export default function Chain(props) {
             <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={attack[4]} onChange={e => updateDistance(e.target.value, index)}></input></Col>
             <Col className="p-2 text-center">{(totalCast + attack[1] + attack[4] / attack[2]).toFixed(3)}</Col>
             <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bolder text-dark w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
+            <Col className="p-2 text-center">{attack[6] > 0 ? ((attack[6]+(attack[5]/30))*3.5/60*100).toFixed(2) + '%' : null}</Col>
           </Row>
         )
       })}
