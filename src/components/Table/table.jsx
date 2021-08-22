@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import attacks from '../../data'
+import attacks from '../../data';
 import Table from 'react-bootstrap/Table';
 import { Container, Row, Button, Col } from 'react-bootstrap';
 import Blasts from '../Primary/blasts';
@@ -36,7 +36,7 @@ export default function AttacksTable(props) {
   const selectArchtype = (filter) => {
     setPrimary()
     let arr = attacks.filter(function (power) {
-      return power[13].includes(filter)
+      return power.archtype.includes(filter)
     })
     setPowers(arr)
     setArchtype(filter)
@@ -48,17 +48,17 @@ export default function AttacksTable(props) {
     if (!primary) {
 
       let arr = powers.filter(function (power) {
-        return power[8] === filter
+        return power.powerset === filter
       })
       setPowers(arr)
       setPrimary(filter)
     } else {
       let arr = attacks.filter(function (power) {
-        return power[13].includes(archtype)
+        return power.archtype.includes(archtype)
       })
       setPowers(arr)
       let filterArr = arr.filter(function (power) {
-        return power[8] === filter
+        return power.powerset === filter
       })
       setPowers(filterArr)
       setPrimary(filter)
@@ -68,19 +68,19 @@ export default function AttacksTable(props) {
   const selectSecondary = (filter) => {
     if (!secondary) {
       let arr = attacks.filter(function (power) {
-        return power[8] === filter
+        return power.powerset === filter
       })
       setSecondary(filter)
       setPowers([...powers, ...arr])
     } else {
       let arr = attacks.filter(function (power) {
-        return power[13].includes(archtype)
+        return power.archtype.includes(archtype)
       })
       let filterArr = arr.filter(function (power) {
-        return power[8] === primary
+        return power.powerset === primary
       })
       let secondaryArr = arr.filter(function (power) {
-        return power[8] === filter
+        return power.powerset === filter
       })
       setSecondary(filter)
       setPowers([...filterArr, ...secondaryArr])
@@ -90,16 +90,16 @@ export default function AttacksTable(props) {
   const selectEpic = (filter) => {
     if (!epic) {
       let arr = attacks.filter(function (power) {
-        return power[8] === filter
+        return power.powerset === filter
       })
       setEpic(filter)
       setPowers([...powers, ...arr])
     } else {
       let arr = attacks.filter(function (power) {
-        return power[13].includes(archtype)
+        return power.archtype.includes(archtype)
       })
       let filterArr = arr.filter(function (power) {
-        return power[8] === primary || power[8] === secondary || power[8] === filter
+        return power.powerset === primary || power.powerset === secondary || power.powerset === filter
       })
       setEpic(filter)
       setPowers(filterArr)
@@ -118,8 +118,8 @@ export default function AttacksTable(props) {
     };
     if (currentSort === "Power") {
       const newArr = powers.sort((a, b) => {
-        let fa = a[0].toLowerCase();
-        let fb = b[0].toLowerCase();
+        let fa = a.name.toLowerCase();
+        let fb = b.name.toLowerCase();
         if (fa < fb) {
           return desc;
         };
@@ -132,8 +132,8 @@ export default function AttacksTable(props) {
     }
     if (currentSort === "TimeOfDamage") {
       const newArr = powers.sort((a, b) => {
-        let fa = (distance / a[4] + a[3]);
-        let fb = (distance / b[4] + b[3]);
+        let fa = (distance / a.speed + a.effectSeconds);
+        let fb = (distance / b.speed + b.effectSeconds);
         if (fa < fb) {
           return desc;
         };
@@ -146,8 +146,8 @@ export default function AttacksTable(props) {
     }
     if (currentSort === "FollowUp") {
       const newArr = powers.sort((a, b) => {
-        let fa = (distance / a[4] + a[3] - a[7]);
-        let fb = (distance / b[4] + b[3] - b[7]);
+        let fa = (distance / a.speed + a.effectSeconds - a.castTime);
+        let fb = (distance / b.speed + b.effectSeconds - b.castTime);
         if (fa < fb) {
           return desc;
         };
@@ -160,8 +160,8 @@ export default function AttacksTable(props) {
     }
     if (currentSort === "EffectTime") {
       const newArr = powers.sort((a, b) => {
-        let fa = a[3];
-        let fb = b[3];
+        let fa = a.effectSeconds;
+        let fb = b.effectSeconds;
         if (fa < fb) {
           return desc;
         };
@@ -174,8 +174,8 @@ export default function AttacksTable(props) {
     }
     if (currentSort === "Speed") {
       const newArr = powers.sort((a, b) => {
-        let fa = a[4];
-        let fb = b[4];
+        let fa = a.speed;
+        let fb = b.speed;
         if (fa < fb) {
           return desc;
         };
@@ -188,8 +188,8 @@ export default function AttacksTable(props) {
     }
     if (currentSort === "CastTime") {
       const newArr = powers.sort((a, b) => {
-        let fa = a[7];
-        let fb = b[7];
+        let fa = a.castTime;
+        let fb = b.castTime;
         if (fa < fb) {
           return desc;
         };
@@ -202,8 +202,8 @@ export default function AttacksTable(props) {
     }
     if (currentSort === "Set") {
       const newArr = powers.sort((a, b) => {
-        let fa = a[8];
-        let fb = b[8];
+        let fa = a.powerset;
+        let fb = b.powerset;
         if (fa < fb) {
           return desc;
         };
@@ -216,8 +216,8 @@ export default function AttacksTable(props) {
     }
     if (currentSort === "Range") {
       const newArr = powers.sort((a, b) => {
-        let fa = a[9];
-        let fb = b[9];
+        let fa = a.baseRange;
+        let fb = b.baseRange;
         if (fa < fb) {
           return desc;
         };
@@ -231,14 +231,16 @@ export default function AttacksTable(props) {
     if (currentSort !== sortedBy) { setSortedBy(currentSort) } else { setSortedBy() }
   }
 
-  const addAttack = (power, effectTime, speed, cast, animation, recharge, scale) => {
+  const addAttack = (power) => {
     if (attackChain.length) {
-      if (!attackChain.some(row => row[0] === power)) {
-        const newArr = [...attackChain, [power, effectTime, speed, cast, distance, animation, recharge, scale]]
+      if (!attackChain.some(row => row.name === power.name)) {
+        power.distance = distance
+        const newArr = [...attackChain, power]
         setAttackChain(newArr)
       }
     } else {
-      setAttackChain([[power, effectTime, speed, cast, distance, animation, recharge, scale]])
+      power.distance = distance
+      setAttackChain([power])
     }
   }
 
@@ -295,15 +297,15 @@ export default function AttacksTable(props) {
             </thead>
             <tbody>
               {powers.map(power => (
-                <tr key={power[0] + power[8]} onClick={() => addAttack(power[0], power[3], power[4], power[7], power[5], power[14], power[15])}>
-                  <td>{power[0]}</td>
-                  {x.matches ? <td>{power[3]}</td> : null}
-                  <td>{power[4] === 999999999 ? "Instant" : power[4]}</td>
-                  <td>{power[7]}</td>
-                  <td>{power[8]}</td>
-                  {x.matches ? <td>{power[9]}</td> : null}
-                  <td onMouseOver={changeCursor}>{(distance / power[4] + power[3]).toFixed(3)}</td>
-                  {y.matches ? <td>{(distance / power[4] + power[3] - power[7]).toFixed(3)}</td> : null}
+                <tr key={power.name + power.powerset} onClick={() => addAttack(power)}>
+                  <td>{power.name}</td>
+                  {x.matches ? <td>{power.effectSeconds}</td> : null}
+                  <td>{power.speed === 999999999 ? "Instant" : power.speed}</td>
+                  <td>{power.castTime}</td>
+                  <td>{power.powerset}</td>
+                  {x.matches ? <td>{power.baseRange}</td> : null}
+                  <td onMouseOver={changeCursor}>{(distance / power.speed + power.effectSeconds).toFixed(3)}</td>
+                  {y.matches ? <td>{(distance / power.speed + power.effectSeconds - power.castTime).toFixed(3)}</td> : null}
                 </tr>
               ))}
             </tbody>

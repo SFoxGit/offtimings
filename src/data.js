@@ -1,801 +1,150 @@
 const attacks = [
-  ['Burst', 8, 8, 0.2664, 999999999, 30, 32, 1.1988, 'AssaultRiffle', 90, 0.266, -0.932, 'primary', ['blaster', 'corruptor', 'defender'], 4.0, [0.4159], ["Lethal_Dmg"], [
-    "Accurate Defense Debuff",
-    "Blaster Archetype Sets",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Slug', 32, 32, 1.0656, 999999999, 50, 52, 1.8648, 'AssaultRiffle', 100, 1.066, -0.799, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, [1.8892], ["Lethal_Dmg"], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['SniperRifle', 50, 52, 1.7316, 999999999, 45, 48, 1.7316, 'AssaultRiffle', 80, 1.732, 0.000, 'primary', ['blaster', 'corruptor', 'defender'], 12, [1.93], ["Lethal_Dmg"], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['SnapShot', 22, 24, 0.7992, 300, 30, 32, 1.1988, 'Archery', 80, 1.099, -0.100, 'primary', ['blaster', 'corruptor', 'defender'], 2.0, [1.1802], ["Lethal_Dmg"], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['AimedShot', 24, 24, 0.7992, 300, 50, 52, 1.8648, 'Archery', 80, 1.099, -0.766, 'primary', ['blaster', 'corruptor', 'defender'], 6.0, [1.8092], ["Lethal_Dmg"], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['RangedShot', 24, 24, 0.7992, 300, 50, 52, 1.8648, 'Archery', 80, 1.099, -0.766, 'primary', ['blaster', 'corruptor', 'defender'], 12, [2.049], ["Lethal_Dmg"], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['BlazingArrow', 48, 48, 1.5984, 300, 55, 56, 1.998, 'Archery', 80, 1.898, -0.100, 'primary', ['blaster', 'corruptor', 'defender'], 10, [2.0813], ['Lethal_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Disintegrate', 29, 32, 1.0656, 999999999, 57, 60, 2.1312, 'Beam', 80, 1.066, -1.066, 'primary', ['blaster', 'corruptor', 'defender'], 10, [0.2343], ["Energy_Dmg"][
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Lancer', 23, 24, 0.7992, 999999999, 57, 60, 2.1312, 'Beam', 80, 0.799, -1.332, 'primary', ['blaster', 'corruptor', 'defender'], 11, [2.1703, 0.4341], ['Energy_Dmg', 'Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Stuns",
-    "Universal Damage Sets"
-  ]],
-  ['SingleShot', 13, 16, 0.5328, 105, 30, 32, 1.1988, 'Beam', 80, 1.390, 0.191, 'primary', ['blaster', 'corruptor', 'defender'], 4.0, [1.2602], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['ChargedShot', 29, 32, 1.0656, 155, 50, 52, 1.8648, 'Beam', 80, 1.646, -0.219, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, [1.8892, 0.2834], ["Energy_Dmg", "Energy_Dmg"], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['PRay', 29, 32, 1.0656, 60, 50, 52, 1.8648, 'Beam', 80, 2.566, 0.701, 'primary', ['blaster', 'corruptor', 'defender'], 12, [2.049, 0.33], ["Energy_Dmg", "Energy_Dmg"], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['LifeDrain', 25, 28, 0.9324, 999999999, 58, 60, 2.1312, 'Dark', 60, 0.932, -1.199, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, [2.0713], ['Negative_Energy_Dmg'], [
-    "Accurate Healing",
-    "Accurate To-Hit Debuff",
-    "Blaster Archetype Sets",
-    "Healing",
-    "Ranged Damage",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ['AbysallHitScan', 30, 32, 1.0656, 999999999, 50, 52, 1.8648, 'Dark', 70, 1.066, -0.799, 'primary', ['blaster', 'corruptor', 'defender'], 20, ['tick', 0.7898, 2.1, 1], ['Negative_Energy_Dmg'], [
-    "Accurate To-Hit Debuff",
-    "Blaster Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ['Gloom', 25, 28, 0.9324, 90, 50, 52, 1.8648, 'Dark', 80, 1.932, 0.068, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, ['tick', 0.2362, 3.6, 0.5], ['Negative_Energy_Dmg'], [
-    "Accurate To-Hit Debuff",
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ['Moon', 28, 28, 0.9324, 90, 40, 40, 1.4652, 'Dark', 80, 1.932, 0.467, 'primary', ['blaster', 'corruptor', 'defender'], 12, [1.811], ['Negative_Energy_Dmg'], [
-    "Accurate To-Hit Debuff",
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ['AbysallGaze', 30, 32, 1.0656, 45, 50, 52, 1.8648, 'Dark', 70, 3.066, 1.201, 'primary', ['blaster', 'corruptor', 'defender'], 20, ['tick', 0.7898, 2.1, 1], ['Negative_Energy_Dmg'], [
-    "Accurate To-Hit Debuff",
-    "Blaster Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ['Pistols', 9, 12, 0.3996, 150, 30, 32, 1.1988, 'DP', 80, 1.000, -0.199, 'primary', ['blaster', 'corruptor', 'defender'], 4.0, [0.8821, 0.378], ['Lethal_Dmg', "Fire_Dmg"], [
-    "Accurate Defense Debuff",
-    "Blaster Archetype Sets",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['DualWield', 20, 20, 0.666, 150, 50, 52, 1.8648, 'DP', 80, 1.266, -0.599, 'primary', ['blaster', 'corruptor', 'defender'], 6.0, [1.2665, 0.5428], ['Lethal_Dmg', "Fire_Dmg"], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ['PiercingRounds', 50, 52, 1.7316, 999999999, 75, 76, 2.664, 'DP', 80, 1.732, -0.932, 'primary', ['blaster', 'corruptor', 'defender'], 15, [1.6044, 0.6876], ['Lethal_Dmg', "Fire_Dmg"], [
-    "Blaster Archetype Sets",
-    "Ranged AoE Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ['ExecutionersShot', 39, 40, 1.332, 150, 50, 52, 1.8648, 'DP', 80, 1.932, 0.067, 'primary', ['blaster', 'corruptor', 'defender'], 10, [1.3785, 0.5908], ['Lethal_Dmg', "Fire_Dmg"], [
-    "Accurate Defense Debuff",
-    "Blaster Archetype Sets",
-    "Defense Debuff",
-    "Knockback",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ['ChargedBolts', 16, 16, 0.5328, 999999999, 30, 32, 1.1988, 'Elec', 80, 0.533, -0.666, 'primary', ['blaster', 'corruptor', 'defender'], 4.0, [1.2602], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Endurance Modification",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['LightningBolt', 26, 28, 0.9324, 999999999, 50, 52, 1.8648, 'Elec', 80, 0.932, -0.932, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, [1.8892], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Endurance Modification",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Zapp', 28, 28, 0.9324, 999999999, 40, 40, 1.4652, 'Elec', 80, 0.932, -0.533, 'primary', ['blaster', 'corruptor', 'defender'], 12, [1.811], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Endurance Modification",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['TeslaCage', 29, 32, 1.0656, 999999999, 65, 68, 2.3976, 'Elec', 60, 1.066, -1.332, 'primary', ['blaster', 'corruptor', 'defender'], 10, [0.122], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Endurance Modification",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['SniperBlast', 28, 28, 0.9324, 210, 40, 40, 1.4652, 'Energy', 80, 1.361, -0.104, 'primary', ['blaster', 'corruptor', 'defender'], 12, [0.5433, 1.2677], ['Smashing_Dmg', "Energy_Dmg"], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['PowerBolt', 25, 28, 0.9324, 90, 30, 32, 1.1988, 'Energy', 80, 1.932, 0.734, 'primary', ['blaster', 'corruptor', 'defender'], 4.0, [1.2602], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['PowerBurst', 33, 36, 1.1988, 90, 60, 60, 2.1312, 'Energy', 80, 2.199, 0.068, 'primary', ['blaster', 'corruptor', 'defender'], 10, [2.2003], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['PowerBlast', 30, 32, 1.0656, 90, 50, 52, 1.8648, 'Energy', 80, 2.066, 0.201, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, [1.8892], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['PowerPush', 30, 32, 1.0656, 90, 33, 36, 1.332, 'Energy', 70, 2.066, 0.734, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, [0.196, 0.022], ['Smashing_Dmg', "Energy_Dmg"], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['BlazingBolt', 22, 24, 0.7992, 450, 50, 52, 1.8648, 'Fire', 80, 0.999, -0.866, 'primary', ['blaster', 'corruptor', 'defender'], 12, [2.049], ['Fire_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['Blaze', 16, 16, 0.5328, 90, 30, 32, 1.1988, 'Fire', 80, 1.533, 0.334, 'primary', ['blaster', 'corruptor', 'defender'], 10, [1.5002], ['Fire_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['FreezeRay', 17, 20, 0.666, 90, 30, 32, 1.1988, 'Ice', 60, 1.666, 0.467, 'primary', ['blaster', 'corruptor', 'defender'], 10, ['tick', 0.2, 2, 0.2], ['Cold_Dmg'], [
-    "Blaster Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['BitterIceBlast', 17, 20, 0.666, 84, 32, 32, 1.1988, 'Ice', 80, 1.737, 0.539, 'primary', ['blaster', 'corruptor', 'defender'], 12, [1.6292], ['Cold_Dmg'], [
-    "Accurate To-Hit Debuff",
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Slow Movement",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ['IceBlast', 17, 20, 0.666, 60, 50, 52, 1.8648, 'Ice', 80, 2.166, 0.301, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, [1.8892], ['Cold_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ['BitterFreezeRay', 69, 72, 2.3976, 90, 75, 76, 2.664, 'Ice', 80, 3.398, 0.734, 'primary', ['blaster', 'corruptor', 'defender'], 15, [2.7501], ['Cold_Dmg'], [
-    "Blaster Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ['PsionicLance', 40, 40, 1.332, 105, 40, 40, 1.4652, 'Psy', 100, 2.189, 0.724, 'primary', ['blaster', 'corruptor', 'defender'], 12, [1.811], ['Psionic_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['TelekineticBlast', 15, 16, 0.5328, 120, 30, 32, 1.1988, 'Psy', 100, 1.283, 0.084, 'primary', ['blaster', 'corruptor', 'defender'], 10, [1.5002], ['Psionic_Dmg'], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['MentalBlast', 25, 28, 0.9324, 51, 50, 52, 1.8648, 'Psy', 100, 2.697, 0.832, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, [1.8892], ['Psionic_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['PsionicDart', 25, 28, 0.9324, 51, 30, 32, 1.1988, 'Psy', 100, 2.697, 1.498, 'primary', ['blaster', 'corruptor', 'defender'], 4.0, [1.2602], ['Psionic_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['WillDomination', 50, 52, 1.7316, 51, 33, 36, 1.332, 'Psy', 100, 3.496, 2.164, 'primary', ['blaster', 'corruptor', 'defender'], 20, [1.9703], ['Psionic_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Sleep",
-    "Universal Damage Sets"
-  ]],
-  ['XRayBeam', 32, 32, 1.0656, 999999999, 50, 52, 1.8648, 'RadBlast', 80, 1.066, -0.799, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, [1.8892], ['Energy_Dmg'], [
-    "Accurate Defense Debuff",
-    "Blaster Archetype Sets",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['NeutrinoBolt', 17, 20, 0.666, 105, 30, 32, 1.1988, 'RadBlast', 80, 1.523, 0.324, 'primary', ['blaster', 'corruptor', 'defender'], 4.0, [1.2602], ['Energy_Dmg'], [
-    "Accurate Defense Debuff",
-    "Blaster Archetype Sets",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Cosmic', 35, 36, 1.1988, 75, 62, 64, 2.2644, 'RadBlast', 80, 2.399, 0.134, 'primary', ['blaster', 'corruptor', 'defender'], 10, [2.2493], ['Energy_Dmg'], [
-    "Accurate Defense Debuff",
-    "Blaster Archetype Sets",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Stuns",
-    "Universal Damage Sets"
-  ]],
-  ['Proton', 25, 28, 0.9324, 60, 40, 40, 1.4652, 'RadBlast', 80, 2.432, 0.967, 'primary', ['blaster', 'corruptor', 'defender'], 12, ['tick', 0.4527, 1.6, 0.5], ['Energy_Dmg'], [
-    "Accurate Defense Debuff",
-    "Blaster Archetype Sets",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['Screech', 24, 24, 0.7992, 999999999, 45, 48, 1.7316, 'Sonic', 60, 0.799, -0.932, 'primary', ['blaster', 'corruptor', 'defender'], 20, [0.0813], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Stuns",
-    "Universal Damage Sets"
-  ]],
-  ['Shriek', 28, 28, 0.9324, 105, 30, 32, 1.1988, 'Sonic', 80, 1.790, 0.591, 'primary', ['blaster', 'corruptor', 'defender'], 3.0, [1.2202], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Scream', 25, 28, 0.9324, 84, 50, 52, 1.8648, 'Sonic', 80, 2.004, 0.139, 'primary', ['blaster', 'corruptor', 'defender'], 6.0, ['tick', 0.3618, 1.05, 0.25], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Shout', 45, 48, 1.5984, 84, 80, 80, 2.7972, 'Sonic', 80, 2.670, -0.127, 'primary', ['blaster', 'corruptor', 'defender'], 11, [2.7094], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['WaterJetNormal', 11, 12, 0.3996, 999999999, 43, 44, 1.5984, 'Water', 80, 0.400, -1.199, 'primary', ['blaster', 'corruptor', 'defender'], 10, [0.4503, 1.3509], ['Smashing_Dmg', "Cold_Dmg"], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ['WaterJetFast', 9, 12, 0.3996, 999999999, 30, 32, 1.1988, 'Water', 80, 0.400, -0.799, 'primary', ['blaster', 'corruptor', 'defender'], 10, [0.4503, 1.3509], ['Smashing_Dmg', "Cold_Dmg"], [
-    "Blaster Archetype Sets",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ['HydroBlast', 35, 36, 1.1988, 75, 50, 52, 1.8648, 'Water', 80, 2.399, 0.534, 'primary', ['blaster', 'corruptor', 'defender'], 7.0, [0.4623, 1.3869], ['Smashing_Dmg', "Cold_Dmg"], [
-    "Blaster Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ['Dehydrate', 16, 16, 0.5328, 999999999, 56, 56, 1.998, 'Water', 80, 0.533, -1.465, 'primary', ['blaster', 'corruptor', 'defender'], 8.0, [0.5073, 1.5219], ['Smashing_Dmg', "Cold_Dmg"], [
-    "Accurate Defense Debuff",
-    "Accurate Healing",
-    "Blaster Archetype Sets",
-    "Defense Debuff",
-    "Healing",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ['EchoChamber', 17, 20, 0.666, 60, 50, 52, 1.8648, 'SonicManip', 60, 2.166, 0.301, 'secondary', ['blaster'], 16 , [1.729], ['Energy_Dmg'], [
-    "Blaster Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['ChokingPowder', 23, 24, 0.7992, 51, 32, 32, 1.1988, 'Ninja', 60, 2.564, 1.365, 'secondary', ['blaster'], 16 , ['tick', 0.1348, 4.2, 1], ['Toxic_Dmg'],[
-    "Blaster Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['IceArrow', 25, 28, 0.9324, 210, 50, 52, 1.8648, 'TactArrow', 60, 1.361, -0.504, 'secondary', ['blaster'], 16 , [0], ['Smashing_Dmg'],[
-    "Blaster Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ["ElecNetArrow", 25, 28, 0.9324, 180, 30, 32, 1.1988, "TactArrow", 60, 1.432, 0.234, 'secondary', ['blaster'], 4.0 , ['tick', 0.252,9.2,2 ], ['Energy_Dmg'],[
-    "Blaster Archetype Sets",
-    "Immobilize",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ['Strangler', 16, 16, 0.5328, 999999999, 62, 64, 2.2644, 'Plant', 60, 0.533, -1.732, 'secondary', ['blaster'], 16 , ['tick', 0.4979, 4.2 ,1], ['Smashing_Dmg'],[
-    "Blaster Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["TimeWall", 13, 16, 0.5328, 999999999, 48, 48, 1.7316, "Temporal", 60, 0.533, -1.199, 'secondary', ['blaster'], 4.0 , [1.68], ['Energy_Dmg'],[
-    "Blaster Archetype Sets",
-    "Immobilize",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ["DarkGrasp", 30, 32, 1.0656, 999999999, 50, 52, 1.8648, "DarkControl", 80, 1.066, - 0.799, 'primary', ['controller', 'dom'], 8.0 , [1.8891], ['Negative_Energy_Dmg'],[
-    "Accurate To-Hit Debuff",
-    "Dominator Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ["Fossilize", 16, 16, 0.5328, 999999999, 62, 64, 2.2644, "EarthControl", 80, 0.533, -1.732, 'primary', ['controller', 'dom'], 8.0 , [2.1691], ['Smashing_Dmg'],[
-    "Dominator Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["TeslaCageEC", 29, 32, 1.0656, 999999999, 65, 68, 2.3976, "ElecControl", 80, 1.066, - 1.332, 'primary', ['controller', 'dom'], 8.0 , [2.2391], ['Smashing_Dmg'],[
-    "Dominator Archetype Sets",
-    "Endurance Modification",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['CharFC', 23, 24, 0.7992, 51, 32, 32, 1.1988, 'FireControl', 80, 2.564, 1.365, 'primary', ['controller', 'dom'], 8, ['tick', 0.2938, 4.2, 1], ['Fire_Dmg'],[
-    "Dominator Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["LiftDom", 22, 24, 0.7992, 999999999, 31, 32, 1.1988, "GravControl", 80, 0.799, -0.400, 'primary', ['dom'], 6.0 , [1.361], ['Smashing_Dmg'],[
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["Lift", 82, 84, 2.7972, 999999999, 31, 32, 1.1988, "GravControl", 80, 0.799, -0.400, 'primary', ['controller'], 6.0 , [1.361], ['Smashing_Dmg'],[
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["GravityDistortion", 37, 40, 1.332, 999999999, 55, 56, 1.998, "GravControl", 80, 1.332, -0.666, 'primary', ['controller', 'dom'], 8.0 , ['tick', 0.4002, 4.2 ,1], ['Smashing_Dmg'],[
-    "Dominator Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ["BlockOfIce", 21, 24, 0.7992, 999999999, 56, 56, 1.998, "IceControl", 80, 0.799, -1.199, 'primary', ['controller', 'dom'], 8.0 , [2.0291], ['Cold_Dmg'], [
-    "Dominator Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ["Blind", 20, 20, 0.666, 999999999, 50, 52, 1.8648, "IllControl", 80, 0.666, -1.199, 'primary', ['controller'], 9.0 , [1.9291], ['Psionic_Dmg'],[
-    "Controller Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Sleep",
-    "Universal Damage Sets"
-  ]],
-  ["Mesmerize", 20, 20, 0.666, 999999999, 50, 52, 1.8648, "MindControl", 100, 0.666, -1.199, 'primary', ['controller', 'dom'], 6.0 , [1.8091], ['Psionic_Dmg'],[
-    "Dominator Archetype Sets",
-    "Ranged Damage",
-    "Sleep",
-    "Universal Damage Sets"
-  ]],
-  ["Levitate", 20, 20, 0.666, 999999999, 56, 56, 1.998, "MindControl", 80, 0.666, -1.332, 'primary', ['controller', 'dom'], 6.0 , [1.9491], ['Smashing_Dmg'],[
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["DominateMC", 20, 20, 0.666, 999999999, 33, 36, 1.332, "MindControl", 80, 0.666, -0.666, 'primary', ['controller', 'dom'], 8.0 , [1.49], ['Psionic_Dmg'],[
-    "Dominator Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["StranglerPC", 16, 16, 0.5328, 999999999, 62, 64, 2.2644, "PlantControl", 80, 0.533, -1.732, 'primary', ['controller', 'dom'], 8.0 , ['tick', 0.4338, 4.2, 1], ['Smashing_Dmg'],[
-    "Dominator Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['LifeDrain', 25, 28, 0.9324, 999999999, 58, 60, 2.1312, 'DarkAssault', 60, 0.932, -1.199, 'secondary', ['dom'], 8.0 , [1.7701], ['Negative_Energy_Dmg'],[
-    "Accurate Healing",
-    "Accurate To-Hit Debuff",
-    "Healing",
-    "Ranged Damage",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ['Gloom', 25, 28, 0.9324, 90, 50, 52, 1.8648, 'DarkAssault', 80, 1.932, 0.068, 'secondary', ['dom'], 8.0 , ['tick', 0.1863, 3.6 ,0.5], ['Negative_Energy_Dmg'],[
-    "Accurate To-Hit Debuff",
-    "Ranged Damage",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ['Moon', 28, 28, 0.9324, 90, 40, 40, 1.4652, 'DarkAssault', 80, 1.932, 0.467, 'secondary', ['dom'], 20 , [2.131], ['Negative_Energy_Dmg'],[
-    "Accurate To-Hit Debuff",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ["Hurl Boulder", 50, 52, 1.7316, 54, 45, 48, 1.7316, "EarthAssault", 80, 3.398, 1.667, 'secondary', ['dom'], 12 , [1.9301], ['Smashing_Dmg'],[
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["Stone Spears", 20, 20, 0.666, 999999999, 30, 32, 1.1988, "EarthAssault", 80, 0.666, -0.533, 'secondary', ['dom'], 4.0 , [1.2601], ['Lethal_Dmg'],[
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Charged Bolts', 16, 16, 0.5328, 999999999, 30, 32, 1.1988, 'ElecAssault', 80, 0.533, -0.666, 'secondary', ['dom'], 4.0 , [1.26], ['Energy_Dmg'],[
-    "Endurance Modification",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Lightning Bolt', 26, 28, 0.9324, 999999999, 50, 52, 1.8648, 'ElecAssault', 80, 0.932, -0.932, 'secondary', ['dom'], 8.0 , [1.8891], ['Energy_Dmg'],[
-    "Endurance Modification",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Zapp', 28, 28, 0.9324, 999999999, 40, 40, 1.4652, 'ElecAssault', 80, 0.932, -0.533, 'secondary', ['dom'], 20 , [2.131], ['Energy_Dmg'],[
-    "Endurance Modification",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['Power Bolt', 25, 28, 0.9324, 90, 30, 32, 1.1988, 'EnergyAssault', 80, 1.932, 0.734, 'secondary', ['dom'], 4.0 , [0.504, 0.756], ['Smashing_Dmg', "Energy_Dmg"],[
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Power Blast', 30, 32, 1.0656, 90, 50, 52, 1.8648, 'EnergyAssault', 80, 2.066, 0.201, 'secondary', ['dom'], 10 , [0.4923, 1.4768], ['Smashing_Dmg', "Energy_Dmg"],[
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Sniper Blast', 28, 28, 0.9324, 210, 40, 40, 1.4652, 'EnergyAssault', 80, 1.361, -0.104, 'secondary', ['dom'], 20 , [0.6393, 1.4917], ['Smashing_Dmg', "Energy_Dmg"],[
-    "Knockback",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['Power Push', 30, 32, 1.0656, 90, 33, 36, 1.332, 'EnergyAssault', 70, 2.066, 0.734, 'secondary', ['dom'], 8.0 , [0.596, 0.894], ['Smashing_Dmg', 'Energy_Dmg'],[
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Blazing Bolt', 22, 24, 0.7992, 450, 50, 52, 1.8648, 'FireAssault', 80, 0.999, -0.866, 'secondary', ['dom'], 20 , [2.369], ['Fire_Dmg'],[
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['Blaze', 16, 16, 0.5328, 90, 30, 32, 1.1988, 'FireAssault', 80, 1.533, 0.334, 'secondary', ['dom'], 12 , [1.58], ['Fire_Dmg'],[
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Bitter Ice Blast', 17, 20, 0.666, 84, 32, 32, 1.1988, 'IceAssault', 80, 1.737, 0.539, 'secondary', ['dom'], 12 , [0.7005, 0.9286], ['Smashing_Dmg', "Cold_Dmg"],[
-    "Accurate To-Hit Debuff",
-    "Ranged Damage",
-    "Slow Movement",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ['Ice Blast', 17, 20, 0.666, 60, 50, 52, 1.8648, 'IceAssault', 80, 2.166, 0.301, 'secondary', ['dom'], 6.0 , [0.335, 1.005], ['Smashing_Dmg', "Cold_Dmg"],[
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ["Masterful Throw", 18, 20, 0.666, 80, 40, 40, 1.4652, "MartialAssault", 80, 1.791, 0.326, 'secondary', ['dom'], 20 , [2.131], ['Lethal_Dmg'],[
-    "Accurate To-Hit Debuff",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ["Trick Shot", 19, 20, 0.666, 45, 32, 32, 1.1988, "MartialAssault", 70, 2.666, 1.467, 'secondary', ['dom'], 10 , [1.4], ['Lethal_Dmg'],[
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["Shuriken Throw", 10, 12, 0.3996, 45, 30, 32, 1.1988, "MartialAssault", 80, 2.400, 1.201, 'secondary', ['dom'], 4.0 , [1.26], ['Lethal_Dmg'],[
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Subdue', 20, 20, 0.666, 51, 50, 52, 1.8648, 'PsyAssault', 100, 2.431, 0.566, 'secondary', ['dom'], 8.0 , [1.9076], ['Psionic_Dmg'],[
-    "Dominator Archetype Sets",
-    "Immobilize",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Mental Blast', 25, 28, 0.9324, 51, 50, 52, 1.8648, 'PsyAssault', 100, 2.697, 0.832, 'secondary', ['dom'], 8.0 , [1.8891], ['Psionic_Dmg'],[
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Psionic Lance', 40, 40, 1.332, 105, 40, 40, 1.4652, 'PsyAssault', 100, 2.189, 0.724, 'secondary', ['dom'], 20 , [2.131], ['Psionic_Dmg'],[
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['Psionic Dart', 25, 28, 0.9324, 51, 30, 32, 1.1988, 'PsyAssault', 100, 2.697, 1.498, 'secondary', ['dom'], 3.0 , [1.101], ['Psionic_Dmg'],[
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['XRay Beam', 32, 32, 1.0656, 999999999, 50, 52, 1.8648, 'RadAssault', 80, 1.066, -0.799, 'secondary', ['dom'], 11 , [2.0116], ['Energy_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Proton Volley', 25, 28, 0.9324, 60, 40, 40, 1.4652, 'RadAssault', 80, 2.432, 0.967, 'secondary', ['dom'], 20 , ['tick', 0.5327, 1.6, 0.5], ['Energy_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Sniper Attacks",
-    "Universal Damage Sets"
-  ]],
-  ['Neutrino Bolt', 17, 20, 0.666, 105, 30, 32, 1.1988, 'RadAssault', 80, 1.523, 0.324, 'secondary', ['dom'], 4.0 , [1.2572], ['Energy_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["CallHawk", 20, 20, 0.666, 60, 50, 52, 1.8648, "SavageAssault", 80, 2.166, 0.301, 'secondary', ['dom'], 14 , ['tick', 0.4683, 1.3, 0.3], ['Lethal_Dmg'],[
-    "Accurate To-Hit Debuff",
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["CallSwarm", 22, 24, 0.7992, 60, 30, 32, 1.1988, "SavageAssault", 80, 2.299, 1.100, 'secondary', ['dom'], 4.0 , ['tick', 0.2522, 3.1, 0.75], ['Lethal_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ["Impale", 43, 44, 1.4652, 114, 43, 44, 1.5984, "ThornyAssault", 80, 2.255, 0.656, 'secondary', ['dom'], 10 , [1.4748], ['Lethal_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff",
-    "Dominator Archetype Sets",
-    "Immobilize",
-    "Ranged Damage",
-    "Slow Movement",
-    "Universal Damage Sets"
-  ]],
-  ["ThornyDarts", 15, 16, 0.5328, 114, 40, 40, 1.4652, "ThornyAssault", 80, 1.322, -0.143, 'secondary', ['dom'], 4.0 , [1.7733], ['Lethal_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["SoulStorm", 45, 48, 1.5984, 52.5, 65, 68, 2.3976, "Soul", 80, 3.313, 0.915, 'epic', ['blaster', 'defender', 'corruptor'], 32 , ['tick', 0.2908, 10, 1], ['Negative_Energy_Dmg'],[
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Char', 23, 24, 0.7992, 51, 32, 32, 1.1988, 'Fire Mastery', 80, 2.564, 1.365, 'epic', ['blaster', 'corruptor', 'defender'], 16 , ['tick', 0.2982, 4.2, 1], ['Fire_Dmg'],[
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["ElecShackles", 29, 32, 1.0656, 999999999, 65, 68, 2.3976, "Mu", 60, 1.066, -1.332, 'epic', ['blaster', 'defender', 'corruptor'], 32 , ['tick', 0.3999, 6.3, 1], ['Energy_Dmg'],[
-    "Endurance Modification",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['ShockingBolt', 26, 28, 0.9324, 999999999, 60, 60, 2.1312, 'Elec Mastery', 80, 0.932, -1.199, 'epic', ['blaster'], 16 , ['tick', 0.4067, 4.2, 1], ['Energy_Dmg'],[
-    "Endurance Modification",
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Surveillance', 25, 28, 0.9324, 999999999, 45, 48, 1.7316, 'Munitions', 80, 0.932, -0.799, 'epic', ['blaster'], 45 , [0], ['Energy_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff"
-  ]],
-  ['SpiritSharkJaws', 21, 24, 0.7992, 999999999, 56, 56, 1.998, 'Leviathan', 80, 0.799, -1.199, 'epic', ['blaster', 'defender', 'corruptor'], 32 , [0.5978, 'tick', 0.2657, 7.1,1], ['Lethal_Dmg'],[
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Dominate', 20, 20, 0.666, 999999999, 33, 36, 1.332, 'Psy Mastery', 80, 0.666, -0.666, 'epic', ['corruptor', 'defender'], 16 , [1.81], ['Psionic_Dmg'],[
-    "Holds",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Poisonous Ray', 41, 44, 1.4652, 66, 60, 60, 2.1312, 'Mace', 80, 2.829, 0.698, 'epic', ['controller', 'dom'], 24 , [1.38, 'tick', 0.1255, 9.3,1], ['Energy_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ["ParalyticPoison", 31, 32, 1.0656, 66, 60, 60, 2.1312, "Poison", 70, 2.429, 0.298, 'secondary', ['defender', 'corruptor', 'controller'], 16 , [0], ['Energy_Dmg'],[
-    "Holds"
-  ]],
-  ["Weaken", 25, 28, 0.9324, 66, 62, 64, 2.2644, "Poison", 70, 2.296, 0.032, 'secondary', ['defender', 'corruptor', 'controller'], 16 , [0], ['Energy_Dmg'],[
-    "Accurate To-Hit Debuff",
-    "To Hit Debuff"
-  ]],
-  ["EF", 45, 48, 1.5984, 999999999, 45, 48, 1.7316, "RadEmission", 70, 1.598, - 0.133, 'secondary', ['defender', 'corruptor', 'controller'], 8.0 , [0], ['Energy_Dmg'],[]],
-  ["Corrosive", 19, 20, 0.666, 90, 30, 32, 1.1988, "Nature", 80, 1.666, 0.467, 'secondary', ['defender', 'corruptor', 'controller'], 16, [0], ['Energy_Dmg'],[]],
-  ["Envenom", 25, 28, 0.9324, 66, 40, 40, 1.4652, "Poison", 70, 2.296, 0.831, 'secondary', ['defender', 'corruptor', 'controller'], 12 , [0], ['Energy_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff"
-  ]],
-  ['Infrigidate', 18, 20, 0.666, 39, 30, 32, 1.1988, 'Cold', 80, 2.974, 1.775, 'secondary', ['controller', 'corruptor', 'defender'], 15 , [0], ['Energy_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff",
-    "Slow Movement"
-  ]],
-  ['Heat Loss', 29, 32, 1.0656, 999999999, 65, 68, 2.3976, "Cold", 70, 1.066, -1.332, 'secondary', ['controller', 'corruptor', 'defender'], 360 , [0], ['Energy_Dmg'],[
-    "Endurance Modification",
-    "Slow Movement"
-  ]],
-  ['Petrifying Gaze', 30, 32, 1.0656, 45, 50, 52, 1.8648, "DarkMiasma", 70, 3.066, 1.201, 'secondary', ['controller', 'corruptor', 'defender'], 16 , [0], ['Energy_Dmg'],[
-    "Holds"
-  ]],
-  ['Shock', 26, 28, 0.9324, 999999999, 60, 60, 2.1312, "ElecAffinity", 80, 0.932, -1.199, 'secondary', ['controller', 'corruptor', 'defender'], 12 , [0], ['Energy_Dmg'],[
-    "Endurance Modification"
-  ]],
-  ['Insulating Circuit', 22, 24, 0.7992, 999999999, 30, 32, 1.1988, "ElecAffinity", 80, 0.799, -0.400, 'secondary', ['controller', 'corruptor', 'defender'], 20 , [0], ['Energy_Dmg'],[
-    "Healing"
-  ]],
-  ['Rejuvenating Circuit', 23, 24, 0.7992, 999999999, 35, 36, 1.332, "ElecAffinity", 80, 0.799, -0.533, 'secondary', ['controller', 'corruptor', 'defender'], 8.0 , [0], ['Energy_Dmg'],[
-    "Healing"
-  ]],
-  ['Healing Aura', 23, 24, 0.7992, 999999999, 61, 64, 2.2644, "Empathy", 0, 0.799, -1.465, 'secondary', ['controller', 'corruptor', 'defender'], 8.0 , [0], ['Energy_Dmg'],[
-    "Healing"
-  ]],
-  ['Heal Other', 25, 28, 0.9324, 999999999, 68, 68, 2.3976, "Empathy", 80, 0.932, -1.465, 'secondary', ['controller', 'corruptor', 'defender'], 4.0 , [0], ['Energy_Dmg'],[
-    "Healing"
-  ]],
-  ['Absorb Pain', 43, 44, 1.4652, 999999999, 68, 68, 2.3976, "Empathy", 80, 1.465, -0.932, 'secondary', ['controller', 'corruptor', 'defender'], 15 , [0], ['Energy_Dmg'],[
-    "Healing"
-  ]],
-  ['Clear Mind', 15, 16, 0.5328, 999999999, 30, 32, 1.1988, "Empathy", 70, 0.533, -0.666, 'secondary', ['controller', 'corruptor', 'defender'], 4.0 , [0], ['Energy_Dmg'],[]],
-  ['Fortitude', 25, 28, 0.9324, 999999999, 68, 68, 2.3976, "Empathy", 80, 0.932, -1.465, 'secondary', ['controller', 'corruptor', 'defender'], 60 , [0], ['Energy_Dmg'],[
-    "Defense Sets",
-    "To Hit Buff"
-  ]],
-  ['Force Bolt', 20, 20, 0.666, 120, 33, 36, 1.332, "ForceField", 80, 1.416, 0.084, 'secondary', ['controller', 'corruptor', 'defender'], 4.0 , [0.2], ['Smashing_Dmg'],[
-    "Defender Archetype Sets",
-    "Knockback",
-    "Ranged Damage",
-    "Universal Damage Sets"
-  ]],
-  ['Dark Grasp Slow', 30, 32, 1.0656, 45, 50, 52, 1.8648, "DarkControl", 80, 3.066, 1.201, 'primary', ['controller', 'dom'], 8.0 , [1.8891], ['Negative_Energy_Dmg'],[
-    "Accurate To-Hit Debuff",
-    "Dominator Archetype Sets",
-    "Holds",
-    "Ranged Damage",
-    "To Hit Debuff",
-    "Universal Damage Sets"
-  ]],
-  ['Soothe', 25, 28, 0.9324, 999999999, 68, 68, 2.3976, "Pain", 80, 0.932, -1.465, 'secondary', ['controller', 'corruptor', 'defender'], 4.0 , [0], ['Energy_Dmg'],[
-    "Healing"
-  ]],
-  ['Share Pain', 35, 36, 1.1988, 999999999, 68, 68, 2.3976, "Pain", 80, 1.199, -1.199, 'secondary', ['controller', 'corruptor', 'defender'], 15 , [0], ['Energy_Dmg'],[
-    "Healing"
-  ]],
-  ['Enforced Morale', 15, 16, 0.5328, 999999999, 30, 32, 1.1988, "Pain", 70, 0.533, -0.666, 'secondary', ['controller', 'corruptor', 'defender'], 4.0 , [0], ['Energy_Dmg'],[]],
-  ['Sonic Siphon', 35, 36, 1.1988, 90, 65, 68, 2.3976, "SonicRes", 80, 2.199, -0.199, 'secondary', ['controller', 'corruptor', 'defender'], 16 , [0], ['Energy_Dmg'],[]],
-  ['Sonic Cage', 17, 20, 0.666, 60, 50, 52, 1.8648, "SonicRes", 80, 2.166, 0.301, 'secondary', ['controller', 'corruptor', 'defender'], 60 , [0], ['Energy_Dmg'],[]],
-  ['Clarity', 30, 32, 1.0656, 999999999, 45, 48, 1.7316, "SonicRes", 70, 1.066, -0.666, 'secondary', ['controller', 'corruptor', 'defender'], 4.0, [0], ['Energy_Dmg'],[]],
-  ['Gale', 59, 60, 1.998, 999999999, 65, 68, 2.3976, "Storm", 50, 1.998, -0.400, 'secondary', ['controller', 'corruptor', 'defender'], 8.0 , [0.1], ['Smashing_Dmg'],[
-    "Defender Archetype Sets",
-    "Knockback",
-    "Ranged AoE Damage",
-    "Universal Damage Sets"
-  ]],
-  ['O2 Boost', 25, 28, 0.9324, 999999999, 68, 68, 2.3976, "Storm", 80, 0.932, -1.465, 'secondary', ['controller', 'corruptor', 'defender'], 4.0 , [0], ['Energy_Dmg'],[
-    "Healing"
-  ]],
-  ['Melt Armor', 25, 28, 0.9324, 999999999, 45, 48, 1.7316, "Thermal", 70, 0.932, -0.799, 'secondary', ['controller', 'corruptor', 'defender'], 150 , [0], ['Energy_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff"
-  ]],
-  ['Forge', 25, 28, 0.9324, 999999999, 68, 68, 2.3976, "Thermal", 80, 0.932, -1.465, 'secondary', ['controller', 'corruptor', 'defender'], 60 , [0], ['Energy_Dmg'],[
-    "To Hit Buff"
-  ]],
-  ['Cauterize', 25, 28, 0.9324, 999999999, 68, 68, 2.3976, "Thermal", 80, 0.932, -1.465, 'secondary', ['controller', 'corruptor', 'defender'], 4.0 , [0], ['Energy_Dmg'],[
-    "Healing"
-  ]],
-  ['Thaw', 29, 32, 1.0656, 999999999, 65, 68, 2.3976, "Thermal", 70, 1.066, -1.332, 'secondary', ['controller', 'corruptor', 'defender'], 4.0 , [0], ['Energy_Dmg'],[
-    "Resist Damage"
-  ]],
-  ['Time Crawl', 13, 16, 0.5328, 999999999, 48, 48, 1.7316, "Time", 80, 0.533, -1.199, 'secondary', ['controller', 'corruptor', 'defender'], 15 , [0], ['Energy_Dmg'],[
-    "Slow Movement"
-  ]],
-  ['Time Stop', 29, 32, 1.0656, 999999999, 65, 68, 2.3976, "Time", 70, 1.066, -1.332, 'secondary', ['controller', 'corruptor', 'defender'], 16 ,[0], ['Energy_Dmg'],[
-    "Holds"
-  ]],
-  ['Slowed Response', 25, 28, 0.9324, 999999999, 68, 68, 2.3976, "Time", 80, 0.932, -1.465, 'secondary', ['controller', 'corruptor', 'defender'], 90 , [0], ['Energy_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defense Debuff"
-  ]],
-  ['Web Grenade', 37, 40, 1.332, 90, 41, 44, 1.5984, "Traps", 70, 2.332, 0.734, 'secondary', ['controller', 'corruptor', 'defender'], 4.0 , [0], ['Energy_Dmg'],[
-    "Immobilize"
-  ]],
-  ['Entangling Arrow', 25, 28, 0.9324, 180, 30, 32, 1.1988, "TrickArrow", 80, 1.432, 0.234, 'secondary', ['controller', 'corruptor', 'defender'], 4.0 , [0], ['Energy_Dmg'],[
-    "Immobilize",
-    "Slow Movement"
-  ]],
-  ['Ice Arrow TA', 25, 28, 0.9324, 210, 50, 52, 1.8648, "TrickArrow", 80, 1.361, -0.504, 'secondary', ['controller', 'corruptor', 'defender'], 18 , [0], ['Energy_Dmg'],[
-    "Holds",
-    "Slow Movement"
-  ]],
-  ['Acid Arrow', 48, 48, 1.5984, 210, 55, 56, 1.998, "TrickArrow", 80, 2.027, 0.029, 'secondary', ['controller', 'corruptor', 'defender'], 20 , ['tick', 0.01, 20, 1], ['Toxic_Dmg'],[
-    "Accurate Defense Debuff",
-    "Defender Archetype Sets",
-    "Defense Debuff",
-    "Ranged AoE Damage",
-    "Universal Damage Sets"
-  ]],
-]
+{ "name": "Burst", "effect": 8, "roundEffect": 8, "effectSeconds": 0.2664, "speed": 999999999, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "AssaultRiffle", "baseRange": 90, "hitTime": 0.266, "rfu": -0.932, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 4, "damage": [0.4159], "damageType": ["Lethal_Dmg"], "enhancements": ["Accurate Defense Debuff", "Blaster Archetype Sets", "Defense Debuff", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Slug", "effect": 32, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "AssaultRiffle", "baseRange": 100, "hitTime": 1.066, "rfu": -0.799, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": [1.8892], "damageType": ["Lethal_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "SniperRifle", "effect": 50, "roundEffect": 52, "effectSeconds": 1.7316, "speed": 999999999, "castFrames": 45, "roundFrames": 48, "castTime": 1.7316, "powerset": "AssaultRiffle", "baseRange": 80, "hitTime": 1.732, "rfu": 0, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 12, "damage": [1.93], "damageType": ["Lethal_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "SnapShot", "effect": 22, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 300, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Archery", "baseRange": 80, "hitTime": 1.099, "rfu": -0.1, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 2, "damage": [1.1802], "damageType": ["Lethal_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "AimedShot", "effect": 24, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 300, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Archery", "baseRange": 80, "hitTime": 1.099, "rfu": -0.766, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 6, "damage": [1.8092], "damageType": ["Lethal_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "RangedShot", "effect": 24, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 300, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Archery", "baseRange": 80, "hitTime": 1.099, "rfu": -0.766, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 12, "damage": [2.049], "damageType": ["Lethal_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "BlazingArrow", "effect": 48, "roundEffect": 48, "effectSeconds": 1.5984, "speed": 300, "castFrames": 55, "roundFrames": 56, "castTime": 1.998, "powerset": "Archery", "baseRange": 80, "hitTime": 1.898, "rfu": -0.1, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": [2.0813], "damageType": ["Lethal_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Disintegrate", "effect": 29, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 57, "roundFrames": 60, "castTime": 2.1312, "powerset": "Beam", "baseRange": 80, "hitTime": 1.066, "rfu": -1.066, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": [0.2343] },
+{ "name": "Lancer", "effect": 23, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 999999999, "castFrames": 57, "roundFrames": 60, "castTime": 2.1312, "powerset": "Beam", "baseRange": 80, "hitTime": 0.799, "rfu": -1.332, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 11, "damage": [2.1703, 0.4341], "damageType": ["Energy_Dmg", "Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Stuns", "Universal Damage Sets"] },
+{ "name": "SingleShot", "effect": 13, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 105, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Beam", "baseRange": 80, "hitTime": 1.39, "rfu": 0.191, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 4, "damage": [1.2602], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "ChargedShot", "effect": 29, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 155, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Beam", "baseRange": 80, "hitTime": 1.646, "rfu": -0.219, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": [1.8892, 0.2834], "damageType": ["Energy_Dmg", "Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "PRay", "effect": 29, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 60, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Beam", "baseRange": 80, "hitTime": 2.566, "rfu": 0.701, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 12, "damage": [2.049, 0.33], "damageType": ["Energy_Dmg", "Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "LifeDrain", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 58, "roundFrames": 60, "castTime": 2.1312, "powerset": "Dark", "baseRange": 60, "hitTime": 0.932, "rfu": -1.199, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": [2.0713], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Accurate Healing", "Accurate To-Hit Debuff", "Blaster Archetype Sets", "Healing", "Ranged Damage", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "AbysallHitScan", "effect": 30, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Dark", "baseRange": 70, "hitTime": 1.066, "rfu": -0.799, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 20, "damage": ["tick", 0.7898, 2.1, 1], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Blaster Archetype Sets", "Holds", "Ranged Damage", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "Gloom", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 90, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Dark", "baseRange": 80, "hitTime": 1.932, "rfu": 0.068, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": ["tick", 0.2362, 3.6, 0.5], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Blaster Archetype Sets", "Ranged Damage", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "Moon", "effect": 28, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 90, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "Dark", "baseRange": 80, "hitTime": 1.932, "rfu": 0.467, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 12, "damage": [1.811], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Blaster Archetype Sets", "Ranged Damage", "Sniper Attacks", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "AbysallGaze", "effect": 30, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 45, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Dark", "baseRange": 70, "hitTime": 3.066, "rfu": 1.201, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 20, "damage": ["tick", 0.7898, 2.1, 1], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Blaster Archetype Sets", "Holds", "Ranged Damage", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "Pistols", "effect": 9, "roundEffect": 12, "effectSeconds": 0.3996, "speed": 150, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "DP", "baseRange": 80, "hitTime": 1, "rfu": -0.199, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 4, "damage": [0.8821, 0.378], "damageType": ["Lethal_Dmg", "Fire_Dmg"], "enhancements": ["Accurate Defense Debuff", "Blaster Archetype Sets", "Defense Debuff", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "DualWield", "effect": 20, "roundEffect": 20, "effectSeconds": 0.666, "speed": 150, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "DP", "baseRange": 80, "hitTime": 1.266, "rfu": -0.599, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 6, "damage": [1.2665, 0.5428], "damageType": ["Lethal_Dmg", "Fire_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "PiercingRounds", "effect": 50, "roundEffect": 52, "effectSeconds": 1.7316, "speed": 999999999, "castFrames": 75, "roundFrames": 76, "castTime": 2.664, "powerset": "DP", "baseRange": 80, "hitTime": 1.732, "rfu": -0.932, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 15, "damage": [1.6044, 0.6876], "damageType": ["Lethal_Dmg", "Fire_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged AoE Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "ExecutionersShot", "effect": 39, "roundEffect": 40, "effectSeconds": 1.332, "speed": 150, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "DP", "baseRange": 80, "hitTime": 1.932, "rfu": 0.067, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": [1.3785, 0.5908], "damageType": ["Lethal_Dmg", "Fire_Dmg"], "enhancements": ["Accurate Defense Debuff", "Blaster Archetype Sets", "Defense Debuff", "Knockback", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "ChargedBolts", "effect": 16, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 999999999, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Elec", "baseRange": 80, "hitTime": 0.533, "rfu": -0.666, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 4, "damage": [1.2602], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Endurance Modification", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "LightningBolt", "effect": 26, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Elec", "baseRange": 80, "hitTime": 0.932, "rfu": -0.932, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": [1.8892], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Endurance Modification", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Zapp", "effect": 28, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "Elec", "baseRange": 80, "hitTime": 0.932, "rfu": -0.533, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 12, "damage": [1.811], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Endurance Modification", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "TeslaCage", "effect": 29, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 65, "roundFrames": 68, "castTime": 2.3976, "powerset": "Elec", "baseRange": 60, "hitTime": 1.066, "rfu": -1.332, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": [0.122], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Endurance Modification", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "SniperBlast", "effect": 28, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 210, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "Energy", "baseRange": 80, "hitTime": 1.361, "rfu": -0.104, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 12, "damage": [0.5433, 1.2677], "damageType": ["Smashing_Dmg", "Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "PowerBolt", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 90, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Energy", "baseRange": 80, "hitTime": 1.932, "rfu": 0.734, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 4, "damage": [1.2602], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "PowerBurst", "effect": 33, "roundEffect": 36, "effectSeconds": 1.1988, "speed": 90, "castFrames": 60, "roundFrames": 60, "castTime": 2.1312, "powerset": "Energy", "baseRange": 80, "hitTime": 2.199, "rfu": 0.068, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": [2.2003], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "PowerBlast", "effect": 30, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 90, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Energy", "baseRange": 80, "hitTime": 2.066, "rfu": 0.201, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": [1.8892], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "PowerPush", "effect": 30, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 90, "castFrames": 33, "roundFrames": 36, "castTime": 1.332, "powerset": "Energy", "baseRange": 70, "hitTime": 2.066, "rfu": 0.734, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": [0.196, 0.022], "damageType": ["Smashing_Dmg", "Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "BlazingBolt", "effect": 22, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 450, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Fire", "baseRange": 80, "hitTime": 0.999, "rfu": -0.866, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 12, "damage": [2.049], "damageType": ["Fire_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "Blaze", "effect": 16, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 90, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Fire", "baseRange": 80, "hitTime": 1.533, "rfu": 0.334, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": [1.5002], "damageType": ["Fire_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "FreezeRay", "effect": 17, "roundEffect": 20, "effectSeconds": 0.666, "speed": 90, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Ice", "baseRange": 60, "hitTime": 1.666, "rfu": 0.467, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": ["tick", 0.2, 2, 0.2], "damageType": ["Cold_Dmg"], "enhancements": ["Blaster Archetype Sets", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "BitterIceBlast", "effect": 17, "roundEffect": 20, "effectSeconds": 0.666, "speed": 84, "castFrames": 32, "roundFrames": 32, "castTime": 1.1988, "powerset": "Ice", "baseRange": 80, "hitTime": 1.737, "rfu": 0.539, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 12, "damage": [1.6292], "damageType": ["Cold_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Blaster Archetype Sets", "Ranged Damage", "Slow Movement", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "IceBlast", "effect": 17, "roundEffect": 20, "effectSeconds": 0.666, "speed": 60, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Ice", "baseRange": 80, "hitTime": 2.166, "rfu": 0.301, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": [1.8892], "damageType": ["Cold_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "BitterFreezeRay", "effect": 69, "roundEffect": 72, "effectSeconds": 2.3976, "speed": 90, "castFrames": 75, "roundFrames": 76, "castTime": 2.664, "powerset": "Ice", "baseRange": 80, "hitTime": 3.398, "rfu": 0.734, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 15, "damage": [2.7501], "damageType": ["Cold_Dmg"], "enhancements": ["Blaster Archetype Sets", "Holds", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "PsionicLance", "effect": 40, "roundEffect": 40, "effectSeconds": 1.332, "speed": 105, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "Psy", "baseRange": 100, "hitTime": 2.189, "rfu": 0.724, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 12, "damage": [1.811], "damageType": ["Psionic_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "TelekineticBlast", "effect": 15, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 120, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Psy", "baseRange": 100, "hitTime": 1.283, "rfu": 0.084, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": [1.5002], "damageType": ["Psionic_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "MentalBlast", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 51, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Psy", "baseRange": 100, "hitTime": 2.697, "rfu": 0.832, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": [1.8892], "damageType": ["Psionic_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "PsionicDart", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 51, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Psy", "baseRange": 100, "hitTime": 2.697, "rfu": 1.498, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 4, "damage": [1.2602], "damageType": ["Psionic_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "WillDomination", "effect": 50, "roundEffect": 52, "effectSeconds": 1.7316, "speed": 51, "castFrames": 33, "roundFrames": 36, "castTime": 1.332, "powerset": "Psy", "baseRange": 100, "hitTime": 3.496, "rfu": 2.164, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 20, "damage": [1.9703], "damageType": ["Psionic_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Sleep", "Universal Damage Sets"] },
+{ "name": "XRayBeam", "effect": 32, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "RadBlast", "baseRange": 80, "hitTime": 1.066, "rfu": -0.799, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": [1.8892], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Blaster Archetype Sets", "Defense Debuff", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "NeutrinoBolt", "effect": 17, "roundEffect": 20, "effectSeconds": 0.666, "speed": 105, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "RadBlast", "baseRange": 80, "hitTime": 1.523, "rfu": 0.324, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 4, "damage": [1.2602], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Blaster Archetype Sets", "Defense Debuff", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Cosmic", "effect": 35, "roundEffect": 36, "effectSeconds": 1.1988, "speed": 75, "castFrames": 62, "roundFrames": 64, "castTime": 2.2644, "powerset": "RadBlast", "baseRange": 80, "hitTime": 2.399, "rfu": 0.134, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": [2.2493], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Blaster Archetype Sets", "Defense Debuff", "Ranged Damage", "Stuns", "Universal Damage Sets"] },
+{ "name": "Proton", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 60, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "RadBlast", "baseRange": 80, "hitTime": 2.432, "rfu": 0.967, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 12, "damage": ["tick", 0.4527, 1.6, 0.5], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Blaster Archetype Sets", "Defense Debuff", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "Screech", "effect": 24, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 999999999, "castFrames": 45, "roundFrames": 48, "castTime": 1.7316, "powerset": "Sonic", "baseRange": 60, "hitTime": 0.799, "rfu": -0.932, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 20, "damage": [0.0813], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Stuns", "Universal Damage Sets"] },
+{ "name": "Shriek", "effect": 28, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 105, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Sonic", "baseRange": 80, "hitTime": 1.79, "rfu": 0.591, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 3, "damage": [1.2202], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Scream", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 84, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Sonic", "baseRange": 80, "hitTime": 2.004, "rfu": 0.139, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 6, "damage": ["tick", 0.3618, 1.05, 0.25], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Shout", "effect": 45, "roundEffect": 48, "effectSeconds": 1.5984, "speed": 84, "castFrames": 80, "roundFrames": 80, "castTime": 2.7972, "powerset": "Sonic", "baseRange": 80, "hitTime": 2.67, "rfu": -0.127, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 11, "damage": [2.7094], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "WaterJetNormal", "effect": 11, "roundEffect": 12, "effectSeconds": 0.3996, "speed": 999999999, "castFrames": 43, "roundFrames": 44, "castTime": 1.5984, "powerset": "Water", "baseRange": 80, "hitTime": 0.4, "rfu": -1.199, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": [0.4503, 1.3509], "damageType": ["Smashing_Dmg", "Cold_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "WaterJetFast", "effect": 9, "roundEffect": 12, "effectSeconds": 0.3996, "speed": 999999999, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Water", "baseRange": 80, "hitTime": 0.4, "rfu": -0.799, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 10, "damage": [0.4503, 1.3509], "damageType": ["Smashing_Dmg", "Cold_Dmg"], "enhancements": ["Blaster Archetype Sets", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "HydroBlast", "effect": 35, "roundEffect": 36, "effectSeconds": 1.1988, "speed": 75, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "Water", "baseRange": 80, "hitTime": 2.399, "rfu": 0.534, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 7, "damage": [0.4623, 1.3869], "damageType": ["Smashing_Dmg", "Cold_Dmg"], "enhancements": ["Blaster Archetype Sets", "Knockback", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "Dehydrate", "effect": 16, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 999999999, "castFrames": 56, "roundFrames": 56, "castTime": 1.998, "powerset": "Water", "baseRange": 80, "hitTime": 0.533, "rfu": -1.465, "type": "primary", "archtype": ["blaster", "corruptor", "defender"], "recharge": 8, "damage": [0.5073, 1.5219], "damageType": ["Smashing_Dmg", "Cold_Dmg"], "enhancements": ["Accurate Defense Debuff", "Accurate Healing", "Blaster Archetype Sets", "Defense Debuff", "Healing", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "EchoChamber", "effect": 17, "roundEffect": 20, "effectSeconds": 0.666, "speed": 60, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "SonicManip", "baseRange": 60, "hitTime": 2.166, "rfu": 0.301, "type": "secondary", "archtype": ["blaster"], "recharge": 16, "damage": [1.729], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "ChokingPowder", "effect": 23, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 51, "castFrames": 32, "roundFrames": 32, "castTime": 1.1988, "powerset": "Ninja", "baseRange": 60, "hitTime": 2.564, "rfu": 1.365, "type": "secondary", "archtype": ["blaster"], "recharge": 16, "damage": ["tick", 0.1348, 4.2, 1], "damageType": ["Toxic_Dmg"], "enhancements": ["Blaster Archetype Sets", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "IceArrow", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 210, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "TactArrow", "baseRange": 60, "hitTime": 1.361, "rfu": -0.504, "type": "secondary", "archtype": ["blaster"], "recharge": 16, "damage": [0], "damageType": ["Smashing_Dmg"], "enhancements": ["Blaster Archetype Sets", "Holds", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "ElecNetArrow", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 180, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "TactArrow", "baseRange": 60, "hitTime": 1.432, "rfu": 0.234, "type": "secondary", "archtype": ["blaster"], "recharge": 4, "damage": ["tick", 0.252, 9.2, 2], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Immobilize", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "Strangler", "effect": 16, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 999999999, "castFrames": 62, "roundFrames": 64, "castTime": 2.2644, "powerset": "Plant", "baseRange": 60, "hitTime": 0.533, "rfu": -1.732, "type": "secondary", "archtype": ["blaster"], "recharge": 16, "damage": ["tick", 0.4979, 4.2, 1], "damageType": ["Smashing_Dmg"], "enhancements": ["Blaster Archetype Sets", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "TimeWall", "effect": 13, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 999999999, "castFrames": 48, "roundFrames": 48, "castTime": 1.7316, "powerset": "Temporal", "baseRange": 60, "hitTime": 0.533, "rfu": -1.199, "type": "secondary", "archtype": ["blaster"], "recharge": 4, "damage": [1.68], "damageType": ["Energy_Dmg"], "enhancements": ["Blaster Archetype Sets", "Immobilize", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "DarkGrasp", "effect": 30, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "DarkControl", "baseRange": 80, "hitTime": 1.066, "rfu": -0.799, "type": "primary", "archtype": ["controller", "dom"], "recharge": 8, "damage": [1.8891], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Dominator Archetype Sets", "Holds", "Ranged Damage", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "Fossilize", "effect": 16, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 999999999, "castFrames": 62, "roundFrames": 64, "castTime": 2.2644, "powerset": "EarthControl", "baseRange": 80, "hitTime": 0.533, "rfu": -1.732, "type": "primary", "archtype": ["controller", "dom"], "recharge": 8, "damage": [2.1691], "damageType": ["Smashing_Dmg"], "enhancements": ["Dominator Archetype Sets", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "TeslaCageEC", "effect": 29, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 65, "roundFrames": 68, "castTime": 2.3976, "powerset": "ElecControl", "baseRange": 80, "hitTime": 1.066, "rfu": -1.332, "type": "primary", "archtype": ["controller", "dom"], "recharge": 8, "damage": [2.2391], "damageType": ["Smashing_Dmg"], "enhancements": ["Dominator Archetype Sets", "Endurance Modification", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "CharFC", "effect": 23, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 51, "castFrames": 32, "roundFrames": 32, "castTime": 1.1988, "powerset": "FireControl", "baseRange": 80, "hitTime": 2.564, "rfu": 1.365, "type": "primary", "archtype": ["controller", "dom"], "recharge": 8, "damage": ["tick", 0.2938, 4.2, 1], "damageType": ["Fire_Dmg"], "enhancements": ["Dominator Archetype Sets", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "LiftDom", "effect": 22, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 999999999, "castFrames": 31, "roundFrames": 32, "castTime": 1.1988, "powerset": "GravControl", "baseRange": 80, "hitTime": 0.799, "rfu": -0.4, "type": "primary", "archtype": ["dom"], "recharge": 6, "damage": [1.361], "damageType": ["Smashing_Dmg"], "enhancements": ["Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Lift", "effect": 82, "roundEffect": 84, "effectSeconds": 2.7972, "speed": 999999999, "castFrames": 31, "roundFrames": 32, "castTime": 1.1988, "powerset": "GravControl", "baseRange": 80, "hitTime": 0.799, "rfu": -0.4, "type": "primary", "archtype": ["controller"], "recharge": 6, "damage": [1.361], "damageType": ["Smashing_Dmg"], "enhancements": ["Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "GravityDistortion", "effect": 37, "roundEffect": 40, "effectSeconds": 1.332, "speed": 999999999, "castFrames": 55, "roundFrames": 56, "castTime": 1.998, "powerset": "GravControl", "baseRange": 80, "hitTime": 1.332, "rfu": -0.666, "type": "primary", "archtype": ["controller", "dom"], "recharge": 8, "damage": ["tick", 0.4002, 4.2, 1], "damageType": ["Smashing_Dmg"], "enhancements": ["Dominator Archetype Sets", "Holds", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "BlockOfIce", "effect": 21, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 999999999, "castFrames": 56, "roundFrames": 56, "castTime": 1.998, "powerset": "IceControl", "baseRange": 80, "hitTime": 0.799, "rfu": -1.199, "type": "primary", "archtype": ["controller", "dom"], "recharge": 8, "damage": [2.0291], "damageType": ["Cold_Dmg"], "enhancements": ["Dominator Archetype Sets", "Holds", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "Blind", "effect": 20, "roundEffect": 20, "effectSeconds": 0.666, "speed": 999999999, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "IllControl", "baseRange": 80, "hitTime": 0.666, "rfu": -1.199, "type": "primary", "archtype": ["controller"], "recharge": 9, "damage": [1.9291], "damageType": ["Psionic_Dmg"], "enhancements": ["Controller Archetype Sets", "Holds", "Ranged Damage", "Sleep", "Universal Damage Sets"] },
+{ "name": "Mesmerize", "effect": 20, "roundEffect": 20, "effectSeconds": 0.666, "speed": 999999999, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "MindControl", "baseRange": 100, "hitTime": 0.666, "rfu": -1.199, "type": "primary", "archtype": ["controller", "dom"], "recharge": 6, "damage": [1.8091], "damageType": ["Psionic_Dmg"], "enhancements": ["Dominator Archetype Sets", "Ranged Damage", "Sleep", "Universal Damage Sets"] },
+{ "name": "Levitate", "effect": 20, "roundEffect": 20, "effectSeconds": 0.666, "speed": 999999999, "castFrames": 56, "roundFrames": 56, "castTime": 1.998, "powerset": "MindControl", "baseRange": 80, "hitTime": 0.666, "rfu": -1.332, "type": "primary", "archtype": ["controller", "dom"], "recharge": 6, "damage": [1.9491], "damageType": ["Smashing_Dmg"], "enhancements": ["Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "DominateMC", "effect": 20, "roundEffect": 20, "effectSeconds": 0.666, "speed": 999999999, "castFrames": 33, "roundFrames": 36, "castTime": 1.332, "powerset": "MindControl", "baseRange": 80, "hitTime": 0.666, "rfu": -0.666, "type": "primary", "archtype": ["controller", "dom"], "recharge": 8, "damage": [1.49], "damageType": ["Psionic_Dmg"], "enhancements": ["Dominator Archetype Sets", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "StranglerPC", "effect": 16, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 999999999, "castFrames": 62, "roundFrames": 64, "castTime": 2.2644, "powerset": "PlantControl", "baseRange": 80, "hitTime": 0.533, "rfu": -1.732, "type": "primary", "archtype": ["controller", "dom"], "recharge": 8, "damage": ["tick", 0.4338, 4.2, 1], "damageType": ["Smashing_Dmg"], "enhancements": ["Dominator Archetype Sets", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "LifeDrain", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 58, "roundFrames": 60, "castTime": 2.1312, "powerset": "DarkAssault", "baseRange": 60, "hitTime": 0.932, "rfu": -1.199, "type": "secondary", "archtype": ["dom"], "recharge": 8, "damage": [1.7701], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Accurate Healing", "Accurate To-Hit Debuff", "Healing", "Ranged Damage", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "Gloom", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 90, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "DarkAssault", "baseRange": 80, "hitTime": 1.932, "rfu": 0.068, "type": "secondary", "archtype": ["dom"], "recharge": 8, "damage": ["tick", 0.1863, 3.6, 0.5], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Ranged Damage", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "Moon", "effect": 28, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 90, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "DarkAssault", "baseRange": 80, "hitTime": 1.932, "rfu": 0.467, "type": "secondary", "archtype": ["dom"], "recharge": 20, "damage": [2.131], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Ranged Damage", "Sniper Attacks", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "Hurl Boulder", "effect": 50, "roundEffect": 52, "effectSeconds": 1.7316, "speed": 54, "castFrames": 45, "roundFrames": 48, "castTime": 1.7316, "powerset": "EarthAssault", "baseRange": 80, "hitTime": 3.398, "rfu": 1.667, "type": "secondary", "archtype": ["dom"], "recharge": 12, "damage": [1.9301], "damageType": ["Smashing_Dmg"], "enhancements": ["Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Stone Spears", "effect": 20, "roundEffect": 20, "effectSeconds": 0.666, "speed": 999999999, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "EarthAssault", "baseRange": 80, "hitTime": 0.666, "rfu": -0.533, "type": "secondary", "archtype": ["dom"], "recharge": 4, "damage": [1.2601], "damageType": ["Lethal_Dmg"], "enhancements": ["Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Charged Bolts", "effect": 16, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 999999999, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "ElecAssault", "baseRange": 80, "hitTime": 0.533, "rfu": -0.666, "type": "secondary", "archtype": ["dom"], "recharge": 4, "damage": [1.26], "damageType": ["Energy_Dmg"], "enhancements": ["Endurance Modification", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Lightning Bolt", "effect": 26, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "ElecAssault", "baseRange": 80, "hitTime": 0.932, "rfu": -0.932, "type": "secondary", "archtype": ["dom"], "recharge": 8, "damage": [1.8891], "damageType": ["Energy_Dmg"], "enhancements": ["Endurance Modification", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Zapp", "effect": 28, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "ElecAssault", "baseRange": 80, "hitTime": 0.932, "rfu": -0.533, "type": "secondary", "archtype": ["dom"], "recharge": 20, "damage": [2.131], "damageType": ["Energy_Dmg"], "enhancements": ["Endurance Modification", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "Power Bolt", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 90, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "EnergyAssault", "baseRange": 80, "hitTime": 1.932, "rfu": 0.734, "type": "secondary", "archtype": ["dom"], "recharge": 4, "damage": [0.504, 0.756], "damageType": ["Smashing_Dmg", "Energy_Dmg"], "enhancements": ["Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Power Blast", "effect": 30, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 90, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "EnergyAssault", "baseRange": 80, "hitTime": 2.066, "rfu": 0.201, "type": "secondary", "archtype": ["dom"], "recharge": 10, "damage": [0.4923, 1.4768], "damageType": ["Smashing_Dmg", "Energy_Dmg"], "enhancements": ["Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Sniper Blast", "effect": 28, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 210, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "EnergyAssault", "baseRange": 80, "hitTime": 1.361, "rfu": -0.104, "type": "secondary", "archtype": ["dom"], "recharge": 20, "damage": [0.6393, 1.4917], "damageType": ["Smashing_Dmg", "Energy_Dmg"], "enhancements": ["Knockback", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "Power Push", "effect": 30, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 90, "castFrames": 33, "roundFrames": 36, "castTime": 1.332, "powerset": "EnergyAssault", "baseRange": 70, "hitTime": 2.066, "rfu": 0.734, "type": "secondary", "archtype": ["dom"], "recharge": 8, "damage": [0.596, 0.894], "damageType": ["Smashing_Dmg", "Energy_Dmg"], "enhancements": ["Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Blazing Bolt", "effect": 22, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 450, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "FireAssault", "baseRange": 80, "hitTime": 0.999, "rfu": -0.866, "type": "secondary", "archtype": ["dom"], "recharge": 20, "damage": [2.369], "damageType": ["Fire_Dmg"], "enhancements": ["Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "Blaze", "effect": 16, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 90, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "FireAssault", "baseRange": 80, "hitTime": 1.533, "rfu": 0.334, "type": "secondary", "archtype": ["dom"], "recharge": 12, "damage": [1.58], "damageType": ["Fire_Dmg"], "enhancements": ["Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Bitter Ice Blast", "effect": 17, "roundEffect": 20, "effectSeconds": 0.666, "speed": 84, "castFrames": 32, "roundFrames": 32, "castTime": 1.1988, "powerset": "IceAssault", "baseRange": 80, "hitTime": 1.737, "rfu": 0.539, "type": "secondary", "archtype": ["dom"], "recharge": 12, "damage": [0.7005, 0.9286], "damageType": ["Smashing_Dmg", "Cold_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Ranged Damage", "Slow Movement", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "Ice Blast", "effect": 17, "roundEffect": 20, "effectSeconds": 0.666, "speed": 60, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "IceAssault", "baseRange": 80, "hitTime": 2.166, "rfu": 0.301, "type": "secondary", "archtype": ["dom"], "recharge": 6, "damage": [0.335, 1.005], "damageType": ["Smashing_Dmg", "Cold_Dmg"], "enhancements": ["Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "Masterful Throw", "effect": 18, "roundEffect": 20, "effectSeconds": 0.666, "speed": 80, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "MartialAssault", "baseRange": 80, "hitTime": 1.791, "rfu": 0.326, "type": "secondary", "archtype": ["dom"], "recharge": 20, "damage": [2.131], "damageType": ["Lethal_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Ranged Damage", "Sniper Attacks", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "Trick Shot", "effect": 19, "roundEffect": 20, "effectSeconds": 0.666, "speed": 45, "castFrames": 32, "roundFrames": 32, "castTime": 1.1988, "powerset": "MartialAssault", "baseRange": 70, "hitTime": 2.666, "rfu": 1.467, "type": "secondary", "archtype": ["dom"], "recharge": 10, "damage": [1.4], "damageType": ["Lethal_Dmg"], "enhancements": ["Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Shuriken Throw", "effect": 10, "roundEffect": 12, "effectSeconds": 0.3996, "speed": 45, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "MartialAssault", "baseRange": 80, "hitTime": 2.4, "rfu": 1.201, "type": "secondary", "archtype": ["dom"], "recharge": 4, "damage": [1.26], "damageType": ["Lethal_Dmg"], "enhancements": ["Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Subdue", "effect": 20, "roundEffect": 20, "effectSeconds": 0.666, "speed": 51, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "PsyAssault", "baseRange": 100, "hitTime": 2.431, "rfu": 0.566, "type": "secondary", "archtype": ["dom"], "recharge": 8, "damage": [1.9076], "damageType": ["Psionic_Dmg"], "enhancements": ["Dominator Archetype Sets", "Immobilize", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Mental Blast", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 51, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "PsyAssault", "baseRange": 100, "hitTime": 2.697, "rfu": 0.832, "type": "secondary", "archtype": ["dom"], "recharge": 8, "damage": [1.8891], "damageType": ["Psionic_Dmg"], "enhancements": ["Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Psionic Lance", "effect": 40, "roundEffect": 40, "effectSeconds": 1.332, "speed": 105, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "PsyAssault", "baseRange": 100, "hitTime": 2.189, "rfu": 0.724, "type": "secondary", "archtype": ["dom"], "recharge": 20, "damage": [2.131], "damageType": ["Psionic_Dmg"], "enhancements": ["Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "Psionic Dart", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 51, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "PsyAssault", "baseRange": 100, "hitTime": 2.697, "rfu": 1.498, "type": "secondary", "archtype": ["dom"], "recharge": 3, "damage": [1.101], "damageType": ["Psionic_Dmg"], "enhancements": ["Ranged Damage", "Universal Damage Sets"] },
+{ "name": "XRay Beam", "effect": 32, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "RadAssault", "baseRange": 80, "hitTime": 1.066, "rfu": -0.799, "type": "secondary", "archtype": ["dom"], "recharge": 11, "damage": [2.0116], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Proton Volley", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 60, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "RadAssault", "baseRange": 80, "hitTime": 2.432, "rfu": 0.967, "type": "secondary", "archtype": ["dom"], "recharge": 20, "damage": ["tick", 0.5327, 1.6, 0.5], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff", "Ranged Damage", "Sniper Attacks", "Universal Damage Sets"] },
+{ "name": "Neutrino Bolt", "effect": 17, "roundEffect": 20, "effectSeconds": 0.666, "speed": 105, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "RadAssault", "baseRange": 80, "hitTime": 1.523, "rfu": 0.324, "type": "secondary", "archtype": ["dom"], "recharge": 4, "damage": [1.2572], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "CallHawk", "effect": 20, "roundEffect": 20, "effectSeconds": 0.666, "speed": 60, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "SavageAssault", "baseRange": 80, "hitTime": 2.166, "rfu": 0.301, "type": "secondary", "archtype": ["dom"], "recharge": 14, "damage": ["tick", 0.4683, 1.3, 0.3], "damageType": ["Lethal_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "CallSwarm", "effect": 22, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 60, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "SavageAssault", "baseRange": 80, "hitTime": 2.299, "rfu": 1.1, "type": "secondary", "archtype": ["dom"], "recharge": 4, "damage": ["tick", 0.2522, 3.1, 0.75], "damageType": ["Lethal_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "Impale", "effect": 43, "roundEffect": 44, "effectSeconds": 1.4652, "speed": 114, "castFrames": 43, "roundFrames": 44, "castTime": 1.5984, "powerset": "ThornyAssault", "baseRange": 80, "hitTime": 2.255, "rfu": 0.656, "type": "secondary", "archtype": ["dom"], "recharge": 10, "damage": [1.4748], "damageType": ["Lethal_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff", "Dominator Archetype Sets", "Immobilize", "Ranged Damage", "Slow Movement", "Universal Damage Sets"] },
+{ "name": "ThornyDarts", "effect": 15, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 114, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "ThornyAssault", "baseRange": 80, "hitTime": 1.322, "rfu": -0.143, "type": "secondary", "archtype": ["dom"], "recharge": 4, "damage": [1.7733], "damageType": ["Lethal_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "SoulStorm", "effect": 45, "roundEffect": 48, "effectSeconds": 1.5984, "speed": 52.5, "castFrames": 65, "roundFrames": 68, "castTime": 2.3976, "powerset": "Soul", "baseRange": 80, "hitTime": 3.313, "rfu": 0.915, "type": "epic", "archtype": ["blaster", "defender", "corruptor"], "recharge": 32, "damage": ["tick", 0.2908, 10, 1], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Char", "effect": 23, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 51, "castFrames": 32, "roundFrames": 32, "castTime": 1.1988, "powerset": "Fire Mastery", "baseRange": 80, "hitTime": 2.564, "rfu": 1.365, "type": "epic", "archtype": ["blaster", "corruptor", "defender"], "recharge": 16, "damage": ["tick", 0.2982, 4.2, 1], "damageType": ["Fire_Dmg"], "enhancements": ["Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "ElecShackles", "effect": 29, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 65, "roundFrames": 68, "castTime": 2.3976, "powerset": "Mu", "baseRange": 60, "hitTime": 1.066, "rfu": -1.332, "type": "epic", "archtype": ["blaster", "defender", "corruptor"], "recharge": 32, "damage": ["tick", 0.3999, 6.3, 1], "damageType": ["Energy_Dmg"], "enhancements": ["Endurance Modification", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "ShockingBolt", "effect": 26, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 60, "roundFrames": 60, "castTime": 2.1312, "powerset": "Elec Mastery", "baseRange": 80, "hitTime": 0.932, "rfu": -1.199, "type": "epic", "archtype": ["blaster"], "recharge": 16, "damage": ["tick", 0.4067, 4.2, 1], "damageType": ["Energy_Dmg"], "enhancements": ["Endurance Modification", "Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Surveillance", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 45, "roundFrames": 48, "castTime": 1.7316, "powerset": "Munitions", "baseRange": 80, "hitTime": 0.932, "rfu": -0.799, "type": "epic", "archtype": ["blaster"], "recharge": 45, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff"] },
+{ "name": "SpiritSharkJaws", "effect": 21, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 999999999, "castFrames": 56, "roundFrames": 56, "castTime": 1.998, "powerset": "Leviathan", "baseRange": 80, "hitTime": 0.799, "rfu": -1.199, "type": "epic", "archtype": ["blaster", "defender", "corruptor"], "recharge": 32, "damage": [0.5978, "tick", 0.2657, 7.1, 1], "damageType": ["Lethal_Dmg"], "enhancements": ["Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Dominate", "effect": 20, "roundEffect": 20, "effectSeconds": 0.666, "speed": 999999999, "castFrames": 33, "roundFrames": 36, "castTime": 1.332, "powerset": "Psy Mastery", "baseRange": 80, "hitTime": 0.666, "rfu": -0.666, "type": "epic", "archtype": ["corruptor", "defender"], "recharge": 16, "damage": [1.81], "damageType": ["Psionic_Dmg"], "enhancements": ["Holds", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Poisonous Ray", "effect": 41, "roundEffect": 44, "effectSeconds": 1.4652, "speed": 66, "castFrames": 60, "roundFrames": 60, "castTime": 2.1312, "powerset": "Mace", "baseRange": 80, "hitTime": 2.829, "rfu": 0.698, "type": "epic", "archtype": ["controller", "dom"], "recharge": 24, "damage": [1.38, "tick", 0.1255, 9.3, 1], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "ParalyticPoison", "effect": 31, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 66, "castFrames": 60, "roundFrames": 60, "castTime": 2.1312, "powerset": "Poison", "baseRange": 70, "hitTime": 2.429, "rfu": 0.298, "type": "secondary", "archtype": ["defender", "corruptor", "controller"], "recharge": 16, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Holds"] },
+{ "name": "Weaken", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 66, "castFrames": 62, "roundFrames": 64, "castTime": 2.2644, "powerset": "Poison", "baseRange": 70, "hitTime": 2.296, "rfu": 0.032, "type": "secondary", "archtype": ["defender", "corruptor", "controller"], "recharge": 16, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "To Hit Debuff"] },
+{ "name": "EF", "effect": 45, "roundEffect": 48, "effectSeconds": 1.5984, "speed": 999999999, "castFrames": 45, "roundFrames": 48, "castTime": 1.7316, "powerset": "RadEmission", "baseRange": 70, "hitTime": 1.598, "rfu": -0.133, "type": "secondary", "archtype": ["defender", "corruptor", "controller"], "recharge": 8, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": [] },
+{ "name": "Corrosive", "effect": 19, "roundEffect": 20, "effectSeconds": 0.666, "speed": 90, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Nature", "baseRange": 80, "hitTime": 1.666, "rfu": 0.467, "type": "secondary", "archtype": ["defender", "corruptor", "controller"], "recharge": 16, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": [] },
+{ "name": "Envenom", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 66, "castFrames": 40, "roundFrames": 40, "castTime": 1.4652, "powerset": "Poison", "baseRange": 70, "hitTime": 2.296, "rfu": 0.831, "type": "secondary", "archtype": ["defender", "corruptor", "controller"], "recharge": 12, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff"] },
+{ "name": "Infrigidate", "effect": 18, "roundEffect": 20, "effectSeconds": 0.666, "speed": 39, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Cold", "baseRange": 80, "hitTime": 2.974, "rfu": 1.775, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 15, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff", "Slow Movement"] },
+{ "name": "Heat Loss", "effect": 29, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 65, "roundFrames": 68, "castTime": 2.3976, "powerset": "Cold", "baseRange": 70, "hitTime": 1.066, "rfu": -1.332, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 360, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Endurance Modification", "Slow Movement"] },
+{ "name": "Petrifying Gaze", "effect": 30, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 45, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "DarkMiasma", "baseRange": 70, "hitTime": 3.066, "rfu": 1.201, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 16, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Holds"] },
+{ "name": "Shock", "effect": 26, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 60, "roundFrames": 60, "castTime": 2.1312, "powerset": "ElecAffinity", "baseRange": 80, "hitTime": 0.932, "rfu": -1.199, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 12, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Endurance Modification"] },
+{ "name": "Insulating Circuit", "effect": 22, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 999999999, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "ElecAffinity", "baseRange": 80, "hitTime": 0.799, "rfu": -0.4, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 20, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Healing"] },
+{ "name": "Rejuvenating Circuit", "effect": 23, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 999999999, "castFrames": 35, "roundFrames": 36, "castTime": 1.332, "powerset": "ElecAffinity", "baseRange": 80, "hitTime": 0.799, "rfu": -0.533, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 8, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Healing"] },
+{ "name": "Healing Aura", "effect": 23, "roundEffect": 24, "effectSeconds": 0.7992, "speed": 999999999, "castFrames": 61, "roundFrames": 64, "castTime": 2.2644, "powerset": "Empathy", "baseRange": 0, "hitTime": 0.799, "rfu": -1.465, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 8, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Healing"] },
+{ "name": "Heal Other", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 68, "roundFrames": 68, "castTime": 2.3976, "powerset": "Empathy", "baseRange": 80, "hitTime": 0.932, "rfu": -1.465, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Healing"] },
+{ "name": "Absorb Pain", "effect": 43, "roundEffect": 44, "effectSeconds": 1.4652, "speed": 999999999, "castFrames": 68, "roundFrames": 68, "castTime": 2.3976, "powerset": "Empathy", "baseRange": 80, "hitTime": 1.465, "rfu": -0.932, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 15, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Healing"] },
+{ "name": "Clear Mind", "effect": 15, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 999999999, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Empathy", "baseRange": 70, "hitTime": 0.533, "rfu": -0.666, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": [] },
+{ "name": "Fortitude", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 68, "roundFrames": 68, "castTime": 2.3976, "powerset": "Empathy", "baseRange": 80, "hitTime": 0.932, "rfu": -1.465, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 60, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Defense Sets", "To Hit Buff"] },
+{ "name": "Force Bolt", "effect": 20, "roundEffect": 20, "effectSeconds": 0.666, "speed": 120, "castFrames": 33, "roundFrames": 36, "castTime": 1.332, "powerset": "ForceField", "baseRange": 80, "hitTime": 1.416, "rfu": 0.084, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0.2], "damageType": ["Smashing_Dmg"], "enhancements": ["Defender Archetype Sets", "Knockback", "Ranged Damage", "Universal Damage Sets"] },
+{ "name": "Dark Grasp Slow", "effect": 30, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 45, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "DarkControl", "baseRange": 80, "hitTime": 3.066, "rfu": 1.201, "type": "primary", "archtype": ["controller", "dom"], "recharge": 8, "damage": [1.8891], "damageType": ["Negative_Energy_Dmg"], "enhancements": ["Accurate To-Hit Debuff", "Dominator Archetype Sets", "Holds", "Ranged Damage", "To Hit Debuff", "Universal Damage Sets"] },
+{ "name": "Soothe", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 68, "roundFrames": 68, "castTime": 2.3976, "powerset": "Pain", "baseRange": 80, "hitTime": 0.932, "rfu": -1.465, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Healing"] },
+{ "name": "Share Pain", "effect": 35, "roundEffect": 36, "effectSeconds": 1.1988, "speed": 999999999, "castFrames": 68, "roundFrames": 68, "castTime": 2.3976, "powerset": "Pain", "baseRange": 80, "hitTime": 1.199, "rfu": -1.199, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 15, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Healing"] },
+{ "name": "Enforced Morale", "effect": 15, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 999999999, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "Pain", "baseRange": 70, "hitTime": 0.533, "rfu": -0.666, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": [] },
+{ "name": "Sonic Siphon", "effect": 35, "roundEffect": 36, "effectSeconds": 1.1988, "speed": 90, "castFrames": 65, "roundFrames": 68, "castTime": 2.3976, "powerset": "SonicRes", "baseRange": 80, "hitTime": 2.199, "rfu": -0.199, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 16, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": [] },
+{ "name": "Sonic Cage", "effect": 17, "roundEffect": 20, "effectSeconds": 0.666, "speed": 60, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "SonicRes", "baseRange": 80, "hitTime": 2.166, "rfu": 0.301, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 60, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": [] },
+{ "name": "Clarity", "effect": 30, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 45, "roundFrames": 48, "castTime": 1.7316, "powerset": "SonicRes", "baseRange": 70, "hitTime": 1.066, "rfu": -0.666, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": [] },
+{ "name": "Gale", "effect": 59, "roundEffect": 60, "effectSeconds": 1.998, "speed": 999999999, "castFrames": 65, "roundFrames": 68, "castTime": 2.3976, "powerset": "Storm", "baseRange": 50, "hitTime": 1.998, "rfu": -0.4, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 8, "damage": [0.1], "damageType": ["Smashing_Dmg"], "enhancements": ["Defender Archetype Sets", "Knockback", "Ranged AoE Damage", "Universal Damage Sets"] },
+{ "name": "O2 Boost", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 68, "roundFrames": 68, "castTime": 2.3976, "powerset": "Storm", "baseRange": 80, "hitTime": 0.932, "rfu": -1.465, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Healing"] },
+{ "name": "Melt Armor", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 45, "roundFrames": 48, "castTime": 1.7316, "powerset": "Thermal", "baseRange": 70, "hitTime": 0.932, "rfu": -0.799, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 150, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff"] },
+{ "name": "Forge", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 68, "roundFrames": 68, "castTime": 2.3976, "powerset": "Thermal", "baseRange": 80, "hitTime": 0.932, "rfu": -1.465, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 60, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["To Hit Buff"] },
+{ "name": "Cauterize", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 68, "roundFrames": 68, "castTime": 2.3976, "powerset": "Thermal", "baseRange": 80, "hitTime": 0.932, "rfu": -1.465, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Healing"] },
+{ "name": "Thaw", "effect": 29, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 65, "roundFrames": 68, "castTime": 2.3976, "powerset": "Thermal", "baseRange": 70, "hitTime": 1.066, "rfu": -1.332, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Resist Damage"] },
+{ "name": "Time Crawl", "effect": 13, "roundEffect": 16, "effectSeconds": 0.5328, "speed": 999999999, "castFrames": 48, "roundFrames": 48, "castTime": 1.7316, "powerset": "Time", "baseRange": 80, "hitTime": 0.533, "rfu": -1.199, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 15, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Slow Movement"] },
+{ "name": "Time Stop", "effect": 29, "roundEffect": 32, "effectSeconds": 1.0656, "speed": 999999999, "castFrames": 65, "roundFrames": 68, "castTime": 2.3976, "powerset": "Time", "baseRange": 70, "hitTime": 1.066, "rfu": -1.332, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 16, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Holds"] },
+{ "name": "Slowed Response", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 999999999, "castFrames": 68, "roundFrames": 68, "castTime": 2.3976, "powerset": "Time", "baseRange": 80, "hitTime": 0.932, "rfu": -1.465, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 90, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defense Debuff"] },
+{ "name": "Web Grenade", "effect": 37, "roundEffect": 40, "effectSeconds": 1.332, "speed": 90, "castFrames": 41, "roundFrames": 44, "castTime": 1.5984, "powerset": "Traps", "baseRange": 70, "hitTime": 2.332, "rfu": 0.734, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Immobilize"] },
+{ "name": "Entangling Arrow", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 180, "castFrames": 30, "roundFrames": 32, "castTime": 1.1988, "powerset": "TrickArrow", "baseRange": 80, "hitTime": 1.432, "rfu": 0.234, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 4, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Immobilize", "Slow Movement"] },
+{ "name": "Ice Arrow TA", "effect": 25, "roundEffect": 28, "effectSeconds": 0.9324, "speed": 210, "castFrames": 50, "roundFrames": 52, "castTime": 1.8648, "powerset": "TrickArrow", "baseRange": 80, "hitTime": 1.361, "rfu": -0.504, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 18, "damage": [0], "damageType": ["Energy_Dmg"], "enhancements": ["Holds", "Slow Movement"] },
+{ "name": "Acid Arrow", "effect": 48, "roundEffect": 48, "effectSeconds": 1.5984, "speed": 210, "castFrames": 55, "roundFrames": 56, "castTime": 1.998, "powerset": "TrickArrow", "baseRange": 80, "hitTime": 2.027, "rfu": 0.029, "type": "secondary", "archtype": ["controller", "corruptor", "defender"], "recharge": 20, "damage": ["tick", 0.01, 20, 1], "damageType": ["Toxic_Dmg"], "enhancements": ["Accurate Defense Debuff", "Defender Archetype Sets", "Defense Debuff", "Ranged AoE Damage", "Universal Damage Sets"] }]
 
 export default attacks

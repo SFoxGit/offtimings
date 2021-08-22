@@ -46,20 +46,21 @@ export default function Chain(props) {
       </Row>
       {attackChain.map((attack, index) => {
         console.log(attack)
+        const procRate = ((attack.recharge+(attack.castTime))*3.5/60*100).toFixed(2)
         let totalCast = 0.000;
         totalCast += startTime;
         for (let i = 0; i < index; i++) {
-          totalCast += attackChain[i][3]
+          totalCast += attackChain[i].castTime
         }
         return (
 
-          <Row className="mt-2 border-bottom d-flex align-items-center chain" key={"chain" + attack[0]}>
-            <Col className="p-2 text-center">{attack[0]}</Col>
+          <Row className="mt-2 border-bottom d-flex align-items-center chain" key={"chain" + attack.name}>
+            <Col className="p-2 text-center">{attack.name}</Col>
             <Col className="p-2 text-center">{(totalCast).toFixed(3)}</Col>
-            <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={attack[4]} onChange={e => updateDistance(e.target.value, index)}></input></Col>
-            <Col className="p-2 text-center">{(totalCast + attack[1] + attack[4] / attack[2]).toFixed(3)}</Col>
+            <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={attack.distance} onChange={e => updateDistance(e.target.value, index)}></input></Col>
+            <Col className="p-2 text-center">{(totalCast + attack.effectSeconds + attack.distance / attack.speed).toFixed(3)}</Col>
             <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bolder text-dark w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
-            <Col className="p-2 text-center">{attack[6] > 0 ? ((attack[6]+(attack[5]/30))*3.5/60*100).toFixed(2) + '%' : null}</Col>
+            <Col className="p-2 text-center">{procRate < 95 ? procRate + '%' : 95 + '%'}</Col>
           </Row>
         )
       })}
