@@ -47,6 +47,7 @@ export default function Chain(props) {
       {attackChain.map((attack, index) => {
         console.log(attack)
         const procRate = ((attack.recharge+(attack.castTime))*3.5/60*100).toFixed(2)
+        const procAOE = (((attack.recharge/(1+attack.slottedRecharge)+attack.castTime)*3.5/(60*(1+(attack.radius*(((11*attack.arc)+540)/40000)))))*100).toFixed(2)
         let totalCast = 0.000;
         totalCast += startTime;
         for (let i = 0; i < index; i++) {
@@ -60,7 +61,7 @@ export default function Chain(props) {
             <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={attack.distance} onChange={e => updateDistance(e.target.value, index)}></input></Col>
             <Col className="p-2 text-center">{(totalCast + attack.effectSeconds + attack.distance / attack.speed).toFixed(3)}</Col>
             <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bolder text-dark w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
-            <Col className="p-2 text-center">{procRate < 95 ? procRate + '%' : 95 + '%'}</Col>
+            {attack.aoe ? <Col className="p-2 text-center">{procAOE < 95 ? procAOE + '%' : 95 + '%'}</Col> :<Col className="p-2 text-center">{procRate < 95 ? procRate + '%' : 95 + '%'}</Col>}
           </Row>
         )
       })}
