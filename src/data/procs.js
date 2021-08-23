@@ -5,6 +5,7 @@ const Melee_Ones = 1
 const procs = {
   "Accurate Defense Debuff": [{ name: "Shield Breaker", ppm: 3.5, damage: (0.67 * Melee_TempDamage), damageType: "Lethal damage" }],
   "Blaster Archetype Sets": [{ name: "Superior Blasters Wrath", ppm: 5, damage: (1.0 * Melee_TempDamage), damageType: "Fire damage", recharge: 23.2 }],
+  "Corruptor Archetype Sets": [{ name: "Superior Malice of the Corruptor", ppm: 5, damage: (1.0 * Melee_TempDamage), damageType: "Negative Energy damage", recharge: 23.2 }],
   "Defense Debuff": [{ name: "Touch of Lady Grey", ppm: 3.5, damage: (0.67 * Melee_TempDamage), damageType: "Negative Energy damage" }],
   "Ranged Damage": [{ name: "Gladiators Javelin", ppm: 3.5, damage: (1.0 * Melee_TempDamage), damageType: "Toxic damage" }, { name: "Apocalypse", ppm: 4.5, damage: (1.0 * Melee_TempDamage), damageType: "Negative Energy damage" }],
   "Universal Damage Sets": [],
