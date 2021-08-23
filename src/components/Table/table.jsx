@@ -277,7 +277,7 @@ export default function AttacksTable(props) {
         <Distance distance={distance} setDistance={setDistance} />
       </Container>
       {attackChain.length ?
-        <Chain attackChain={attackChain} setAttackChain={setAttackChain} distance={distance} />
+        <Chain attackChain={attackChain} setAttackChain={setAttackChain} distance={distance} archtype={archtype}/>
         :
         null}
       <Container className="p-0">
