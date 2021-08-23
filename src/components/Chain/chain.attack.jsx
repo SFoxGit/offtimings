@@ -56,8 +56,8 @@ export default function ChainAttack(props) {
   const modDamage = damage * (1 + (((damageBonus) / 100) * (1 - Math.atan(((damageBonus) / 100) * 0.33) * 2 / Math.PI * 0.8))) + smashProc + lethalProc + fireProc + negativeProc + energyProc + toxicProc + psionicProc
 
   return (
-    <>
-      <Row className="mt-2 border-bottom d-flex align-items-center chain" key={"chain" + attack.name}>
+    <Row key={"chain" + attack.name}>
+      <Row className="mt-2 border-bottom d-flex align-items-center chain" key={"chainHeader" + attack.name}>
         <Col className="p-2 text-center">{attack.name}</Col>
         <Col className="p-2 text-center">{(totalCast).toFixed(3)}</Col>
         <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={attack.distance} onChange={e => updateDistance(e.target.value, index)}></input></Col>
@@ -69,6 +69,8 @@ export default function ChainAttack(props) {
         <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bolder text-dark w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
       </Row>
       <Enhancements
+        index={index}
+        archtype={archtype}
         aoe={attack.aoe}
         smashProc={smashProc}
         lethalProc={lethalProc}
@@ -91,6 +93,6 @@ export default function ChainAttack(props) {
         slottedRecharge={attack.slottedRecharge}
         enhArr={attack.enhancements}
       />
-    </>
+    </Row>
   )
 }

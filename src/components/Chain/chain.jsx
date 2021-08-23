@@ -10,10 +10,10 @@ export default function Chain(props) {
   const archtype = props.archtype
 
   return (
-    <div className="justify-content-around mb-3 bg-dark p-3 text-white fw-bolder customBoxShadow" >
+    <div key={"chain" + archtype} className="justify-content-around mb-3 bg-dark p-3 text-white fw-bolder customBoxShadow" >
       {forced ? <></> : <div></div>}
-      <Row className="justify-content-center "><h3 className="text-center">Attack Chain</h3></Row>
-      <Row className="mt-2">
+      <Row key={"chain title"} className="justify-content-center "><h3 className="text-center">Attack Chain</h3></Row>
+      <Row key={"late by"} className="mt-2">
         <Col xs={2} md={10}></Col>
         <Col xs={8} md={2}>
           {/* <input className="w-25" type="number" value={startTime} onChange={e => setStartTime(e.target.value)}></input> */}
@@ -24,7 +24,7 @@ export default function Chain(props) {
         </Col>
         <Col xs={2} md={0}></Col>
       </Row>
-      <Row className="mt-2 border-bottom d-flex align-items-center chain">
+      <Row key={"chain headers"} className="mt-2 border-bottom d-flex align-items-center chain">
         <Col className="p-2 text-center">Name</Col>
         <Col className="p-2 text-center">Cast At</Col>
         <Col className="p-2 text-center">Distance From Target</Col>
@@ -43,7 +43,7 @@ export default function Chain(props) {
           totalCast += attackChain[i].castTime
         }
         return (
-          <ChainAttack index={index} forced={forced} setForced={setForced} setAttackChain={setAttackChain} attackChain={attackChain} archtype={archtype} attack={attack} totalCast={totalCast}/>
+          <ChainAttack key={"chainAttackIndex" + index} index={index} forced={forced} setForced={setForced} setAttackChain={setAttackChain} attackChain={attackChain} archtype={archtype} attack={attack} totalCast={totalCast}/>
         )
       })}
     </div>
