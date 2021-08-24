@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import Resists from '../Resists/resists';
 import ChainAttack from './chain.attack';
 
 export default function Chain(props) {
@@ -8,6 +9,10 @@ export default function Chain(props) {
   const attackChain = props.attackChain
   const setAttackChain = props.setAttackChain
   const archtype = props.archtype
+  const [smashingLethal, setSmashingLethal] = useState(0.4033)
+  const [fireCold, setFireCold] = useState(0.4255)
+  const [energyNegative, setEnergyNegative] = useState(0.3984)
+  const [toxicPsionic, setToxicPsionic] = useState(0.3880)
 
   return (
     <div key={"chain" + archtype} className="justify-content-around mb-3 bg-dark p-3 text-white fw-bolder customBoxShadow" >
@@ -24,6 +29,15 @@ export default function Chain(props) {
         </Col>
         <Col xs={2} md={0}></Col>
       </Row>
+      <Resists key={"resists" + archtype}
+        smashingLethal={smashingLethal}
+        setSmashingLethal={setSmashingLethal}
+        fireCold={fireCold}
+        setFireCold={setFireCold}
+        energyNegative={energyNegative}
+        setEnergyNegative={setEnergyNegative}
+        toxicPsionic={toxicPsionic}
+        setToxicPsionic={setToxicPsionic} />
       <Row key={"chain headers"} className="mt-2 border-bottom d-flex align-items-center chain">
         <Col className="p-2 text-center">Name</Col>
         <Col className="p-2 text-center">Cast At</Col>
@@ -43,7 +57,20 @@ export default function Chain(props) {
           totalCast += attackChain[i].castTime
         }
         return (
-          <ChainAttack key={"chainAttackIndex" + index} index={index} forced={forced} setForced={setForced} setAttackChain={setAttackChain} attackChain={attackChain} archtype={archtype} attack={attack} totalCast={totalCast}/>
+          <ChainAttack key={"chainAttackIndex" + index}
+            index={index}
+            forced={forced}
+            setForced={setForced}
+            setAttackChain={setAttackChain}
+            attackChain={attackChain}
+            archtype={archtype}
+            attack={attack}
+            totalCast={totalCast}
+            smashingLethal={smashingLethal}
+            fireCold={fireCold}
+            energyNegative={energyNegative}
+            toxicPsionic={toxicPsionic}
+          />
         )
       })}
     </div>
