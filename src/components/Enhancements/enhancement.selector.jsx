@@ -26,8 +26,8 @@ export default function EnhancementSelector(props) {
   const setPsionicProc = props.setPsionicProc
 
 
-  const procRate = ((recharge / (1 + slottedRecharge) + castTime) * proc.ppm / 60)
-  const procAOE = (((recharge / (1 + slottedRecharge) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
+  const procRate = ((recharge / (1 + slottedRecharge/100) + castTime) * proc.ppm / 60)
+  const procAOE = (((recharge / (1 + slottedRecharge/100) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
 
   function updateDamage() {
     if (checkBox) {

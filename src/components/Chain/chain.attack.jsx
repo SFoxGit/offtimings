@@ -45,6 +45,12 @@ export default function ChainAttack(props) {
     setAttackChain(newArr)
     setForced(!forced)
   }
+  const updateRechargeSlotting = (newRecharge, index) => {
+    let newArr = attackChain;
+    newArr[index].slottedRecharge = newRecharge
+    setAttackChain(newArr)
+    setForced(!forced)
+  }
   const updateBonus = (newBonus, index) => {
     let newArr = attackChain;
     newArr[index].bonusDamage = newBonus
@@ -83,12 +89,12 @@ export default function ChainAttack(props) {
   console.log("res: " + energyNegative)
   console.log("baseDam: " + energyDamage)
   const baseDamage = (smashDamage + lethalDamage + energyDamage + negativeDamage + fireDamage + coldDamage + toxicDamage + psionicDamage)
-  
+
   useEffect(() => {
     calcDamage()
     console.log("Final Mod Damage: " + modDamage)
   }, [])
-  
+
   useEffect(() => {
     const totalDamagePerType = (base, proc, resist) => {
       console.log("base: " + base)
@@ -100,7 +106,7 @@ export default function ChainAttack(props) {
     }
     setModDamage(totalDamagePerType(smashDamage, smashProc, smashingLethal) + totalDamagePerType(lethalDamage, lethalProc, smashingLethal) + totalDamagePerType(energyDamage, energyProc, energyNegative) + totalDamagePerType(negativeDamage, negativeProc, energyNegative) + totalDamagePerType(fireDamage, fireProc, fireCold) + totalDamagePerType(coldDamage, 0, fireCold) + totalDamagePerType(toxicDamage, toxicProc, toxicPsionic) + totalDamagePerType(psionicDamage, psionicProc, toxicPsionic))
 
-  }, [damageBonus, smashDamage , smashProc , smashingLethal , lethalDamage , lethalProc  , energyDamage , energyProc  , negativeDamage , negativeProc , energyNegative , fireDamage , fireProc  , coldDamage , fireCold , toxicDamage , toxicProc  , psionicDamage , psionicProc , toxicPsionic])
+  }, [damageBonus, smashDamage, smashProc, smashingLethal, lethalDamage, lethalProc, energyDamage, energyProc, negativeDamage, negativeProc, energyNegative, fireDamage, fireProc, coldDamage, fireCold, toxicDamage, toxicProc, psionicDamage, psionicProc, toxicPsionic])
   return (
     <Row key={"chain" + attack.name}>
       <Row className="mt-2 border-bottom d-flex align-items-center chain" key={"chainHeader" + attack.name}>
@@ -108,11 +114,21 @@ export default function ChainAttack(props) {
         <Col className="p-2 text-center">{(totalCast).toFixed(3)}</Col>
         <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={attack.distance} onChange={e => updateDistance(e.target.value, index)}></input></Col>
         <Col className="p-2 text-center">{(totalCast + attack.effectSeconds + attack.distance / attack.speed).toFixed(3)}</Col>
-        {attack.aoe ? <Col className="p-2 text-center">{procAOE < 90 ? procAOE + '%' : 90 + '%'}</Col> : <Col className="p-2 text-center">{procRate < 90 ? procRate + '%' : 90 + '%'}</Col>}
+        {/* {attack.aoe ? <Col className="p-2 text-center">{procAOE < 90 ? procAOE + '%' : 90 + '%'}</Col> : <Col className="p-2 text-center">{procRate < 90 ? procRate + '%' : 90 + '%'}</Col>} */}
         <Col className="p-2 text-center d-flex justify-content-center align-items-center">{baseDamage.toFixed(2)}</Col>
+        <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bolder text-dark w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
+      </Row>
+      <Row className="mt-2 d-flex align-items-center chain">
+      <Col className="p-2 text-center">Slotted Recharge</Col>
+      <Col className="p-2 text-center">Damage Bonus</Col>
+      <Col className="p-2 text-center">Mod Damage</Col>
+
+      </Row>
+      <Row className="mt-2 border-bottom d-flex align-items-center chain">
+        <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={attack.slottedRecharge} onChange={e => updateRechargeSlotting(e.target.value, index)}></input></Col>
         <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={damageBonus} onChange={e => updateBonus(e.target.value, index)}></input></Col>
         <Col className="p-2 text-center d-flex justify-content-center align-items-center">{modDamage.toFixed(2)}</Col>
-        <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bolder text-dark w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
+
       </Row>
       <Enhancements
         index={index}

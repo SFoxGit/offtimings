@@ -43,10 +43,8 @@ export default function Chain(props) {
         <Col className="p-2 text-center">Cast At</Col>
         <Col className="p-2 text-center">Distance From Target</Col>
         <Col className="p-2 text-center">Hit Time</Col>
-        <Col className="p-2 text-center">Proc Rate</Col>
+        {/* <Col className="p-2 text-center">Proc Rate</Col> */}
         <Col className="p-2 text-center">Base Damage</Col>
-        <Col className="p-2 text-center">Damage Bonus</Col>
-        <Col className="p-2 text-center">Mod Damage</Col>
         <Col className="p-2 text-center">Remove Attack</Col>
       </Row>
       {attackChain.map((attack, index) => {
