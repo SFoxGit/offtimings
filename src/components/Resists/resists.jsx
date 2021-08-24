@@ -76,12 +76,6 @@ export default function Resists(props) {
           <Form.Check type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.2) : updateResists(-0.2)} />
         </Form.Group>
       </Col>
-      <Col>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Label>TESTING</Form.Label>
-          <Form.Check type="checkbox" onChange={(e) => e.target.checked ? updateResists(-0.6) : updateResists(0.6)} />
-        </Form.Group>
-      </Col>
       <Col>{smashingLethal}</Col>
     </Row>
   )

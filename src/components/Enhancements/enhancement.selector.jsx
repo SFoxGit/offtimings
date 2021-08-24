@@ -117,7 +117,6 @@ export default function EnhancementSelector(props) {
 
     }
     setCheckBox(!checkBox)
-    console.log("toxic: " + toxicProc)
   }
 
   return (
