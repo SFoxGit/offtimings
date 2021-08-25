@@ -34,12 +34,14 @@ export default function Enhancements(props) {
         <Col>Add</Col>
         <Col>Proc</Col>
         <Col>PPM</Col>
-        <Col>Damage</Col>
+        <Col>Damage*Rate</Col>
         <Col>Type</Col>
       </Row>
       {enhArr.map(type => procs[type].map((proc, index) => {
         if (archtype !== "blaster" && proc.name === "Superior Blasters Wrath") return null
         if (archtype !== "corruptor" && proc.name === "Superior Malice of the Corruptor") return null
+        if (archtype !== "defender" && proc.name === "Superior Defender's Bastion") return null
+        if (archtype !== "defender" && proc.name === "Superior Vigilant Assault") return null
         return (
           <EnhancementSelector
             key={"eachEnhance" + index}

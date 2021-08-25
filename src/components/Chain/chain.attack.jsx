@@ -152,7 +152,7 @@ export default function ChainAttack(props) {
     setModDamage(totalDamagePerType(smashDamage, smashProc, smashingLethal) + totalDamagePerType(lethalDamage, lethalProc, smashingLethal) + totalDamagePerType(energyDamage, energyProc, energyNegative) + totalDamagePerType(negativeDamage, negativeProc, energyNegative) + totalDamagePerType(fireDamage, fireProc, fireCold) + totalDamagePerType(coldDamage, 0, fireCold) + totalDamagePerType(toxicDamage, toxicProc, toxicPsionic) + totalDamagePerType(psionicDamage, psionicProc, toxicPsionic))
     setModDamageTick(totalDamagePerType(smashDamageTick, 0, smashingLethal) + totalDamagePerType(lethalDamageTick, 0, smashingLethal) + totalDamagePerType(energyDamageTick, 0, energyNegative) + totalDamagePerType(negativeDamageTick, 0, energyNegative) + totalDamagePerType(fireDamageTick, 0, fireCold) + totalDamagePerType(coldDamageTick, 0, fireCold) + totalDamagePerType(toxicDamageTick, 0, toxicPsionic) + totalDamagePerType(psionicDamageTick, 0, toxicPsionic))
 
-  }, [lethalDamageTick, energyDamageTick, negativeDamageTick, fireDamageTick, coldDamageTick, toxicDamageTick, psionicDamageTick, smashDamageTick, damageBonus, smashDamage, smashProc, smashingLethal, lethalDamage, lethalProc, energyDamage, energyProc, negativeDamage, negativeProc, energyNegative, fireDamage, fireProc, coldDamage, fireCold, toxicDamage, toxicProc, psionicDamage, psionicProc, toxicPsionic])
+  }, [attack, lethalDamageTick, energyDamageTick, negativeDamageTick, fireDamageTick, coldDamageTick, toxicDamageTick, psionicDamageTick, smashDamageTick, damageBonus, smashDamage, smashProc, smashingLethal, lethalDamage, lethalProc, energyDamage, energyProc, negativeDamage, negativeProc, energyNegative, fireDamage, fireProc, coldDamage, fireCold, toxicDamage, toxicProc, psionicDamage, psionicProc, toxicPsionic])
   return (
     <Row key={"chain" + attack.name}>
       <Row className="mt-2 border-bottom d-flex align-items-center chain" key={"chainHeader" + attack.name}>
@@ -168,7 +168,7 @@ export default function ChainAttack(props) {
         <Col className="p-2 text-center">Slotted Recharge</Col>
         <Col className="p-2 text-center">Damage Bonus</Col>
         <Col className="p-2 text-center">Mod Damage</Col>
-        <Col className="p-2 text-center">Tick Damage</Col>
+        <Col className="p-2 text-center">Total Tick Damage</Col>
         <Col className="p-2 text-center">Tick Duration</Col>
 
       </Row>

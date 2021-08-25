@@ -6,7 +6,7 @@ const procs = {
   "Accurate Defense Debuff": [{ name: "Shield Breaker", ppm: 3.5, damage: (0.67 * Melee_TempDamage), damageType: "Lethal damage" }],
   "Blaster Archetype Sets": [{ name: "Superior Blasters Wrath", ppm: 5, damage: (1.0 * Melee_TempDamage), damageType: "Fire damage", recharge: 23.2 }],
   "Corruptor Archetype Sets": [{ name: "Superior Malice of the Corruptor", ppm: 5, damage: (1.0 * Melee_TempDamage), damageType: "Negative Energy damage", recharge: 23.2 }],
-  "Defense Debuff": [{ name: "Touch of Lady Grey", ppm: 3.5, damage: (0.67 * Melee_TempDamage), damageType: "Negative Energy damage" }],
+  "Defense Debuff": [{ name: "Touch of Lady Grey", ppm: 3.5, damage: (0.67 * Melee_TempDamage), damageType: "Negative Energy damage" }, { name: "Achilles Heel", ppm: 3.5, damage: (0.18676 * Melee_TempDamage), damageType: "Resistance Damage" }],
   "Ranged Damage": [{ name: "Gladiators Javelin", ppm: 3.5, damage: (1.0 * Melee_TempDamage), damageType: "Toxic damage" }, { name: "Apocalypse", ppm: 4.5, damage: (1.0 * Melee_TempDamage), damageType: "Negative Energy damage" }],
   "Universal Damage Sets": [],
   "Knockback": [{ name: "Explosive Strike", ppm: 3.5, damage: (0.67 * Melee_TempDamage), damageType: "Smashing damage" }],
@@ -26,7 +26,7 @@ const procs = {
   "Controller Archetype Sets": [{ name: "Superior Will of the Controller", ppm: 5, damage: (1.0 * Melee_TempDamage), damageType: "Psionic damage", recharge: 23.2 }],
   "Defense Sets": [],
   "To Hit Buff": [],
-  "Defender Archetype Sets": [],
+  "Defender Archetype Sets": [{ name: "Superior Defender's Bastion", ppm: 5, damage: (1.0 * Melee_TempDamage), damageType: "Heal", recharge: 23.2 },{ name: "Superior Vigilant Assault", ppm: 5, damage: (1.0 * Melee_TempDamage), damageType: "Absorb", recharge: 23.2 }],
   "Resist Damage": [],
 }
 
