@@ -8,6 +8,7 @@ export default function Enhancements(props) {
   const enhArr = props.enhArr
   const recharge = props.recharge
   const slottedRecharge = props.slottedRecharge
+  const setSlottedRecharge = props.setSlottedRecharge
   const castTime = props.castTime
   const radius = props.radius
   const arc = props.arc
@@ -34,6 +35,7 @@ export default function Enhancements(props) {
         <Col>Add</Col>
         <Col>Proc</Col>
         <Col>PPM</Col>
+        <Col>Rate</Col>
         <Col>Damage*Rate</Col>
         <Col>Type</Col>
       </Row>
@@ -65,6 +67,7 @@ export default function Enhancements(props) {
             castTime={castTime}
             recharge={recharge}
             slottedRecharge={slottedRecharge}
+            setSlottedRecharge={setSlottedRecharge}
             proc={proc}
           />
         )

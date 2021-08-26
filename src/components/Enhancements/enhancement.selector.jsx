@@ -6,6 +6,7 @@ export default function EnhancementSelector(props) {
   const proc = props.proc
   const recharge = props.recharge
   const slottedRecharge = props.slottedRecharge
+  const setSlottedRecharge = props.setSlottedRecharge
   const castTime = props.castTime
   const radius = props.radius
   const arc = props.arc
@@ -26,11 +27,14 @@ export default function EnhancementSelector(props) {
   const setPsionicProc = props.setPsionicProc
 
 
-  const procRate = ((recharge / (1 + slottedRecharge/100) + castTime) * proc.ppm / 60)
-  const procAOE = (((recharge / (1 + slottedRecharge/100) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
+  const procRate = ((recharge / (1 + slottedRecharge / 100) + castTime) * proc.ppm / 60)
+  const procAOE = (((recharge / (1 + slottedRecharge / 100) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
 
   function updateDamage() {
     if (checkBox) {
+      if (proc.ppm === 5) {
+        setSlottedRecharge(parseFloat(slottedRecharge+23))
+      }
       if (aoe) {
         if (procAOE > .90) {
           if (proc.damageType === "Smashing damage") { setSmashProc(smashProc + proc.damage * .9) }
@@ -73,6 +77,9 @@ export default function EnhancementSelector(props) {
         }
       }
     } else {
+      if (proc.ppm === 5) {
+        setSlottedRecharge(parseFloat(slottedRecharge-23))
+      }
       if (aoe) {
         if (procAOE > .90) {
           if (proc.damageType === "Smashing damage") { setSmashProc(smashProc - proc.damage * .9) }
@@ -114,7 +121,6 @@ export default function EnhancementSelector(props) {
           // setProcDamage((prevState) => ({...prevState, proc.damageType: procDamage[proc.damageType] - proc.damage * procRate}))
         }
       }
-
     }
     setCheckBox(!checkBox)
   }
@@ -128,7 +134,8 @@ export default function EnhancementSelector(props) {
       </Col>
       <Col>{proc.name}</Col>
       <Col>{proc.ppm}</Col>
-      <Col>{procRate > .90 ? proc.damage * .9 : proc.damage * procRate}</Col>
+      <Col>{procRate > .90 ? "90%" : (procRate * 100).toFixed(2) + "%"}</Col>
+      <Col>{procRate > .90 ? (proc.damage * .9).toFixed(2) : (proc.damage * procRate).toFixed(2)}</Col>
       <Col>{proc.damageType}</Col>
     </Row>
 
