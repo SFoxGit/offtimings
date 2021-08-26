@@ -27,99 +27,60 @@ export default function EnhancementSelector(props) {
   const setPsionicProc = props.setPsionicProc
 
 
-  const procRate = ((recharge / (1 + slottedRecharge / 100) + castTime) * proc.ppm / 60)
+  const procRate = parseFloat((recharge / (1 + slottedRecharge / 100) + castTime) * proc.ppm / 60)
+  const procRateBefore = parseFloat((recharge / (1 + (slottedRecharge + 23) / 100) + castTime) * proc.ppm / 60)
   const procAOE = parseFloat(((recharge / (1 + slottedRecharge / 100) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
+  const procAOEBefore = parseFloat(((recharge / (1 + (slottedRecharge + 23) / 100) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
 
-  function updateDamage() {
+  const addProcDamage = (rate) => {
+    if (rate > .90) {
+      if (proc.damageType === "Smashing damage") { setSmashProc(smashProc + (proc.damage * .9)) }
+      if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc + (proc.damage * .9)) }
+      if (proc.damageType === "Fire damage") { setFireProc(fireProc + (proc.damage * .9)) }
+      if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc + (proc.damage * .9)) }
+      if (proc.damageType === "Energy damage") { setEnergyProc(energyProc + (proc.damage * .9)) }
+      if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc + (proc.damage * .9)) }
+      if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc + (proc.damage * .9)) }
+    } else {
+      if (proc.damageType === "Smashing damage") { setSmashProc(smashProc + (proc.damage * rate)) }
+      if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc + (proc.damage * rate)) }
+      if (proc.damageType === "Fire damage") { setFireProc(fireProc + (proc.damage * rate)) }
+      if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc + (proc.damage * rate)) }
+      if (proc.damageType === "Energy damage") { setEnergyProc(energyProc + (proc.damage * rate)) }
+      if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc + (proc.damage * rate)) }
+      if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc + (proc.damage * rate)) }
+    }
+  }
+  const removeProcDamage = (rate) => {
+    if (rate > .90) {
+      if (proc.damageType === "Smashing damage") { setSmashProc(smashProc - (proc.damage * .9)) }
+      if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc - (proc.damage * .9)) }
+      if (proc.damageType === "Fire damage") { setFireProc(fireProc - (proc.damage * .9)) }
+      if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc - (proc.damage * .9)) }
+      if (proc.damageType === "Energy damage") { setEnergyProc(energyProc - (proc.damage * .9)) }
+      if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc - (proc.damage * .9)) }
+      if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc - (proc.damage * .9)) }
+    } else {
+      if (proc.damageType === "Smashing damage") { setSmashProc(smashProc - (proc.damage * rate)) }
+      if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc - (proc.damage * rate)) }
+      if (proc.damageType === "Fire damage") { setFireProc(fireProc - (proc.damage * rate)) }
+      if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc - (proc.damage * rate)) }
+      if (proc.damageType === "Energy damage") { setEnergyProc(energyProc - (proc.damage * rate)) }
+      if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc - (proc.damage * rate)) }
+      if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc - (proc.damage * rate)) }
+    }
+  }
+
+  const updateDamage = async (rech) => {
     if (checkBox) {
       if (proc.ppm === 5) {
-        setSlottedRecharge(parseFloat(slottedRecharge+23))
-      }
-      if (aoe) {
-        if (procAOE > .90) {
-          if (proc.damageType === "Smashing damage") { setSmashProc(smashProc + proc.damage * .9) }
-          if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc + proc.damage * .9) }
-          if (proc.damageType === "Fire damage") { setFireProc(fireProc + proc.damage * .9) }
-          if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc + proc.damage * .9) }
-          if (proc.damageType === "Energy damage") { setEnergyProc(energyProc + proc.damage * .9) }
-          if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc + proc.damage * .9) }
-          if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc + proc.damage * .9) }
-          // setProcDamage((prevState) => ({...prevState, proc.damageType: procDamage[proc.damageType] + proc.damage * .9}))
-        } else {
-          if (proc.damageType === "Smashing damage") { setSmashProc(smashProc + proc.damage * procAOE) }
-          if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc + proc.damage * procAOE) }
-          if (proc.damageType === "Fire damage") { setFireProc(fireProc + proc.damage * procAOE) }
-          if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc + proc.damage * procAOE) }
-          if (proc.damageType === "Energy damage") { setEnergyProc(energyProc + proc.damage * procAOE) }
-          if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc + proc.damage * procAOE) }
-          if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc + proc.damage * procAOE) }
-          // setProcDamage((prevState) => ({...prevState, proc.damageType: procDamage[proc.damageType] + proc.damage * procRate}))
-        }
-      } else {
-        if (procRate > .90) {
-          if (proc.damageType === "Smashing damage") { setSmashProc(smashProc + proc.damage * .9) }
-          if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc + proc.damage * .9) }
-          if (proc.damageType === "Fire damage") { setFireProc(fireProc + proc.damage * .9) }
-          if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc + proc.damage * .9) }
-          if (proc.damageType === "Energy damage") { setEnergyProc(energyProc + proc.damage * .9) }
-          if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc + proc.damage * .9) }
-          if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc + proc.damage * .9) }
-          // setProcDamage((prevState) => ({...prevState, proc.damageType: procDamage[proc.damageType] + proc.damage * .9}))
-        } else {
-          if (proc.damageType === "Smashing damage") { setSmashProc(smashProc + proc.damage * procRate) }
-          if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc + proc.damage * procRate) }
-          if (proc.damageType === "Fire damage") { setFireProc(fireProc + proc.damage * procRate) }
-          if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc + proc.damage * procRate) }
-          if (proc.damageType === "Energy damage") { setEnergyProc(energyProc + proc.damage * procRate) }
-          if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc + proc.damage * procRate) }
-          if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc + proc.damage * procRate) }
-          // setProcDamage((prevState) => ({...prevState, proc.damageType: procDamage[proc.damageType] + proc.damage * procRate}))
-        }
-      }
+        await setSlottedRecharge(parseFloat(rech + 23))
+        aoe ? addProcDamage(procAOEBefore) : addProcDamage(procRateBefore)
+      } else { aoe ? addProcDamage(procAOE) : addProcDamage(procRate) }
     } else {
+      aoe ? removeProcDamage(procAOE) : removeProcDamage(procRate)
       if (proc.ppm === 5) {
-        setSlottedRecharge(parseFloat(slottedRecharge-23))
-      }
-      if (aoe) {
-        if (procAOE > .90) {
-          if (proc.damageType === "Smashing damage") { setSmashProc(smashProc - proc.damage * .9) }
-          if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc - proc.damage * .9) }
-          if (proc.damageType === "Fire damage") { setFireProc(fireProc - proc.damage * .9) }
-          if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc - proc.damage * .9) }
-          if (proc.damageType === "Energy damage") { setEnergyProc(energyProc - proc.damage * .9) }
-          if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc - proc.damage * .9) }
-          if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc - proc.damage * .9) }
-          // setProcDamage((prevState) => ({...prevState, proc.damageType: procDamage[proc.damageType] - proc.damage * .9}))
-        } else {
-          if (proc.damageType === "Smashing damage") { setSmashProc(smashProc - proc.damage * procAOE) }
-          if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc - proc.damage * procAOE) }
-          if (proc.damageType === "Fire damage") { setFireProc(fireProc - proc.damage * procAOE) }
-          if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc - proc.damage * procAOE) }
-          if (proc.damageType === "Energy damage") { setEnergyProc(energyProc - proc.damage * procAOE) }
-          if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc - proc.damage * procAOE) }
-          if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc - proc.damage * procAOE) }
-          // setProcDamage((prevState) => ({...prevState, proc.damageType: procDamage[proc.damageType] - proc.damage * procRate}))
-        }
-      } else {
-        if (procRate > .90) {
-          if (proc.damageType === "Smashing damage") { setSmashProc(smashProc - proc.damage * .9) }
-          if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc - proc.damage * .9) }
-          if (proc.damageType === "Fire damage") { setFireProc(fireProc - proc.damage * .9) }
-          if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc - proc.damage * .9) }
-          if (proc.damageType === "Energy damage") { setEnergyProc(energyProc - proc.damage * .9) }
-          if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc - proc.damage * .9) }
-          if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc - proc.damage * .9) }
-          // setProcDamage((prevState) => ({...prevState, proc.damageType: procDamage[proc.damageType] - proc.damage * .9}))
-        } else {
-          if (proc.damageType === "Smashing damage") { setSmashProc(smashProc - proc.damage * procRate) }
-          if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc - proc.damage * procRate) }
-          if (proc.damageType === "Fire damage") { setFireProc(fireProc - proc.damage * procRate) }
-          if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc - proc.damage * procRate) }
-          if (proc.damageType === "Energy damage") { setEnergyProc(energyProc - proc.damage * procRate) }
-          if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc - proc.damage * procRate) }
-          if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc - proc.damage * procRate) }
-          // setProcDamage((prevState) => ({...prevState, proc.damageType: procDamage[proc.damageType] - proc.damage * procRate}))
-        }
+        setSlottedRecharge(parseFloat(slottedRecharge - 23))
       }
     }
     setCheckBox(!checkBox)
@@ -129,18 +90,18 @@ export default function EnhancementSelector(props) {
     <Row key={proc.name}>
       <Col xs={1}>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" onChange={() => updateDamage()} />
+          <Form.Check type="checkbox" onChange={() => updateDamage(slottedRecharge)} />
         </Form.Group>
       </Col>
       <Col>{proc.name}</Col>
       <Col>{proc.ppm}</Col>
-      {aoe ? 
-      <><Col>{procAOE > .90 ? "90%" : (procAOE * 100).toFixed(2) + "%"}</Col>
-      <Col>{procAOE > .90 ? (proc.damage * .9).toFixed(2) : (proc.damage * procAOE).toFixed(2)}</Col></>
-      :
-      <><Col>{procRate > .90 ? "90%" : (procRate * 100).toFixed(2) + "%"}</Col>
-      <Col>{procRate > .90 ? (proc.damage * .9).toFixed(2) : (proc.damage * procRate).toFixed(2)}</Col></>
-    }
+      {aoe ?
+        <><Col>{procAOE > .90 ? "90%" : (procAOE * 100).toFixed(2) + "%"}</Col>
+          <Col>{procAOE > .90 ? ((proc.damage * .9)).toFixed(2) : ((proc.damage * procAOE)).toFixed(2)}</Col></>
+        :
+        <><Col>{procRate > .90 ? "90%" : (procRate * 100).toFixed(2) + "%"}</Col>
+          <Col>{procRate > .90 ? ((proc.damage * .9)).toFixed(2) : ((proc.damage * procRate)).toFixed(2)}</Col></>
+      }
       <Col>{proc.damageType}</Col>
     </Row>
 

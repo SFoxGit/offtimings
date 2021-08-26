@@ -57,11 +57,13 @@ export default function ChainAttack(props) {
     setForced(!forced)
   }
   const updateRechargeSlotting = (newRecharge) => {
+    console.log("newRecharge: " + newRecharge)
     // let newArr = attackChain;
     // newArr[index].slottedRecharge = newRecharge
     // setAttackChain(newArr)
-    setSlottedRecharge(newRecharge)
+    setSlottedRecharge(parseFloat(newRecharge))
     setForced(!forced)
+    return forced
   }
   const updateBonus = (newBonus, index) => {
     let newArr = attackChain;
@@ -98,7 +100,16 @@ export default function ChainAttack(props) {
       })
     } else {
       const tickIndex = attack.damage.indexOf('tick')
-      for (var i = 0; i < tickIndex+1; i++) {
+      console.log("tickindex: " + tickIndex)
+      let smashDamagio = 0
+      let lethalDamagio = 0
+      let energyDamagio = 0
+      let negDamagio = 0
+      let fireDamagio = 0
+      let coldDamagio = 0
+      let toxicDamagio = 0
+      let psionicDamagio = 0
+      for (var i = 0; i < tickIndex + 1; i++) {
         if (i === tickIndex) {
           let dam = attack.damage[i + 1]
           const duration = attack.damage[i + 2]
@@ -106,20 +117,24 @@ export default function ChainAttack(props) {
           const ticks = Math.floor(duration / rate)
           let tickDam = ticks * attack.damage[i + 1]
           setTickDuration(duration)
-
+          console.log("fireDam: " + fireProc)
+          console.log("coldDam: " + coldDamage)
+          console.log("baseDam: " + dam)
           if (archtype === "blaster") { dam = dam * modifiers.blaster; tickDam = tickDam * modifiers.blaster }
           if (archtype === "corruptor") { dam = dam * modifiers.corruptor; tickDam = tickDam * modifiers.corruptor }
           if (archtype === "defender") { dam = dam * modifiers.defender; tickDam = tickDam * modifiers.defender }
           if (archtype === "controller") { dam = dam * modifiers.controller; tickDam = tickDam * modifiers.controller }
           if (archtype === "dom") { dam = dam * modifiers.dom; tickDam = tickDam * modifiers.dom }
-          if (attack.damageType[i] === "Smashing_Dmg") { setSmashDamage(smashDamage + dam); setSmashDamageTick(smashDamageTick + tickDam); }
-          if (attack.damageType[i] === "Lethal_Dmg") { setLethalDamage(lethalDamage + dam); setLethalDamageTick(lethalDamageTick + tickDam); }
-          if (attack.damageType[i] === "Energy_Dmg") { setEnergyDamage(energyDamage + dam); setEnergyDamageTick(energyDamageTick + tickDam); }
-          if (attack.damageType[i] === "Negative_Energy_Dmg") { setNegativeDamage(negativeDamage + dam); setNegativeDamageTick(negativeDamageTick + tickDam); }
-          if (attack.damageType[i] === "Fire_Dmg") { setFireDamage(fireDamage + dam); setFireDamageTick(fireDamageTick + tickDam); }
-          if (attack.damageType[i] === "Cold_Dmg") { setColdDamage(coldDamage + dam); setColdDamageTick(coldDamageTick + tickDam); }
-          if (attack.damageType[i] === "Toxic_Dmg") { setToxicDamage(toxicDamage + dam); setToxicDamageTick(toxicDamageTick + tickDam); }
-          if (attack.damageType[i] === "Psionic_Dmg") { setPsionicDamage(psionicDamage + dam); setPsionicDamageTick(psionicDamageTick + tickDam); }
+          console.log("baseDam: " + dam)
+          if (attack.damageType[i] === "Smashing_Dmg") { setSmashDamage(smashDamagio + dam); setSmashDamageTick(smashDamageTick + tickDam); }
+          if (attack.damageType[i] === "Lethal_Dmg") { setLethalDamage(lethalDamagio + dam); setLethalDamageTick(lethalDamageTick + tickDam); }
+          if (attack.damageType[i] === "Energy_Dmg") { setEnergyDamage(energyDamagio + dam); setEnergyDamageTick(energyDamageTick + tickDam); }
+          if (attack.damageType[i] === "Negative_Energy_Dmg") { setNegativeDamage(negDamagio + dam); setNegativeDamageTick(negativeDamageTick + tickDam); }
+          if (attack.damageType[i] === "Fire_Dmg") { setFireDamage(fireDamagio + dam); setFireDamageTick(fireDamageTick + tickDam); }
+          if (attack.damageType[i] === "Cold_Dmg") { setColdDamage(coldDamagio + dam); setColdDamageTick(coldDamageTick + tickDam); }
+          if (attack.damageType[i] === "Toxic_Dmg") { setToxicDamage(toxicDamagio + dam); setToxicDamageTick(toxicDamageTick + tickDam); }
+          if (attack.damageType[i] === "Psionic_Dmg") { setPsionicDamage(psionicDamagio + dam); setPsionicDamageTick(psionicDamageTick + tickDam); }
+          console.log("fireDamTotal: " + fireDamage)
         } else {
           let dam = attack.damage[i]
           if (archtype === "blaster") { dam = dam * modifiers.blaster }
@@ -127,14 +142,17 @@ export default function ChainAttack(props) {
           if (archtype === "defender") { dam = dam * modifiers.defender }
           if (archtype === "controller") { dam = dam * modifiers.controller }
           if (archtype === "dom") { dam = dam * modifiers.dom }
-          if (attack.damageType[index] === "Smashing_Dmg") { setSmashDamage(smashDamage + dam) }
-          if (attack.damageType[index] === "Lethal_Dmg") { setLethalDamage(lethalDamage + dam) }
-          if (attack.damageType[index] === "Energy_Dmg") { setEnergyDamage(energyDamage + dam) }
-          if (attack.damageType[index] === "Negative_Energy_Dmg") { setNegativeDamage(negativeDamage + dam) }
-          if (attack.damageType[index] === "Fire_Dmg") { setFireDamage(fireDamage + dam) }
-          if (attack.damageType[index] === "Cold_Dmg") { setColdDamage(coldDamage + dam) }
-          if (attack.damageType[index] === "Toxic_Dmg") { setToxicDamage(toxicDamage + dam) }
-          if (attack.damageType[index] === "Psionic_Dmg") { setPsionicDamage(psionicDamage + dam) }
+          console.log("firstDam: " + dam)
+          if (attack.damageType[i] === "Smashing_Dmg") { smashDamagio = (smashDamage + dam) }
+          if (attack.damageType[i] === "Lethal_Dmg") { lethalDamagio = (lethalDamage + dam) }
+          if (attack.damageType[i] === "Energy_Dmg") { energyDamagio = (energyDamage + dam) }
+          if (attack.damageType[i] === "Negative_Energy_Dmg") { negDamagio = (negativeDamage + dam) }
+          if (attack.damageType[i] === "Fire_Dmg") { fireDamagio = (fireDamage + dam); console.log("HIT THE FIRE DAMAGE ROUTE") }
+          if (attack.damageType[i] === "Cold_Dmg") { coldDamagio = (coldDamage + dam) }
+          if (attack.damageType[i] === "Toxic_Dmg") { toxicDamagio = (toxicDamage + dam) }
+          if (attack.damageType[i] === "Psionic_Dmg") { psionicDamagio = (psionicDamage + dam) }
+          console.log("set fire damage: " + fireDamage)
+          
         }
 
       }
