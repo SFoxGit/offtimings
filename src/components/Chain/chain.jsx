@@ -23,7 +23,7 @@ export default function Chain(props) {
         <Col xs={8} md={2}>
           {/* <input className="w-25" type="number" value={startTime} onChange={e => setStartTime(e.target.value)}></input> */}
           <InputGroup>
-            <InputGroup.Text className="w-50 bg-info text-black fw-bolder">Late by: </InputGroup.Text>
+            <InputGroup.Text className="w-50 bg-secondary text-black fw-bolder text-center">Late by: </InputGroup.Text>
             <FormControl style={{ backgroundColor: "white" }} className="text-center" defaultValue={startTime} onChange={e => setStartTime(parseFloat(e.target.value))} />
           </InputGroup>
         </Col>

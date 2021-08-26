@@ -156,7 +156,7 @@ export default function ChainAttack(props) {
 
   }, [attack, lethalDamageTick, energyDamageTick, negativeDamageTick, fireDamageTick, coldDamageTick, toxicDamageTick, psionicDamageTick, smashDamageTick, damageBonus, smashDamage, smashProc, smashingLethal, lethalDamage, lethalProc, energyDamage, energyProc, negativeDamage, negativeProc, energyNegative, fireDamage, fireProc, coldDamage, fireCold, toxicDamage, toxicProc, psionicDamage, psionicProc, toxicPsionic])
   return (
-    <Row key={"chain" + attack.name}>
+    <div key={"chain" + attack.name}>
       <Row className="mt-2 border-bottom d-flex align-items-center chain" key={"chainHeader" + attack.name}>
         <Col className="p-2 text-center">{attack.name}</Col>
         <Col className="p-2 text-center">{(totalCast).toFixed(3)}</Col>
@@ -164,7 +164,7 @@ export default function ChainAttack(props) {
         <Col className="p-2 text-center">{(totalCast + attack.effectSeconds + attack.distance / attack.speed).toFixed(3)}</Col>
         {/* {attack.aoe ? <Col className="p-2 text-center">{procAOE < 90 ? procAOE + '%' : 90 + '%'}</Col> : <Col className="p-2 text-center">{procRate < 90 ? procRate + '%' : 90 + '%'}</Col>} */}
         <Col className="p-2 text-center d-flex justify-content-center align-items-center">{baseDamage.toFixed(2)}</Col>
-        <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bolder text-dark w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
+        <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bold w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
       </Row>
       <Row className="mt-2 d-flex align-items-center chain">
         <Col className="p-2 text-center">Slotted Recharge</Col>
@@ -207,6 +207,6 @@ export default function ChainAttack(props) {
         setSlottedRecharge={updateRechargeSlotting}
         enhArr={attack.enhancements}
       />
-    </Row>
+    </div>
   )
 }
