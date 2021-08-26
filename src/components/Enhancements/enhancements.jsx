@@ -32,7 +32,7 @@ export default function Enhancements(props) {
   return (
     <Row key={"procs" + index}>
       <Row key={"procHeaders" + index}>
-        <Col>Add</Col>
+        <Col xs={1}>Add</Col>
         <Col>Proc</Col>
         <Col>PPM</Col>
         <Col>Rate</Col>
