@@ -48,7 +48,6 @@ export default function Chain(props) {
         <Col className="p-2 text-center">Remove Attack</Col>
       </Row>
       {attackChain.map((attack, index) => {
-        console.log(attack)
         let totalCast = 0.000;
         totalCast += startTime;
         for (let i = 0; i < index; i++) {

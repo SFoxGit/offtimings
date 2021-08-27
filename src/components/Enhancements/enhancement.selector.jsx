@@ -98,7 +98,6 @@ export default function EnhancementSelector(props) {
       }
     }
     setCheckBox(!checkBox)
-    console.log(attack)
   }
 
   useEffect(() => {
