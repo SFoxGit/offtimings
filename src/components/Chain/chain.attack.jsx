@@ -73,6 +73,8 @@ export default function ChainAttack(props) {
 
   const removeAttack = (index) => {
     let newArr = attackChain;
+    newArr[index].slots = []
+    newArr[index].slottedRecharge = 0
     newArr.splice(index, 1)
     setAttackChain(newArr)
     setForced(!forced)
