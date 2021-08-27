@@ -55,7 +55,7 @@ export default function Chain(props) {
           totalCast += attackChain[i].castTime
         }
         return (
-          <ChainAttack key={"chainAttackIndex" + index}
+          <ChainAttack key={"chainAttackIndex" + attack.name}
             index={index}
             forced={forced}
             setForced={setForced}

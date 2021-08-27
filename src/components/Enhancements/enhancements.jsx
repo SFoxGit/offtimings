@@ -28,9 +28,11 @@ export default function Enhancements(props) {
   const setEnergyProc = props.setEnergyProc
   const setToxicProc = props.setToxicProc
   const setPsionicProc = props.setPsionicProc
+  const attack = props.attack
+  const setAttack = props.setAttack
 
   return (
-    <Row key={"procs" + index}>
+    <Row >
       <Row key={"procHeaders" + index}>
         <Col xs={1}>Add</Col>
         <Col>Proc</Col>
@@ -46,7 +48,7 @@ export default function Enhancements(props) {
         if (archtype !== "defender" && proc.name === "Superior Vigilant Assault") return null
         return (
           <EnhancementSelector
-            key={"eachEnhance" + index}
+            key={attack.name + proc.name}
             aoe={aoe}
             smashProc={smashProc}
             lethalProc={lethalProc}
@@ -69,6 +71,9 @@ export default function Enhancements(props) {
             slottedRecharge={slottedRecharge}
             setSlottedRecharge={setSlottedRecharge}
             proc={proc}
+            attack={attack}
+            setAttack={setAttack}
+    
           />
         )
       }))}

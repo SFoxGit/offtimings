@@ -6,7 +6,7 @@ import modifiers from '../../modifiers';
 import Enhancements from '../Enhancements/enhancements';
 
 export default function ChainAttack(props) {
-  const attack = props.attack
+  const [attack, setAttack] = useState(props.attack)
   const totalCast = props.totalCast
   const archtype = props.archtype
   const attackChain = props.attackChain
@@ -44,7 +44,7 @@ export default function ChainAttack(props) {
   const [modDamage, setModDamage] = useState(0)
   const [modDamageTick, setModDamageTick] = useState(0)
   const [tickDuration, setTickDuration] = useState(0)
-  const [slottedRecharge, setSlottedRecharge] = useState(attack.slottedRecharge)
+  const [slottedRecharge, setSlottedRecharge] = useState(0)
   // const procRate = ((attack.recharge / (1 + attack.slottedRecharge) + (attack.castTime)) * 3.5 / 60 * 100).toFixed(2)
   // const procAOE = (((attack.recharge / (1 + attack.slottedRecharge) + attack.castTime) * 3.5 / (60 * (1 + (attack.radius * (((11 * attack.arc) + 540) / 40000))))) * 100).toFixed(2)
   let damageBonus = attack.bonusDamage || 123
@@ -58,9 +58,9 @@ export default function ChainAttack(props) {
   }
   const updateRechargeSlotting = (newRecharge) => {
     console.log("newRecharge: " + newRecharge)
-    // let newArr = attackChain;
-    // newArr[index].slottedRecharge = newRecharge
-    // setAttackChain(newArr)
+    let newArr = attackChain;
+    newArr[index].slottedRecharge = newRecharge
+    setAttackChain(newArr)
     setSlottedRecharge(parseFloat(newRecharge))
     setForced(!forced)
     return forced
@@ -74,6 +74,7 @@ export default function ChainAttack(props) {
 
   const removeAttack = (index) => {
     let newArr = attackChain;
+    console.log(newArr)
     newArr.splice(index, 1)
     setAttackChain(newArr)
     setForced(!forced)
@@ -162,6 +163,7 @@ export default function ChainAttack(props) {
 
   useEffect(() => {
     calcDamage()
+    setSlottedRecharge(attack.slottedRecharge)
   }, [])
 
   useEffect(() => {
@@ -200,6 +202,7 @@ export default function ChainAttack(props) {
         <Col className="p-2 text-center d-flex justify-content-center align-items-center">{tickDuration}</Col>
       </Row>
       <Enhancements
+        key={"enhancements"+index}
         index={index}
         archtype={archtype}
         aoe={attack.aoe}
@@ -219,6 +222,8 @@ export default function ChainAttack(props) {
         setPsionicProc={setPsionicProc}
         radius={attack.radius}
         arc={attack.arc}
+        attack={attack}
+        setAttack={setAttack}
         castTime={attack.castTime}
         recharge={attack.recharge}
         slottedRecharge={slottedRecharge}

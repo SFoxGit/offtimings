@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { Row, Col, Form } from 'react-bootstrap';
 
 export default function EnhancementSelector(props) {
-  const [checkBox, setCheckBox] = useState(true)
   const proc = props.proc
   const recharge = props.recharge
   const slottedRecharge = props.slottedRecharge
@@ -25,6 +25,9 @@ export default function EnhancementSelector(props) {
   const setEnergyProc = props.setEnergyProc
   const setToxicProc = props.setToxicProc
   const setPsionicProc = props.setPsionicProc
+  const attack = props.attack
+  const setAttack = props.setAttack
+  const [checkBox, setCheckBox] = useState(false)
 
 
   const procRate = parseFloat((recharge / (1 + slottedRecharge / 100) + castTime) * proc.ppm / 60)
@@ -72,25 +75,41 @@ export default function EnhancementSelector(props) {
   }
 
   const updateDamage = async (rech) => {
-    if (checkBox) {
+    if (!checkBox) {
       if (proc.ppm === 5) {
+        const newArr = attack
+        newArr.slots.push(proc.name)
+        setAttack(newArr)
         await setSlottedRecharge(parseFloat(rech + 23))
         aoe ? addProcDamage(procAOEBefore) : addProcDamage(procRateBefore)
-      } else { aoe ? addProcDamage(procAOE) : addProcDamage(procRate) }
+      } else { aoe ? addProcDamage(procAOE) : addProcDamage(procRate) 
+        const newArr = attack
+        newArr.slots.push(proc.name)
+        setAttack(newArr)
+      }
     } else {
+      const newArr = attack
+      const procIndex = newArr.slots.indexOf(proc.name)
+      newArr.slots.splice(procIndex, 1)
+      setAttack(newArr)
       aoe ? removeProcDamage(procAOE) : removeProcDamage(procRate)
       if (proc.ppm === 5) {
         setSlottedRecharge(parseFloat(slottedRecharge - 23))
       }
     }
     setCheckBox(!checkBox)
+    console.log(attack)
   }
 
+  useEffect(() => {
+    setCheckBox(attack.slots.includes(proc.name))
+  }, [setCheckBox, attack, proc])
+
   return (
-    <Row key={proc.name}>
+    <Row>
       <Col xs={1}>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" onChange={() => updateDamage(slottedRecharge)} />
+          <Form.Check value={true} checked={checkBox} type="checkbox" onChange={() => updateDamage(slottedRecharge)} />
         </Form.Group>
       </Col>
       <Col>{proc.name}</Col>
