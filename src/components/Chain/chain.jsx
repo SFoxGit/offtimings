@@ -20,14 +20,13 @@ export default function Chain(props) {
       {forced ? <></> : <div></div>}
       <Row key={"chain title"} className="justify-content-center "><h3 className="text-center">Attack Chain</h3></Row>
       <Row key={"late by"} className="mt-2">
-        <Col xs={0} md={6}></Col>
-        <Col xs={0} md={2}><Button onClick={() => setShowRes(!showRes)}>{showRes ? "Hide" : "Show Resists"}</Button></Col>
-        <Col xs={6} md={2} className="p-2">
-              Res: {(smashingLethal * 100).toFixed(2) + "%"}
+        <Col xs={6} md={4} className="mt-2 d-flex justify-content-center "><Button className="w-50  fw-bolder text-center" onClick={() => setShowRes(!showRes)}>{showRes ? "Hide" : "Show Debuffs"}</Button></Col>
+        <Col xs={6} md={4} className="mt-2 d-flex justify-content-center">
+            <Row className="w-50 p-2 text-light fw-bolder d-flex justify-content-center">  Res: {(smashingLethal * 100).toFixed(2) + "%"} </Row>
         </Col>
-        <Col xs={8} md={2}>
+        <Col xs={12} md={4} className="mt-2 d-flex justify-content-center ">
           {/* <input className="w-25" type="number" value={startTime} onChange={e => setStartTime(e.target.value)}></input> */}
-            <InputGroup>
+            <InputGroup className="btnShadow w-50">
               <InputGroup.Text className="w-50 bg-secondary text-black fw-bolder text-center">Late by: </InputGroup.Text>
               <FormControl style={{ backgroundColor: "white" }} className="text-center" defaultValue={startTime} onChange={e => setStartTime(parseFloat(e.target.value))} />
             </InputGroup>
@@ -53,7 +52,7 @@ export default function Chain(props) {
         <Col className="p-2 text-center">Distance From Target</Col>
         <Col className="p-2 text-center">Hit Time</Col>
         {/* <Col className="p-2 text-center">Proc Rate</Col> */}
-        <Col className="p-2 text-center">Base Damage</Col>
+        <Col className="p-2 text-center">Show Damage</Col>
         <Col className="p-2 text-center">Remove Attack</Col>
       </Row>
       {attackChain.map((attack, index) => {
