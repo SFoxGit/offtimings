@@ -22,6 +22,12 @@ code {
   border-width: 1px;
   border-style: solid;
 }
+.resists {
+  box-shadow: 5px 5px 5px black;
+  border-color: white !important;
+  border-width: 1px;
+  border-style: solid;
+}
 
 .customBoxShadow {
   box-shadow: 8px 8px 5px black;

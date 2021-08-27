@@ -12,6 +12,7 @@ import CorruptorEpics from '../Epic/corruptor';
 import DomEpics from '../Epic/dom';
 import Distance from '../Distance/distance';
 import Chain from '../Chain/chain';
+import modifiers from '../../modifiers';
 
 export default function AttacksTable(props) {
   const [powers, setPowers] = useState([])
@@ -228,6 +229,22 @@ export default function AttacksTable(props) {
       });
       setPowers(newArr)
     }
+    if (currentSort === "Base Dam") {
+      const newArr = powers.sort((a, b) => {
+        let fa = a.damage[0];
+        let fb = b.damage[0];
+        if (a.damage[0] === "tick") {fa = a.damage[1]}
+        if (b.damage[0] === "tick") {fb = b.damage[1]}
+        if (fa < fb) {
+          return desc;
+        };
+        if (fb < fa) {
+          return asc;
+        };
+        return null;
+      });
+      setPowers(newArr)
+    }
     if (currentSort !== sortedBy) { setSortedBy(currentSort) } else { setSortedBy() }
   }
 
@@ -291,6 +308,7 @@ export default function AttacksTable(props) {
                 <th onMouseOver={changeCursor} onClick={() => sortPowers("CastTime")}>True Cast Time</th>
                 <th onMouseOver={changeCursor} onClick={() => sortPowers("Set")}>Set</th>
                 {x.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("Range")}>Range</th> : null}
+                {x.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("Base Dam")}>Base Dam</th> : null}
                 <th onMouseOver={changeCursor} onClick={() => sortPowers("TimeOfDamage")}>Time of Damage</th>
                 {y.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("FollowUp")}>Required Follow Up</th> : null}
               </tr>
@@ -304,6 +322,7 @@ export default function AttacksTable(props) {
                   <td>{power.castTime}</td>
                   <td>{power.powerset}</td>
                   {x.matches ? <td>{power.baseRange}</td> : null}
+                  <td>{archtype ? (power.damage[0] === "tick" ? (power.damage[1]*modifiers[archtype]).toFixed(3) :(power.damage[0]*modifiers[archtype]).toFixed(3)) : (power.damage[0] === "tick" ? power.damage[1] : power.damage[0])}</td>
                   <td onMouseOver={changeCursor}>{(distance / power.speed + power.effectSeconds).toFixed(3)}</td>
                   {y.matches ? <td>{(distance / power.speed + power.effectSeconds - power.castTime).toFixed(3)}</td> : null}
                 </tr>
