@@ -29,7 +29,17 @@
   background-image: linear-gradient(cadetblue,#3e68b6 60%,#292b8a) !important
 }
 
+.btn-success:hover {
+  background-image:  linear-gradient(#292b8a,#292b8a 60%, #292b8a) !important;
+}
+
 .btn-danger {
   background-image: linear-gradient(#96030f,#5a0202 60%, rgb(61, 1, 1)) !important;
   color: white !important
+}
+
+.btn-danger:hover {
+  background-image: linear-gradient(rgb(61, 1, 1),rgb(61, 1, 1) 60%, rgb(61, 1, 1)) !important;
+  color: white !important;
+  box-shadow: 0px !important;
 }

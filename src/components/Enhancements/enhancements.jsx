@@ -33,13 +33,13 @@ export default function Enhancements(props) {
 
   return (
     <Row >
-      <Row key={"procHeaders" + index}>
-        <Col xs={1}>Add</Col>
-        <Col>Proc</Col>
-        <Col>PPM</Col>
-        <Col>Rate</Col>
-        <Col>Damage*Rate</Col>
-        <Col>Type</Col>
+      <Row className="mb-3 d-flex align-items-center" key={"procHeaders" + index}>
+        <Col className="text-center" xs={1}>Add</Col>
+        <Col className="text-center">Proc</Col>
+        <Col className="text-center">PPM</Col>
+        <Col className="text-center">Rate</Col>
+        <Col className="text-center">Damage*Rate</Col>
+        <Col className="text-center">Type</Col>
       </Row>
       {enhArr.map(type => procs[type].map((proc, index) => {
         if (archtype !== "blaster" && proc.name === "Superior Blasters Wrath") return null

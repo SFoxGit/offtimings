@@ -106,21 +106,21 @@ export default function EnhancementSelector(props) {
 
   return (
     <Row>
-      <Col xs={1}>
+      <Col className="mb-3 d-flex justify-content-center" xs={1}>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check value={true} checked={checkBox} type="checkbox" onChange={() => updateDamage(slottedRecharge)} />
         </Form.Group>
       </Col>
-      <Col>{proc.name}</Col>
-      <Col>{proc.ppm}</Col>
+      <Col className="text-center">{proc.name}</Col>
+      <Col className="text-center">{proc.ppm}</Col>
       {aoe ?
-        <><Col>{procAOE > .90 ? "90%" : (procAOE * 100).toFixed(2) + "%"}</Col>
-          <Col>{procAOE > .90 ? ((proc.damage * .9)).toFixed(2) : ((proc.damage * procAOE)).toFixed(2)}</Col></>
+        <><Col className="text-center">{procAOE > .90 ? "90%" : (procAOE * 100).toFixed(2) + "%"}</Col>
+          <Col className="text-center">{procAOE > .90 ? ((proc.damage * .9)).toFixed(2) : ((proc.damage * procAOE)).toFixed(2)}</Col></>
         :
-        <><Col>{procRate > .90 ? "90%" : (procRate * 100).toFixed(2) + "%"}</Col>
-          <Col>{procRate > .90 ? ((proc.damage * .9)).toFixed(2) : ((proc.damage * procRate)).toFixed(2)}</Col></>
+        <><Col className="text-center">{procRate > .90 ? "90%" : (procRate * 100).toFixed(2) + "%"}</Col>
+          <Col className="text-center">{procRate > .90 ? ((proc.damage * .9)).toFixed(2) : ((proc.damage * procRate)).toFixed(2)}</Col></>
       }
-      <Col>{proc.damageType}</Col>
+      <Col className="text-center">{proc.damageType}</Col>
     </Row>
 
   )

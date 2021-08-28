@@ -166,7 +166,7 @@ export default function ChainAttack(props) {
     setModDamage(totalDamagePerType(smashDamage, smashProc, smashingLethal) + totalDamagePerType(lethalDamage, lethalProc, smashingLethal) + totalDamagePerType(energyDamage, energyProc, energyNegative) + totalDamagePerType(negativeDamage, negativeProc, energyNegative) + totalDamagePerType(fireDamage, fireProc, fireCold) + totalDamagePerType(coldDamage, 0, fireCold) + totalDamagePerType(toxicDamage, toxicProc, toxicPsionic) + totalDamagePerType(psionicDamage, psionicProc, toxicPsionic))
     setModDamageTick(totalDamagePerType(smashDamageTick, 0, smashingLethal) + totalDamagePerType(lethalDamageTick, 0, smashingLethal) + totalDamagePerType(energyDamageTick, 0, energyNegative) + totalDamagePerType(negativeDamageTick, 0, energyNegative) + totalDamagePerType(fireDamageTick, 0, fireCold) + totalDamagePerType(coldDamageTick, 0, fireCold) + totalDamagePerType(toxicDamageTick, 0, toxicPsionic) + totalDamagePerType(psionicDamageTick, 0, toxicPsionic))
 
-  }, [attack, lethalDamageTick, energyDamageTick, negativeDamageTick, fireDamageTick, coldDamageTick, toxicDamageTick, psionicDamageTick, smashDamageTick, damageBonus, smashDamage, smashProc, smashingLethal, lethalDamage, lethalProc, energyDamage, energyProc, negativeDamage, negativeProc, energyNegative, fireDamage, fireProc, coldDamage, fireCold, toxicDamage, toxicProc, psionicDamage, psionicProc, toxicPsionic])
+  }, [forced, attack, lethalDamageTick, energyDamageTick, negativeDamageTick, fireDamageTick, coldDamageTick, toxicDamageTick, psionicDamageTick, smashDamageTick, damageBonus, smashDamage, smashProc, smashingLethal, lethalDamage, lethalProc, energyDamage, energyProc, negativeDamage, negativeProc, energyNegative, fireDamage, fireProc, coldDamage, fireCold, toxicDamage, toxicProc, psionicDamage, psionicProc, toxicPsionic])
   return (
     <div key={"chain" + attack.name}>
       <Row className="mt-2 border-bottom d-flex align-items-center chain" key={"chainHeader" + attack.name}>
@@ -190,10 +190,10 @@ export default function ChainAttack(props) {
 
           </Row>
           <Row className="border-bottom d-flex align-items-center chain">
-            <Col key={index + slottedRecharge} className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={slottedRecharge} onChange={e => updateRechargeSlotting(e.target.value)}></input></Col>
-            <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50" defaultValue={damageBonus} onChange={e => updateBonus(e.target.value, index)}></input></Col>
+            <Col key={index + slottedRecharge} className="p-2 d-flex justify-content-center"><input className="text-center w-50 btnShadow" defaultValue={slottedRecharge} onChange={e => updateRechargeSlotting(e.target.value)}></input></Col>
+            <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50 btnShadow" defaultValue={damageBonus} onChange={e => updateBonus(e.target.value, index)}></input></Col>
             <Col className="p-2 text-center d-flex justify-content-center align-items-center">{baseDamage.toFixed(2)}</Col>
-            <Col className="p-2 text-center d-flex justify-content-center align-items-center">{modDamage.toFixed(2)}</Col>
+            <Col key={"dam" + index + slottedRecharge} className="p-2 text-center d-flex justify-content-center align-items-center">{modDamage.toFixed(2)}</Col>
             <Col className="p-2 text-center d-flex justify-content-center align-items-center">{modDamageTick.toFixed(2)}</Col>
             <Col className="p-2 text-center d-flex justify-content-center align-items-center">{tickDuration}</Col>
           </Row>
