@@ -205,18 +205,18 @@ export default function ChainAttack(props) {
           <Row className="mt-2 d-flex align-items-center chain">
             <Col className="p-2 text-center">Slotted Recharge</Col>
             <Col className="p-2 text-center">Damage Bonus</Col>
-            <Col className="p-2 text-center">Base Damage</Col>
+            {x.matches ? null : <Col className="p-2 text-center">Base Damage</Col>}
             <Col className="p-2 text-center">Mod Damage</Col>
             <Col className="p-2 text-center">Total Tick Damage</Col>
-            <Col className="p-2 text-center">Tick Duration</Col>
+            {x.matches ? null : <Col className="p-2 text-center">Tick Duration</Col>}
           </Row>
           <Row className="border-bottom d-flex align-items-center chain">
             <Col key={"recharge" + index + procRech} className="p-2 d-flex justify-content-center"><input className="text-center w-50 btnShadow" defaultValue={slottedRecharge + procRech} onChange={e => updateRechargeSlotting(e.target.value)} onBlur={e => updateNewRecharge(e.target.value)}></input></Col>
             <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50 btnShadow" defaultValue={damageBonus} onChange={e => updateBonus(e.target.value, index)}></input></Col>
-            <Col className="p-2 text-center d-flex justify-content-center align-items-center">{baseDamage.toFixed(2)}</Col>
+            {x.matches ? null : <Col className="p-2 text-center d-flex justify-content-center align-items-center">{baseDamage.toFixed(2)}</Col>}
             <Col key={"dam" + index + slottedRecharge} className="p-2 text-center d-flex justify-content-center align-items-center">{modDamage.toFixed(2)}</Col>
             <Col className="p-2 text-center d-flex justify-content-center align-items-center">{modDamageTick.toFixed(2)}</Col>
-            <Col className="p-2 text-center d-flex justify-content-center align-items-center">{tickDuration}</Col>
+            {x.matches ? null : <Col className="p-2 text-center d-flex justify-content-center align-items-center">{tickDuration}</Col>}
           </Row>
           <Enhancements
             key={"enhancements" + index + slottedRecharge}

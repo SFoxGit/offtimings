@@ -36,44 +36,44 @@ export default function Resists(props) {
     <Row className="mt-2">
       <Col xs={6} md={3} className="p-2">
         <Form.Group className="mb-3 bg-secondary border p-2 rounded resists" controlId="formBasicCheckbox">
-          <Row><Form.Label  className="d-flex justify-content-center">Defender - EF</Form.Label></Row>
-          <Row><Form.Check  className="d-flex justify-content-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.4) : updateResists(-0.4)} /></Row>
+          <Row><Form.Label  className="d-flex justify-content-center text-center">Defender - EF</Form.Label></Row>
+          <Row><Form.Check  className="d-flex justify-content-center text-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.4) : updateResists(-0.4)} /></Row>
         </Form.Group>
       </Col>
       <Col xs={6} md={3} className="p-2">
         <Form.Group className="mb-3 bg-secondary border p-2 rounded resists" controlId="formBasicCheckbox">
-          <Row><Form.Label  className="d-flex justify-content-center">Defender - Envenom</Form.Label></Row>
-          <Row><Form.Check  className="d-flex justify-content-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.3) : updateResists(-0.3)} /></Row>
+          <Row><Form.Label  className="d-flex justify-content-center text-center">Defender - Envenom</Form.Label></Row>
+          <Row><Form.Check  className="d-flex justify-content-center text-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.3) : updateResists(-0.3)} /></Row>
         </Form.Group>
       </Col>
       <Col xs={6} md={3} className="p-2">
         <Form.Group className="mb-3 bg-secondary border p-2 rounded resists" controlId="formBasicCheckbox">
-          <Row><Form.Label  className="d-flex justify-content-center">Defender - Corrosive</Form.Label></Row>
-          <Row><Form.Check  className="d-flex justify-content-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.225) : updateResists(-0.225)} /></Row>
+          <Row><Form.Label  className="d-flex justify-content-center text-center">Defender - Corrosive</Form.Label></Row>
+          <Row><Form.Check  className="d-flex justify-content-center text-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.225) : updateResists(-0.225)} /></Row>
         </Form.Group>
       </Col>
       <Col xs={6} md={3} className="p-2">
         <Form.Group className="mb-3 bg-secondary border p-2 rounded resists" controlId="formBasicCheckbox">
-          <Row><Form.Label  className="d-flex justify-content-center">Corr/Cont - EF</Form.Label></Row>
-          <Row><Form.Check  className="d-flex justify-content-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.3) : updateResists(-0.3)} /></Row>
+          <Row><Form.Label  className="d-flex justify-content-center text-center">Corr/Cont - EF</Form.Label></Row>
+          <Row><Form.Check  className="d-flex justify-content-center text-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.3) : updateResists(-0.3)} /></Row>
         </Form.Group>
       </Col>
       <Col xs={6} md={3} className="p-2">
         <Form.Group className="mb-3 bg-secondary border p-2 rounded resists" controlId="formBasicCheckbox">
-          <Row><Form.Label  className="d-flex justify-content-center">Corr/Cont - Envenom</Form.Label></Row>
-          <Row><Form.Check  className="d-flex justify-content-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.225) : updateResists(-0.225)} /></Row>
+          <Row><Form.Label  className="d-flex justify-content-center text-center">Corr/Cont - Envenom</Form.Label></Row>
+          <Row><Form.Check  className="d-flex justify-content-center text-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.225) : updateResists(-0.225)} /></Row>
         </Form.Group>
       </Col>
       <Col xs={6} md={3} className="p-2">
         <Form.Group className="mb-3 bg-secondary border p-2 rounded resists" controlId="formBasicCheckbox">
-          <Row><Form.Label  className="d-flex justify-content-center">Corr/Cont - Corrosive</Form.Label></Row>
-          <Row><Form.Check  className="d-flex justify-content-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.1875) : updateResists(-0.1875)} /></Row>
+          <Row><Form.Label  className="d-flex justify-content-center text-center">Corr/Cont - Corrosive</Form.Label></Row>
+          <Row><Form.Check  className="d-flex justify-content-center text-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.1875) : updateResists(-0.1875)} /></Row>
         </Form.Group>
       </Col>
       <Col xs={6} md={3} className="p-2">
         <Form.Group className="mb-3 bg-secondary border p-2 rounded resists" controlId="formBasicCheckbox">
-          <Row><Form.Label  className="d-flex justify-content-center">Achilles</Form.Label></Row>
-          <Row><Form.Check  className="d-flex justify-content-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.2) : updateResists(-0.2)} /></Row>
+          <Row><Form.Label  className="d-flex justify-content-center text-center">Achilles</Form.Label></Row>
+          <Row><Form.Check  className="d-flex justify-content-center text-center" type="checkbox" onChange={(e) => e.target.checked ? updateResists(0.2) : updateResists(-0.2)} /></Row>
         </Form.Group>
       </Col>
     </Row>

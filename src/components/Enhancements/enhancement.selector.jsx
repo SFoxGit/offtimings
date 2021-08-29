@@ -32,6 +32,7 @@ export default function EnhancementSelector(props) {
   const forced = props.forced
   const setProcRech = props.setProcRech
   const procRech = props.procRech
+  var x = window.matchMedia("(max-width: 700px)")
 
 
   const procRate = parseFloat((recharge / (1 + (slottedRecharge + procRech) / 100) + castTime) * proc.ppm / 60)
@@ -169,22 +170,22 @@ export default function EnhancementSelector(props) {
   }, [setCheckBox, attack, proc])
 
   return (
-    <Row>
-      <Col className="mb-3 d-flex justify-content-center" xs={1}>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+    <Row className="mb-3 d-flex justify-content-between align-items-center enhSelect">
+      <Col className="d-flex align-items-center justify-content-center p-0" xs={1}>
+        <Form.Group className="" controlId="formBasicCheckbox">
           <Form.Check value={true} checked={checkBox} type="checkbox" onChange={() => updateDamage(procRech)} />
         </Form.Group>
       </Col>
       <Col className="text-center">{proc.name}</Col>
-      <Col className="text-center">{proc.ppm}</Col>
+      {x.matches ? null : <Col className="text-center">{proc.ppm}</Col>}
       {aoe ?
-        <><Col className="text-center">{procAOE > .90 ? "90%" : (procAOE * 100).toFixed(2) + "%"}</Col>
-          <Col className="text-center">{procAOE > .90 ? ((proc.damage * .9)).toFixed(2) : ((proc.damage * procAOE)).toFixed(2)}</Col></>
+        <><Col className="text-center">{procAOE > .90 ? "90%" : (procAOE * 100).toFixed(1) + "%"}</Col>
+          <Col className="text-center">{procAOE > .90 ? ((proc.damage * .9)).toFixed(1) : ((proc.damage * procAOE)).toFixed(1)}</Col></>
         :
-        <><Col className="text-center">{procRate > .90 ? "90%" : (procRate * 100).toFixed(2) + "%"}</Col>
-          <Col className="text-center">{procRate > .90 ? ((proc.damage * .9)).toFixed(2) : ((proc.damage * procRate)).toFixed(2)}</Col></>
+        <><Col className="text-center">{procRate > .90 ? "90%" : (procRate * 100).toFixed(1) + "%"}</Col>
+          <Col className="text-center">{procRate > .90 ? ((proc.damage * .9)).toFixed(1) : ((proc.damage * procRate)).toFixed(1)}</Col></>
       }
-      <Col className="text-center">{proc.damageType}</Col>
+      {x.matches ? null : <Col className="text-center">{proc.damageType}</Col>}
     </Row>
 
   )

@@ -34,15 +34,17 @@ export default function Enhancements(props) {
   const forced = props.forced
   const setProcRech = props.setProcRech
   const procRech = props.procRech
+  var x = window.matchMedia("(max-width: 700px)")
+
   return (
     <Row >
-      <Row className="mb-3 d-flex align-items-center" key={"procHeaders" + index}>
+      <Row className="mb-3 d-flex align-items-center enhTitles" key={"procHeaders" + index}>
         <Col className="text-center" xs={1}>Add</Col>
         <Col className="text-center">Proc</Col>
-        <Col className="text-center">PPM</Col>
+        {x.matches ? null : <Col className="text-center">PPM</Col>}
         <Col className="text-center">Rate</Col>
-        <Col className="text-center">Damage*Rate</Col>
-        <Col className="text-center">Type</Col>
+        <Col className="text-center">Avg Dam</Col>
+        {x.matches ? null : <Col className="text-center">Type</Col>}
       </Row>
       {enhArr.map(type => procs[type].map((proc, index) => {
         if (archtype !== "blaster" && proc.name === "Superior Blasters Wrath") return null

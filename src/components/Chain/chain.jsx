@@ -20,18 +20,17 @@ export default function Chain(props) {
       {forced ? <></> : <div></div>}
       <Row key={"chain title"} className="justify-content-center "><h3 className="text-center">Attack Chain</h3></Row>
       <Row key={"late by"} className="mt-2">
-        <Col xs={6} md={4} className="mt-2 d-flex justify-content-center "><Button className="w-50  fw-bolder text-center" onClick={() => setShowRes(!showRes)}>{showRes ? "Hide" : "Show Debuffs"}</Button></Col>
+        <Col xs={6} md={4} className="mt-2 d-flex justify-content-center "><Button className="w-75  fw-bolder text-center" onClick={() => setShowRes(!showRes)}>{showRes ? "Hide" : "Show Debuffs"}</Button></Col>
         <Col xs={6} md={4} className="mt-2 d-flex justify-content-center">
             <Row className="w-50 p-2 text-light fw-bolder d-flex justify-content-center">  Res: {(smashingLethal * 100).toFixed(2) + "%"} </Row>
         </Col>
-        <Col xs={12} md={4} className="mt-2 d-flex justify-content-center ">
+        <Col xs={12} md={4} className="mt-2 d-flex justify-content-center">
           {/* <input className="w-25" type="number" value={startTime} onChange={e => setStartTime(e.target.value)}></input> */}
-            <InputGroup className="btnShadow w-50">
+            <InputGroup className="btnShadow w-50 lateby">
               <InputGroup.Text className="w-50 bg-secondary text-black fw-bolder text-center">Late by: </InputGroup.Text>
               <FormControl style={{ backgroundColor: "white" }} className="text-center" defaultValue={startTime} onChange={e => setStartTime(parseFloat(e.target.value))} />
             </InputGroup>
         </Col>
-        <Col xs={2} md={0}></Col>
       </Row>
       {showRes ?
       <Resists key={"resists" + archtype}
