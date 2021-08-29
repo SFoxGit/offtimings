@@ -306,9 +306,9 @@ export default function AttacksTable(props) {
                 {x.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("EffectTime")}>Effect Time</th> : null}
                 <th onMouseOver={changeCursor} onClick={() => sortPowers("Speed")}>Projectile Speed</th>
                 <th onMouseOver={changeCursor} onClick={() => sortPowers("CastTime")}>True Cast Time</th>
-                <th onMouseOver={changeCursor} onClick={() => sortPowers("Set")}>Set</th>
+                {x.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("Set")}>Set</th> : null}
                 {x.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("Range")}>Range</th> : null}
-                {x.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("Base Dam")}>Base Dam</th> : null}
+                <th onMouseOver={changeCursor} onClick={() => sortPowers("Base Dam")}>Base Dam</th>
                 <th onMouseOver={changeCursor} onClick={() => sortPowers("TimeOfDamage")}>Time of Damage</th>
                 {y.matches ? <th onMouseOver={changeCursor} onClick={() => sortPowers("FollowUp")}>Required Follow Up</th> : null}
               </tr>
@@ -320,7 +320,7 @@ export default function AttacksTable(props) {
                   {x.matches ? <td>{power.effectSeconds}</td> : null}
                   <td>{power.speed === 999999999 ? "Instant" : power.speed}</td>
                   <td>{power.castTime}</td>
-                  <td>{power.powerset}</td>
+                  {x.matches ? <td>{power.powerset}</td>: null}
                   {x.matches ? <td>{power.baseRange}</td> : null}
                   <td>{archtype ? (power.damage[0] === "tick" ? (power.damage[1]*modifiers[archtype]).toFixed(3) :(power.damage[0]*modifiers[archtype]).toFixed(3)) : (power.damage[0] === "tick" ? power.damage[1] : power.damage[0])}</td>
                   <td onMouseOver={changeCursor}>{(distance / power.speed + power.effectSeconds).toFixed(3)}</td>
