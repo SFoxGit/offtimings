@@ -46,6 +46,7 @@ export default function ChainAttack(props) {
   const [tickDuration, setTickDuration] = useState(0)
   const [slottedRecharge, setSlottedRecharge] = useState(0)
   const [showDamage, setShowDamage] = useState(false)
+  const [procRech, setProcRech] = useState(0)
   // const procRate = ((attack.recharge / (1 + attack.slottedRecharge) + (attack.castTime)) * 3.5 / 60 * 100).toFixed(2)
   // const procAOE = (((attack.recharge / (1 + attack.slottedRecharge) + attack.castTime) * 3.5 / (60 * (1 + (attack.radius * (((11 * attack.arc) + 540) / 40000))))) * 100).toFixed(2)
   let damageBonus = attack.bonusDamage || 123
@@ -64,6 +65,16 @@ export default function ChainAttack(props) {
     setSlottedRecharge(parseFloat(newRecharge))
     setForced(!forced)
     return forced
+  }
+  const updateNewRecharge = (newRecharge) => {
+    setSlottedRecharge(parseFloat(newRecharge))
+    setSmashProc(0)
+    setLethalProc(0)
+    setFireProc(0)
+    setNegativeProc(0)
+    setEnergyProc(0)
+    setToxicProc(0)
+    setPsionicProc(0)
   }
   const updateBonus = (newBonus, index) => {
     let newArr = attackChain;
@@ -187,10 +198,9 @@ export default function ChainAttack(props) {
             <Col className="p-2 text-center">Mod Damage</Col>
             <Col className="p-2 text-center">Total Tick Damage</Col>
             <Col className="p-2 text-center">Tick Duration</Col>
-
           </Row>
           <Row className="border-bottom d-flex align-items-center chain">
-            <Col key={index + slottedRecharge} className="p-2 d-flex justify-content-center"><input className="text-center w-50 btnShadow" defaultValue={slottedRecharge} onChange={e => updateRechargeSlotting(e.target.value)}></input></Col>
+            <Col key={"recharge" + index + procRech} className="p-2 d-flex justify-content-center"><input className="text-center w-50 btnShadow" defaultValue={slottedRecharge + procRech} onChange={e => updateRechargeSlotting(e.target.value)} onBlur={e => updateNewRecharge(e.target.value)}></input></Col>
             <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50 btnShadow" defaultValue={damageBonus} onChange={e => updateBonus(e.target.value, index)}></input></Col>
             <Col className="p-2 text-center d-flex justify-content-center align-items-center">{baseDamage.toFixed(2)}</Col>
             <Col key={"dam" + index + slottedRecharge} className="p-2 text-center d-flex justify-content-center align-items-center">{modDamage.toFixed(2)}</Col>
@@ -198,7 +208,7 @@ export default function ChainAttack(props) {
             <Col className="p-2 text-center d-flex justify-content-center align-items-center">{tickDuration}</Col>
           </Row>
           <Enhancements
-            key={"enhancements" + index}
+            key={"enhancements" + index + slottedRecharge}
             index={index}
             archtype={archtype}
             aoe={attack.aoe}
@@ -223,8 +233,12 @@ export default function ChainAttack(props) {
             castTime={attack.castTime}
             recharge={attack.recharge}
             slottedRecharge={slottedRecharge}
-            setSlottedRecharge={updateRechargeSlotting}
+            setSlottedRecharge={setProcRech}
             enhArr={attack.enhancements}
+            setForced={setForced}
+            forced={forced}
+            setProcRech={setProcRech}
+            procRech={procRech}
           />
         </>
         :

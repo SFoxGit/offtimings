@@ -30,7 +30,10 @@ export default function Enhancements(props) {
   const setPsionicProc = props.setPsionicProc
   const attack = props.attack
   const setAttack = props.setAttack
-
+  const setForced = props.setForced
+  const forced = props.forced
+  const setProcRech = props.setProcRech
+  const procRech = props.procRech
   return (
     <Row >
       <Row className="mb-3 d-flex align-items-center" key={"procHeaders" + index}>
@@ -48,7 +51,7 @@ export default function Enhancements(props) {
         if (archtype !== "defender" && proc.name === "Superior Vigilant Assault") return null
         return (
           <EnhancementSelector
-            key={attack.name + proc.name}
+            key={attack.name + proc.name + smashProc}
             aoe={aoe}
             smashProc={smashProc}
             lethalProc={lethalProc}
@@ -73,7 +76,10 @@ export default function Enhancements(props) {
             proc={proc}
             attack={attack}
             setAttack={setAttack}
-    
+            setForced={setForced}
+            forced={forced}
+            setProcRech={setProcRech}
+            procRech={procRech}
           />
         )
       }))}

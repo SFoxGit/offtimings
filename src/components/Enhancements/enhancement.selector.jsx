@@ -6,7 +6,7 @@ export default function EnhancementSelector(props) {
   const proc = props.proc
   const recharge = props.recharge
   const slottedRecharge = props.slottedRecharge
-  const setSlottedRecharge = props.setSlottedRecharge
+  // const setSlottedRecharge = props.setSlottedRecharge
   const castTime = props.castTime
   const radius = props.radius
   const arc = props.arc
@@ -28,12 +28,16 @@ export default function EnhancementSelector(props) {
   const attack = props.attack
   const setAttack = props.setAttack
   const [checkBox, setCheckBox] = useState(false)
+  const setForced = props.setForced
+  const forced = props.forced
+  const setProcRech = props.setProcRech
+  const procRech = props.procRech
 
 
-  const procRate = parseFloat((recharge / (1 + slottedRecharge / 100) + castTime) * proc.ppm / 60)
-  const procRateBefore = parseFloat((recharge / (1 + (slottedRecharge + 23) / 100) + castTime) * proc.ppm / 60)
-  const procAOE = parseFloat(((recharge / (1 + slottedRecharge / 100) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
-  const procAOEBefore = parseFloat(((recharge / (1 + (slottedRecharge + 23) / 100) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
+  const procRate = parseFloat((recharge / (1 + (slottedRecharge + procRech) / 100) + castTime) * proc.ppm / 60)
+  const procRateBefore = parseFloat((recharge / (1 + (slottedRecharge + procRech + 23) / 100) + castTime) * proc.ppm / 60)
+  const procAOE = parseFloat(((recharge / (1 + (slottedRecharge + procRech) / 100) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
+  const procAOEBefore = parseFloat(((recharge / (1 + (slottedRecharge + procRech + 23) / 100) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
 
   const addProcDamage = (rate) => {
     if (rate > .90) {
@@ -75,29 +79,40 @@ export default function EnhancementSelector(props) {
   }
 
   const updateDamage = async (rech) => {
+    console.log(attack)
     if (!checkBox) {
       if (proc.ppm === 5) {
         const newArr = attack
         newArr.slots.push(proc.name)
+        newArr.slottedRecharge += 23
         setAttack(newArr)
-        await setSlottedRecharge(parseFloat(rech + 23))
+        setProcRech(parseFloat(rech + 23))
         aoe ? addProcDamage(procAOEBefore) : addProcDamage(procRateBefore)
-      } else { aoe ? addProcDamage(procAOE) : addProcDamage(procRate) 
+      } else {
+        aoe ? addProcDamage(procAOE) : addProcDamage(procRate)
         const newArr = attack
         newArr.slots.push(proc.name)
         setAttack(newArr)
       }
     } else {
-      const newArr = attack
-      const procIndex = newArr.slots.indexOf(proc.name)
-      newArr.slots.splice(procIndex, 1)
-      setAttack(newArr)
-      aoe ? removeProcDamage(procAOE) : removeProcDamage(procRate)
       if (proc.ppm === 5) {
-        setSlottedRecharge(parseFloat(slottedRecharge - 23))
+        const newArr = attack
+        const procIndex = newArr.slots.indexOf(proc.name)
+        newArr.slots.splice(procIndex, 1)
+        newArr.slottedRecharge -= 23
+        setAttack(newArr)
+        aoe ? removeProcDamage(procAOE) : removeProcDamage(procRate)
+        setProcRech(parseFloat(procRech - 23))
+      } else {
+        const newArr = attack
+        const procIndex = newArr.slots.indexOf(proc.name)
+        newArr.slots.splice(procIndex, 1)
+        setAttack(newArr)
+        aoe ? removeProcDamage(procAOE) : removeProcDamage(procRate)
       }
     }
     setCheckBox(!checkBox)
+    setForced(!forced)
   }
 
   useEffect(() => {
@@ -108,7 +123,7 @@ export default function EnhancementSelector(props) {
     <Row>
       <Col className="mb-3 d-flex justify-content-center" xs={1}>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check value={true} checked={checkBox} type="checkbox" onChange={() => updateDamage(slottedRecharge)} />
+          <Form.Check value={true} checked={checkBox} type="checkbox" onChange={() => updateDamage(procRech)} />
         </Form.Group>
       </Col>
       <Col className="text-center">{proc.name}</Col>
