@@ -40,46 +40,95 @@ export default function EnhancementSelector(props) {
   const procAOEBefore = parseFloat(((recharge / (1 + (slottedRecharge + procRech + 23) / 100) + castTime) * proc.ppm / (60 * (1 + (radius * (((11 * arc) + 540) / 40000))))))
 
   const addProcDamage = (rate) => {
-    if (rate > .90) {
-      if (proc.damageType === "Smashing damage") { setSmashProc(smashProc + (proc.damage * .9)) }
-      if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc + (proc.damage * .9)) }
-      if (proc.damageType === "Fire damage") { setFireProc(fireProc + (proc.damage * .9)) }
-      if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc + (proc.damage * .9)) }
-      if (proc.damageType === "Energy damage") { setEnergyProc(energyProc + (proc.damage * .9)) }
-      if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc + (proc.damage * .9)) }
-      if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc + (proc.damage * .9)) }
-    } else {
-      if (proc.damageType === "Smashing damage") { setSmashProc(smashProc + (proc.damage * rate)) }
-      if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc + (proc.damage * rate)) }
-      if (proc.damageType === "Fire damage") { setFireProc(fireProc + (proc.damage * rate)) }
-      if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc + (proc.damage * rate)) }
-      if (proc.damageType === "Energy damage") { setEnergyProc(energyProc + (proc.damage * rate)) }
-      if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc + (proc.damage * rate)) }
-      if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc + (proc.damage * rate)) }
-    }
+      if (proc.damageType === "Smashing damage") {
+        const procArr = smashProc
+        procArr.push({name: proc.name, damage: parseFloat(proc.damage), ppm: proc.ppm})
+        setSmashProc(procArr)
+      }
+      if (proc.damageType === "Lethal damage") {
+        const procArr = lethalProc
+        procArr.push({name: proc.name, damage: parseFloat(proc.damage), ppm: proc.ppm})
+        setLethalProc(procArr)
+      }
+      if (proc.damageType === "Fire damage") {
+        const procArr = fireProc
+        procArr.push({name: proc.name, damage: parseFloat(proc.damage), ppm: proc.ppm})
+        setFireProc(procArr)
+      }
+      if (proc.damageType === "Negative Energy damage") {
+        const procArr = negativeProc
+        procArr.push({name: proc.name, damage: parseFloat(proc.damage), ppm: proc.ppm})
+        setNegativeProc(procArr)
+      }
+      if (proc.damageType === "Energy damage") {
+        const procArr = energyProc
+        procArr.push({name: proc.name, damage: parseFloat(proc.damage), ppm: proc.ppm})
+        setEnergyProc(procArr)
+      }
+      if (proc.damageType === "Toxic damage") {
+        const procArr = toxicProc
+        procArr.push({name: proc.name, damage: parseFloat(proc.damage), ppm: proc.ppm})
+        setToxicProc(procArr)
+      }
+      if (proc.damageType === "Psionic damage") {
+        const procArr = psionicProc
+        procArr.push({name: proc.name, damage: parseFloat(proc.damage), ppm: proc.ppm})
+        setPsionicProc(procArr)
+      }
   }
   const removeProcDamage = (rate) => {
-    if (rate > .90) {
-      if (proc.damageType === "Smashing damage") { setSmashProc(smashProc - (proc.damage * .9)) }
-      if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc - (proc.damage * .9)) }
-      if (proc.damageType === "Fire damage") { setFireProc(fireProc - (proc.damage * .9)) }
-      if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc - (proc.damage * .9)) }
-      if (proc.damageType === "Energy damage") { setEnergyProc(energyProc - (proc.damage * .9)) }
-      if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc - (proc.damage * .9)) }
-      if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc - (proc.damage * .9)) }
-    } else {
-      if (proc.damageType === "Smashing damage") { setSmashProc(smashProc - (proc.damage * rate)) }
-      if (proc.damageType === "Lethal damage") { setLethalProc(lethalProc - (proc.damage * rate)) }
-      if (proc.damageType === "Fire damage") { setFireProc(fireProc - (proc.damage * rate)) }
-      if (proc.damageType === "Negative Energy damage") { setNegativeProc(negativeProc - (proc.damage * rate)) }
-      if (proc.damageType === "Energy damage") { setEnergyProc(energyProc - (proc.damage * rate)) }
-      if (proc.damageType === "Toxic damage") { setToxicProc(toxicProc - (proc.damage * rate)) }
-      if (proc.damageType === "Psionic damage") { setPsionicProc(psionicProc - (proc.damage * rate)) }
-    }
+      if (proc.damageType === "Smashing damage") { 
+        const procArr = smashProc
+        procArr.forEach((x, index) => {
+          if (x.name === proc.name) {procArr.splice(index, 1)}
+        })
+        setSmashProc(procArr)
+      }
+      if (proc.damageType === "Lethal damage") { 
+        const procArr = lethalProc
+         procArr.forEach((x, index) => {
+          if (x.name === proc.name) {procArr.splice(index, 1)}
+        })
+        setLethalProc(procArr)
+      }
+      if (proc.damageType === "Fire damage") { 
+        const procArr = fireProc
+         procArr.forEach((x, index) => {
+          if (x.name === proc.name) {procArr.splice(index, 1)}
+        })
+        setFireProc(procArr)
+      }
+      if (proc.damageType === "Negative Energy damage") { 
+        const procArr = negativeProc
+        procArr.forEach((x, index) => {
+          if (x.name === proc.name) {procArr.splice(index, 1)}
+        })
+        setNegativeProc(procArr)
+      }
+      if (proc.damageType === "Energy damage") { 
+        const procArr = energyProc
+         procArr.forEach((x, index) => {
+          if (x.name === proc.name) {procArr.splice(index, 1)}
+        })
+        setEnergyProc(procArr)
+      }
+      if (proc.damageType === "Toxic damage") { 
+        const procArr = toxicProc
+         procArr.forEach((x, index) => {
+          if (x.name === proc.name) {procArr.splice(index, 1)}
+        })
+        setToxicProc(procArr)
+      }
+      if (proc.damageType === "Psionic damage") { 
+        const procArr = psionicProc
+         procArr.forEach((x, index) => {
+          if (x.name === proc.name) {procArr.splice(index, 1)}
+        })
+        setPsionicProc(procArr)
+      }
   }
 
   const updateDamage = async (rech) => {
-    console.log(attack)
     if (!checkBox) {
       if (proc.ppm === 5) {
         const newArr = attack

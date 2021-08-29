@@ -5,7 +5,7 @@ import { Row, Col, Form } from 'react-bootstrap'
 export default function Resists(props) {
   // const [targetRes, setTargetRes] = useState(0.4255)
   const [resDebuff, setResDebuff] = useState(0)
-  const smashingLethal = props.smashingLethal
+  // const smashingLethal = props.smashingLethal
   const setSmashingLethal = props.setSmashingLethal
   // const fireCold = props.fireCold
   const setFireCold = props.setFireCold

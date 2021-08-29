@@ -18,13 +18,13 @@ export default function ChainAttack(props) {
   const fireCold = props.fireCold
   const energyNegative = props.energyNegative
   const toxicPsionic = props.toxicPsionic
-  const [smashProc, setSmashProc] = useState(0)
-  const [lethalProc, setLethalProc] = useState(0)
-  const [fireProc, setFireProc] = useState(0)
-  const [negativeProc, setNegativeProc] = useState(0)
-  const [energyProc, setEnergyProc] = useState(0)
-  const [toxicProc, setToxicProc] = useState(0)
-  const [psionicProc, setPsionicProc] = useState(0)
+  const [smashProc, setSmashProc] = useState([])
+  const [lethalProc, setLethalProc] = useState([])
+  const [fireProc, setFireProc] = useState([])
+  const [negativeProc, setNegativeProc] = useState([])
+  const [energyProc, setEnergyProc] = useState([])
+  const [toxicProc, setToxicProc] = useState([])
+  const [psionicProc, setPsionicProc] = useState([])
   const [smashDamage, setSmashDamage] = useState(0)
   const [lethalDamage, setLethalDamage] = useState(0)
   const [fireDamage, setFireDamage] = useState(0)
@@ -67,14 +67,7 @@ export default function ChainAttack(props) {
     return forced
   }
   const updateNewRecharge = (newRecharge) => {
-    setSlottedRecharge(parseFloat(newRecharge))
-    setSmashProc(0)
-    setLethalProc(0)
-    setFireProc(0)
-    setNegativeProc(0)
-    setEnergyProc(0)
-    setToxicProc(0)
-    setPsionicProc(0)
+    setSlottedRecharge(parseFloat(newRecharge - procRech))
   }
   const updateBonus = (newBonus, index) => {
     let newArr = attackChain;
@@ -171,13 +164,31 @@ export default function ChainAttack(props) {
 
   useEffect(() => {
     const totalDamagePerType = (base, proc, resist) => {
-      const calculation = (((base * (1 + (((damageBonus) / 100) * (1 - Math.atan(((damageBonus) / 100) * 0.33) * 2 / Math.PI * 0.8)))) + proc) * (1 - resist))
+      let procDamage = 0;
+      if (proc.length) {
+        if (attack.aoe) {
+          proc.forEach(procArr => {
+            const procAOE = parseFloat(((attack.recharge / (1 + (slottedRecharge + procRech) / 100) + attack.castTime) * procArr.ppm / (60 * (1 + (attack.radius * (((11 * attack.arc) + 540) / 40000))))))
+            if (procAOE > 0.9) {
+              procDamage += (procArr.damage * 0.9)
+            } else {
+              procDamage += (procArr.damage * procAOE)
+            }
+          })
+        } else {
+          proc.forEach(procArr => {
+            const procRate = parseFloat((attack.recharge / (1 + (slottedRecharge + procRech) / 100) + attack.castTime) * parseFloat(procArr.ppm) / 60)
+            if (procRate > 0.9) { procDamage += (parseFloat(procArr.damage) * 0.9) } else { procDamage += (parseFloat(procArr.damage) * procRate) }
+          })
+        }
+      }
+      const calculation = (((base * (1 + (((damageBonus) / 100) * (1 - Math.atan(((damageBonus) / 100) * 0.33) * 2 / Math.PI * 0.8)))) + procDamage) * (1 - resist))
       return calculation
     }
     setModDamage(totalDamagePerType(smashDamage, smashProc, smashingLethal) + totalDamagePerType(lethalDamage, lethalProc, smashingLethal) + totalDamagePerType(energyDamage, energyProc, energyNegative) + totalDamagePerType(negativeDamage, negativeProc, energyNegative) + totalDamagePerType(fireDamage, fireProc, fireCold) + totalDamagePerType(coldDamage, 0, fireCold) + totalDamagePerType(toxicDamage, toxicProc, toxicPsionic) + totalDamagePerType(psionicDamage, psionicProc, toxicPsionic))
     setModDamageTick(totalDamagePerType(smashDamageTick, 0, smashingLethal) + totalDamagePerType(lethalDamageTick, 0, smashingLethal) + totalDamagePerType(energyDamageTick, 0, energyNegative) + totalDamagePerType(negativeDamageTick, 0, energyNegative) + totalDamagePerType(fireDamageTick, 0, fireCold) + totalDamagePerType(coldDamageTick, 0, fireCold) + totalDamagePerType(toxicDamageTick, 0, toxicPsionic) + totalDamagePerType(psionicDamageTick, 0, toxicPsionic))
 
-  }, [forced, attack, lethalDamageTick, energyDamageTick, negativeDamageTick, fireDamageTick, coldDamageTick, toxicDamageTick, psionicDamageTick, smashDamageTick, damageBonus, smashDamage, smashProc, smashingLethal, lethalDamage, lethalProc, energyDamage, energyProc, negativeDamage, negativeProc, energyNegative, fireDamage, fireProc, coldDamage, fireCold, toxicDamage, toxicProc, psionicDamage, psionicProc, toxicPsionic])
+  }, [procRech, slottedRecharge, forced, attack, lethalDamageTick, energyDamageTick, negativeDamageTick, fireDamageTick, coldDamageTick, toxicDamageTick, psionicDamageTick, smashDamageTick, damageBonus, smashDamage, smashProc, smashingLethal, lethalDamage, lethalProc, energyDamage, energyProc, negativeDamage, negativeProc, energyNegative, fireDamage, fireProc, coldDamage, fireCold, toxicDamage, toxicProc, psionicDamage, psionicProc, toxicPsionic])
   return (
     <div key={"chain" + attack.name}>
       <Row className="mt-2 border-bottom d-flex align-items-center chain" key={"chainHeader" + attack.name}>
