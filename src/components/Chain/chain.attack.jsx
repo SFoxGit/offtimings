@@ -197,7 +197,7 @@ export default function ChainAttack(props) {
         <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50 btnShadow" defaultValue={attack.distance} onChange={e => updateDistance(e.target.value, index)}></input></Col>
         <Col className="p-2 text-center">{(totalCast + attack.effectSeconds + attack.distance / attack.speed).toFixed(3)}</Col>
         {/* {attack.aoe ? <Col className="p-2 text-center">{procAOE < 90 ? procAOE + '%' : 90 + '%'}</Col> : <Col className="p-2 text-center">{procRate < 90 ? procRate + '%' : 90 + '%'}</Col>} */}
-        <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bold w-75 text-center remove" variant="danger" onClick={() => setShowDamage(!showDamage)}>Damage</Button></Col>
+        <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bold w-75 text-center remove" variant="danger" onClick={() => setShowDamage(!showDamage)}>{x.matches ? "V" : "Damage"}</Button></Col>
         <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bold w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
       </Row>
       {showDamage ?
