@@ -57,26 +57,29 @@ code {
   font-weight: 400;
   font-size: 12px !important;
   width: 100%;
-  }
-  .remove {
-    text-align: center !important;
-    padding: 0px !important;
-  }
-  .resists {
-    height: 100%;
-  }
-  .lateby {
-    margin-top: 18px !important;
-  }
-  .enhSelect {
+}
+.remove {
+  text-align: center !important;
+  padding: 0px !important;
+}
+.resists {
+  height: 100%;
+}
+.lateby {
+  margin-top: 18px !important;
+}
+.enhSelect {
+    font-weight: 400;
     width: 100% !important;
     margin: 0px !important;
     padding: 0px !important;
+    font-size: 12px !important;
   }
   .enhTitles {
     width: 100% !important;
     margin: 0px !important;
     padding: 0px !important;
+    font-size: 12px !important;
   }
 }
 @media only screen and (min-width: 800px)  {

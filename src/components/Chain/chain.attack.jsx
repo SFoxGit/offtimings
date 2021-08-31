@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Row, Col, Button } from 'react-bootstrap'
 import modifiers from '../../modifiers';
 import Enhancements from '../Enhancements/enhancements';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown, faChevronUp, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 export default function ChainAttack(props) {
   const [attack, setAttack] = useState(props.attack)
@@ -47,6 +49,8 @@ export default function ChainAttack(props) {
   const [slottedRecharge, setSlottedRecharge] = useState(0)
   const [showDamage, setShowDamage] = useState(false)
   const [procRech, setProcRech] = useState(0)
+  const chev = !showDamage ? <FontAwesomeIcon icon={faChevronDown} /> : <FontAwesomeIcon icon={faChevronUp} />
+  const rem = <FontAwesomeIcon icon={faTimesCircle} />
   // const procRate = ((attack.recharge / (1 + attack.slottedRecharge) + (attack.castTime)) * 3.5 / 60 * 100).toFixed(2)
   // const procAOE = (((attack.recharge / (1 + attack.slottedRecharge) + attack.castTime) * 3.5 / (60 * (1 + (attack.radius * (((11 * attack.arc) + 540) / 40000))))) * 100).toFixed(2)
   let damageBonus = attack.bonusDamage || 123
@@ -194,11 +198,11 @@ export default function ChainAttack(props) {
       <Row className="mt-2 border-bottom d-flex align-items-center chain" key={"chainHeader" + attack.name}>
         <Col className="p-2 text-center">{attack.name}</Col>
         <Col className="p-2 text-center">{(totalCast).toFixed(3)}</Col>
-        <Col className="p-2 d-flex justify-content-center"><input className="text-center w-50 btnShadow" defaultValue={attack.distance} onChange={e => updateDistance(e.target.value, index)}></input></Col>
+        <Col className="p-2 d-flex justify-content-center"><input className="text-center w-75 btnShadow" defaultValue={attack.distance} onChange={e => updateDistance(e.target.value, index)}></input></Col>
         <Col className="p-2 text-center">{(totalCast + attack.effectSeconds + attack.distance / attack.speed).toFixed(3)}</Col>
         {/* {attack.aoe ? <Col className="p-2 text-center">{procAOE < 90 ? procAOE + '%' : 90 + '%'}</Col> : <Col className="p-2 text-center">{procRate < 90 ? procRate + '%' : 90 + '%'}</Col>} */}
-        <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bold w-75 text-center remove" variant="danger" onClick={() => setShowDamage(!showDamage)}>{x.matches ? "V" : "Damage"}</Button></Col>
-        <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bold w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? "X" : "Remove"}</Button></Col>
+        <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bold w-75 text-center remove" variant="danger" onClick={() => setShowDamage(!showDamage)}>{x.matches ? chev : "Damage"}</Button></Col>
+        <Col className="p-2 text-center d-flex justify-content-center align-items-center"><Button className="fw-bold w-75 text-center remove" variant="danger" onClick={() => removeAttack(index)}>{x.matches ? rem : "Remove"}</Button></Col>
       </Row>
       {showDamage ?
         <>
